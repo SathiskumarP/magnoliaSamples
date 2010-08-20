@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:blossom="http://www.magnolia-cms.com/schema/blossom"
+	   xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.magnolia-cms.com/schema/blossom http://www.magnolia-cms.com/schema/blossom-1.1.xsd">
+
+	<blossom:configuration />
+
+  <bean class="info.magnolia.blossom.sample.service.BookingWebServiceImpl" />
+
+</beans>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:blossom="http://www.magnolia-cms.com/schema/blossom"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:webflow="http://www.springframework.org/schema/webflow-config"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+		http://www.magnolia-cms.com/schema/blossom http://www.magnolia-cms.com/schema/blossom-1.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-2.5.xsd
+		http://www.springframework.org/schema/webflow-config http://www.springframework.org/schema/webflow-config/spring-webflow-config-2.0.xsd">
+
+	<context:annotation-config/>
+
+	<context:component-scan base-package="info.magnolia.blossom.sample" use-default-filters="false">
+		<context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.Paragraph"/>
+		<context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.Template"/>
+		<context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.DialogFactory"/>
+	</context:component-scan>
+
+  <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+    <property name="useDefaultSuffixPattern" value="false"/>
+  </bean>
+
+  <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+
+	<bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
+		<property name="order" value="1"/>
+		<property name="prefix" value="/WEB-INF/blossomSample/templates/"/>
+		<property name="viewNames" value="*.ftl"/>
+		<property name="viewRenderer">
+			<bean class="info.magnolia.module.blossom.view.FreemarkerTemplateViewRenderer"/>
+		</property>
+	</bean>
+
+	<bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
+		<property name="order" value="2"/>
+		<property name="prefix" value="/WEB-INF/blossomSample/templates/"/>
+		<property name="viewNames" value="*.jsp"/>
+		<property name="viewRenderer">
+			<bean class="info.magnolia.module.blossom.view.JspTemplateViewRenderer"/>
+		</property>
+	</bean>
+
+	<bean class="info.magnolia.module.blossom.view.ParagraphViewResolver">
+		<property name="order" value="3" />
+		<property name="prefix" value="/WEB-INF/blossomSample/paragraphs/"/>
+		<property name="suffix" value=".jsp"/>
+		<property name="viewRenderer">
+			<bean class="info.magnolia.module.blossom.view.JspParagraphViewRenderer"/>
+		</property>
+	</bean>
+
+</beans>
