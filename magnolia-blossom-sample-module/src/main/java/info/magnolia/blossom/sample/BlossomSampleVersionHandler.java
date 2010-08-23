@@ -34,10 +34,37 @@
 package info.magnolia.blossom.sample;
 
 import info.magnolia.module.DefaultModuleVersionHandler;
+import info.magnolia.module.InstallContext;
+import info.magnolia.module.delta.BootstrapSingleResource;
+import info.magnolia.module.delta.Task;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
- * VersionHandler for the module. Not yet necessary for this module, could perform actions
- * on the repository when the module is installed or upgraded.
+ * VersionHandler for the module.
  */
 public class BlossomSampleVersionHandler extends DefaultModuleVersionHandler {
+
+    @Override
+    protected List<Task> getExtraInstallTasks(InstallContext installContext) {
+        ArrayList<Task> tasks = new ArrayList<Task>();
+
+        tasks.add(new BootstrapSingleResource(
+                "Install section page",
+                "",
+                "/mgnl-bootstrap/blossomSample/website.sections.xml"));
+
+        tasks.add(new BootstrapSingleResource(
+                "Install checkout page",
+                "",
+                "/mgnl-bootstrap/blossomSample/website.checkout.xml"));
+
+        tasks.add(new BootstrapSingleResource(
+                "Install payment page",
+                "",
+                "/mgnl-bootstrap/blossomSample/website.payment.xml"));
+
+        return tasks;
+    }
 }
