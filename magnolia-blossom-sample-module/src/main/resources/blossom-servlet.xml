@@ -17,11 +17,16 @@
 		<context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.DialogFactory"/>
 	</context:component-scan>
 
-  <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
-    <property name="useDefaultSuffixPattern" value="false"/>
+  <bean class="info.magnolia.module.blossom.preexecution.BlossomHandlerMapping">
+    <property name="targetHandlerMappings">
+      <list>
+        <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping">
+          <property name="useDefaultSuffixPattern" value="false"/>
+        </bean>
+        <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
+      </list>
+    </property>
   </bean>
-
-  <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping"/>
 
 	<bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
 		<property name="order" value="1"/>
