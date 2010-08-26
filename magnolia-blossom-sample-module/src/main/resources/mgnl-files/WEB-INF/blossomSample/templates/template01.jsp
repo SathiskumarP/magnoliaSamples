@@ -8,19 +8,27 @@
 <title>${content.title}</title>
 <style type="text/css">
 
-	body { font-family: arial,sans-serif; font-size: 13px; background-color: #e8e8f0; }
+	body { font-family: "Lucida Sans Unicode","Lucida Grande",Verdana,Arial,Helvetica,sans-serif; font-size: 13px; background-color: #DDDDDD; }
     a {color: #4040ff}
     a:visited {color: #4040ff;}
     #container {margin-left:50px; width:875px;}
-    #content {background-color:white;}
-    #logo {font-size:32px;padding:50px 0px 8px 10px;background-color:#ffffff;}
-	#main { float:left; width: 595px; background-color: #ffffff; padding: 15px; }
-	#rightcolumn { float:left; margin-left:20px;width: 200px; background-color: #ffffff; padding: 15px; }
-    #menu {background-color:#ffffff;margin-bottom:10px;overflow:hidden;}
-    #menu ul {float:left;list-style:none outside none;margin:0;position:relative;width:700px;padding-left:20px;}
-    #menu ul li {float:left;font-family:arial,sans-serif;font-size:170%;margin:0 15px 0 0;padding:0 0 5px;position:relative;}
-    #menu a {text-decoration:none;}
-    #copyright {padding:15px;clear:both;text-align:center;color: #737373;}
+    #logo {font-family:Georgia,'Times New Roman',Times,serif;font-size:46px;padding:50px 0px 8px 10px;background-color:#ffffff;}
+    #menu ul {
+        background:#313131;
+        background:-moz-linear-gradient(center top ,#5D5D5D, #313131);
+        background:-webkit-gradient(linear, left top, left bottom, from(#5D5D5D), to(#313131));
+        height:30px;
+        margin: 0 0 10px 0;
+        padding:0 0 0 4px;
+        font-size:14px;
+        list-style:none;}
+    #menu ul li {margin-top:0;float:left;display:inline}
+    #menu ul li a {margin-top:4px;padding:5px 8px;color:#fff;text-decoration:none;display:block;outline:0 none;}
+    #menu ul li a:hover {background:#fafafa;color:#4b4b4b}
+    #content {background-color:white;padding:15px;margin-bottom:20px;-moz-border-radius-bottomleft:5px;-moz-border-radius-bottomright:5px;}
+	#main { float:left; width: 625px; background-color: #ffffff;}
+	#rightcolumn { float:left; width: 200px; background-color: #ffffff;margin-left:20px;}
+    #copyright {padding:20px 15px 0 15px;clear:both;text-align:center;color: #737373;}
 
 </style>
 </head>
@@ -35,7 +43,7 @@
             <cms:setNode var="sections" path="/sections" />
             <ul>
             <c:forEach items="${sections.children}" var="section">
-                <li><a href="${section.handle}.html">${section.name}</a></li>
+                <li><a href="${section.handle}.html">${section.title}</a></li>
             </c:forEach>
             </ul>
         </div>
@@ -58,7 +66,7 @@
 
             <div id="copyright">Site produced in cooperation with the tourist board of Gothenburg</div>
 
-            </div>
+        </div>
     </div>
 </body>
 </html>

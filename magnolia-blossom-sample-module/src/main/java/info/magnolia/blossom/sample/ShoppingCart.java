@@ -68,7 +68,11 @@ public class ShoppingCart implements Serializable {
     }
 
     public int getNumberOfItems() {
-        return items.size();
+        int totalItems = 0;
+        for (ShoppingCartItem item : items) {
+            totalItems += item.getQuantity();
+        }
+        return totalItems;
     }
 
     public static ShoppingCart getShoppingCart(HttpSession session) {

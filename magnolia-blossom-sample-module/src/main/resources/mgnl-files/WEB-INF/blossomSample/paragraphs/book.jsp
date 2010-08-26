@@ -11,7 +11,7 @@ by ${book.author}<br/>
 ${book.description}<br/>
 
 
-<br/>
+<br/><br/>
 <form action="?">
     <blossom:pecid-input />
     Quantity: <input type="hidden" name="action" value="add" />
