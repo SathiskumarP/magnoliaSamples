@@ -15,8 +15,8 @@
     #logo {font-family:Georgia,'Times New Roman',Times,serif;font-size:46px;padding:50px 0px 8px 10px;background-color:#ffffff;}
     #menu ul {
         background:#313131;
-        background:-moz-linear-gradient(center top ,#5D5D5D, #313131);
-        background:-webkit-gradient(linear, left top, left bottom, from(#5D5D5D), to(#313131));
+        background:-moz-linear-gradient(center top ,#5D5Da0, #313160);
+        background:-webkit-gradient(linear, left top, left bottom, from(#5D5Da0), to(#313160));
         height:30px;
         margin: 0 0 10px 0;
         padding:0 0 0 4px;
@@ -54,7 +54,7 @@
                 <cms:contentNodeIterator contentNodeCollectionName="main">
                     <cms:includeTemplate/>
                 </cms:contentNodeIterator>
-                <cms:newBar contentNodeCollectionName="main" paragraph="text,book,tour,shoppingCartView,purchase,contact"/>
+                <cms:newBar contentNodeCollectionName="main" paragraph="text,book,tour,comments,shoppingCartView,purchase,contact"/>
             </div>
 
             <div id="rightcolumn">
