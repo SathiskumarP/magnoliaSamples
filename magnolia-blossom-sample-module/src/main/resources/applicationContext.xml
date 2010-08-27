@@ -8,6 +8,6 @@
 
 	<blossom:configuration />
 
-  <bean class="info.magnolia.blossom.sample.service.BookingWebServiceImpl" />
+  <bean class="info.magnolia.blossom.sample.service.SalesApplicationWebServiceImpl" />
 
 </beans>

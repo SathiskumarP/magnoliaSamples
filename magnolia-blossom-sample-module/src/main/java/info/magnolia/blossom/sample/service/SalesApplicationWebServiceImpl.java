@@ -40,15 +40,15 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Mock implementation of BookingWebService that keeps a static set of products.
+ * Mock implementation of SalesApplicationWebService that keeps a static set of products.
  */
-public class BookingWebServiceImpl implements BookingWebService {
+public class SalesApplicationWebServiceImpl implements SalesApplicationWebService {
 
     private List<Book> books = new ArrayList<Book>();
     private List<Tour> tours = new ArrayList<Tour>();
     private Map<String, String> bookCategories = new LinkedHashMap<String, String>();
 
-    public BookingWebServiceImpl() {
+    public SalesApplicationWebServiceImpl() {
         Book book = new Book();
         book.setArticleCode("B001");
         book.setTitle("Monuments in Gothenburg");

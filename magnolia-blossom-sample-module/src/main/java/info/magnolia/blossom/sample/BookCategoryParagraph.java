@@ -34,7 +34,7 @@
 package info.magnolia.blossom.sample;
 
 import info.magnolia.blossom.sample.service.Book;
-import info.magnolia.blossom.sample.service.BookingWebService;
+import info.magnolia.blossom.sample.service.SalesApplicationWebService;
 import info.magnolia.cms.core.Content;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.module.blossom.annotation.Paragraph;
@@ -51,7 +51,7 @@ import java.util.List;
 
 /**
  * Paragraph that renders a list of the books in a configurable category. The available categories
- * are fetched from the BookingWebService and the editor can then select which one should be
+ * are fetched from the SalesApplicationWebService and the editor can then select which one should be
  * displayed.
  */
 @Paragraph("Book category")
@@ -60,7 +60,7 @@ import java.util.List;
 public class BookCategoryParagraph {
 
     @Autowired
-    private BookingWebService bookingWebService;
+    private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/bookcategory")
     public String handleRequest(ModelMap model) {
@@ -69,7 +69,7 @@ public class BookCategoryParagraph {
 
         String category = content.getNodeData("category").getString();
 
-        List<Book> books = bookingWebService.getBooksInCategory(category);
+        List<Book> books = salesApplicationWebService.getBooksInCategory(category);
 
         model.put("books", books);
 
@@ -78,7 +78,7 @@ public class BookCategoryParagraph {
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
-        Collection<String> categories = bookingWebService.getBookCategories();
+        Collection<String> categories = salesApplicationWebService.getBookCategories();
         tab.addSelect("category", "Category", "", categories);
     }
 }

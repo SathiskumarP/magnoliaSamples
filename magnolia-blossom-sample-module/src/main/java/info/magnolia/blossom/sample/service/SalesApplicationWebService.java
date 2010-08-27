@@ -37,10 +37,10 @@ import java.util.Collection;
 import java.util.List;
 
 /**
- * The BookingWebService is a backend service that provides information about products and
+ * The SalesApplicationWebService is a backend service that provides information about products and
  * accepts orders placed by website visitors.
  */
-public interface BookingWebService {
+public interface SalesApplicationWebService {
 
     Book getBook(String articleCode);
 

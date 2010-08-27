@@ -34,7 +34,7 @@
 package info.magnolia.blossom.sample.service;
 
 /**
- * A book is a type of product returned the BookingWebService.
+ * A book is a type of product returned the SalesApplicationWebService.
  */
 public class Book implements Product {
 

@@ -33,7 +33,7 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.blossom.sample.service.BookingWebService;
+import info.magnolia.blossom.sample.service.SalesApplicationWebService;
 import info.magnolia.blossom.sample.service.Tour;
 import info.magnolia.cms.core.Content;
 import info.magnolia.context.MgnlContext;
@@ -60,7 +60,7 @@ import java.util.List;
 public class TourParagraph {
 
     @Autowired
-    private BookingWebService bookingWebService;
+    private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/tour")
     public String handleRequest(ModelMap model, HttpSession session, HttpServletRequest request) {
@@ -69,7 +69,7 @@ public class TourParagraph {
 
         String articleCode = content.getNodeData("articleCode").getString();
 
-        Tour tour = bookingWebService.getTour(articleCode);
+        Tour tour = salesApplicationWebService.getTour(articleCode);
 
         if ("add".equals(request.getParameter("action"))) {
 
@@ -87,7 +87,7 @@ public class TourParagraph {
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
-        List<Tour> tours = bookingWebService.getAllTours();
+        List<Tour> tours = salesApplicationWebService.getAllTours();
         HashMap<String, String> options = new HashMap<String, String>();
         for (Tour tour : tours) {
             options.put(tour.getName(), tour.getArticleCode());

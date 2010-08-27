@@ -33,7 +33,7 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.blossom.sample.service.BookingWebService;
+import info.magnolia.blossom.sample.service.SalesApplicationWebService;
 import info.magnolia.module.blossom.annotation.Paragraph;
 import info.magnolia.module.blossom.annotation.ParagraphDescription;
 import info.magnolia.module.blossom.annotation.TabFactory;
@@ -54,7 +54,7 @@ import javax.servlet.http.HttpSession;
 public class ViewShoppingCartParagraph {
 
     @Autowired
-    private BookingWebService bookingWebService;
+    private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/shoppingCartView")
     public String handleRequest(ModelMap model, HttpSession session) {

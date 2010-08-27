@@ -34,7 +34,7 @@
 package info.magnolia.blossom.sample;
 
 import info.magnolia.blossom.sample.service.Book;
-import info.magnolia.blossom.sample.service.BookingWebService;
+import info.magnolia.blossom.sample.service.SalesApplicationWebService;
 import info.magnolia.cms.core.Content;
 import info.magnolia.context.MgnlContext;
 import info.magnolia.module.blossom.annotation.Paragraph;
@@ -53,7 +53,7 @@ import java.util.List;
 
 /**
  * Paragraph that displays information about a book. The book is selected by the editor in a dialog and
- * read from the BookingWebService at display time.
+ * read from the SalesApplicationWebService at display time.
  */
 @Paragraph("Book")
 @ParagraphDescription("Description of a book")
@@ -61,7 +61,7 @@ import java.util.List;
 public class BookParagraph {
 
     @Autowired
-    private BookingWebService bookingWebService;
+    private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/book")
     public String handleRequest(ModelMap model, HttpSession session, HttpServletRequest request) {
@@ -70,7 +70,7 @@ public class BookParagraph {
 
         String articleCode = content.getNodeData("articleCode").getString();
 
-        Book book = bookingWebService.getBook(articleCode);
+        Book book = salesApplicationWebService.getBook(articleCode);
 
         if ("add".equals(request.getParameter("action"))) {
 
@@ -88,7 +88,7 @@ public class BookParagraph {
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
-        List<Book> books = bookingWebService.getAllBooks();
+        List<Book> books = salesApplicationWebService.getAllBooks();
         HashMap<String, String> options = new HashMap<String, String>();
         for (Book book : books) {
             options.put(book.getTitle(), book.getArticleCode());
