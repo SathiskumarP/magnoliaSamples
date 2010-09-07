@@ -43,7 +43,7 @@
             <cms:setNode var="sections" path="/sections" />
             <ul>
             <c:forEach items="${sections.children}" var="section">
-                <li><a href="${section.handle}.html">${section.title}</a></li>
+                <li><a href="${pageContext.request.contextPath}${section.handle}.html">${section.title}</a></li>
             </c:forEach>
             </ul>
         </div>

@@ -18,7 +18,7 @@
             <tr>
                 <td colspan="2" align="right">
                     <br/>
-                    <a href="/checkout.html">Checkout &raquo;</a>
+                    <a href="${pageContext.request.contextPath}/checkout.html">Checkout &raquo;</a>
                 </td>
             </tr>
         </table>
