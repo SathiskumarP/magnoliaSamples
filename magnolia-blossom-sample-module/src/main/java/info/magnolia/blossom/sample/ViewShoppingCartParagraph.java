@@ -69,6 +69,5 @@ public class ViewShoppingCartParagraph {
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
         tab.addEdit("title", "Title", "");
-        tab.addHidden("bogus", "");
     }
 }

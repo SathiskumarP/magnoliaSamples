@@ -53,6 +53,7 @@ public class PurchaseParagraph {
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
-        tab.addHidden("bogus", "");
+        tab.addStatic("This paragraph requires no configuration");
+        tab.addHidden("bogus", "bogus");
     }
 }

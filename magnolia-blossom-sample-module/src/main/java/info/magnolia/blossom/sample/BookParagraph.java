@@ -78,7 +78,7 @@ public class BookParagraph {
 
             shoppingCart.addItem(book, Integer.parseInt(request.getParameter("quantity")));
 
-            return "redirect:" + request.getContextPath() + request.getRequestURI();
+            return "redirect:" + request.getRequestURL();
         }
 
         model.put("book", book);

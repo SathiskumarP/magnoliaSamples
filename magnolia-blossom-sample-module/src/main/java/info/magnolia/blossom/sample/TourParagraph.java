@@ -77,7 +77,7 @@ public class TourParagraph {
 
             shoppingCart.addItem(tour, Integer.parseInt(request.getParameter("quantity")));
 
-            return "redirect:" + request.getContextPath() + request.getRequestURI();
+            return "redirect:" + request.getRequestURL();
         }
 
         model.put("tour", tour);

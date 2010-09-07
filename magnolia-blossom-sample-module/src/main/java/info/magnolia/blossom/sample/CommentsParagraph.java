@@ -64,11 +64,11 @@ public class CommentsParagraph {
 
         if ("add".equals(request.getParameter("action"))) {
             writeComment(request);
-            return "redirect:" + request.getContextPath() + request.getRequestURI();
+            return "redirect:" + request.getRequestURL();
         }
         if ("delete".equals(request.getParameter("action"))) {
             deleteComment(request);
-            return "redirect:" + request.getContextPath() + request.getRequestURI();
+            return "redirect:" + request.getRequestURL();
         }
 
         model.addAttribute("comments", readComments());
