@@ -54,6 +54,10 @@ import java.util.List;
 
 /**
  * A comment paragraph for letting visitors leave feedback.
+ *
+ * Please note that this style of persistence is not recommended. If you have multiple public instances the submitted
+ * comments will only be stored on one instance. The instances will become inconsistent. The recommended strategy
+ * is to persist comments either in a database or in a clustered JCR repository.
  */
 @Controller
 @Paragraph("Comments")
