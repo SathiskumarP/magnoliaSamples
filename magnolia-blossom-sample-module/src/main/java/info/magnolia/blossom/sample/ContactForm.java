@@ -33,43 +33,36 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.module.blossom.annotation.Paragraph;
-import info.magnolia.module.blossom.annotation.ParagraphDescription;
-import info.magnolia.module.blossom.annotation.TabFactory;
-import info.magnolia.module.blossom.dialog.TabBuilder;
-import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import javax.servlet.http.HttpServletRequest;
-
 /**
- * Displays a contact form and a "Thank You" page after the contact form is submitted.
+ * Bean representing a contact form.
  */
-@Controller
-@Paragraph("Contact Form")
-@ParagraphDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
-public class ContactFormParagraph {
+public class ContactForm {
 
-    @RequestMapping("/contact")
-    public String handleRequest(@ModelAttribute ContactForm contactForm, BindingResult result, HttpServletRequest request) {
+    private String name;
+    private String email;
+    private String message;
 
-        if ("POST".equals(request.getMethod())) {
-
-            new ContactFormValidator().validate(contactForm, result);
-            if (result.hasErrors())
-                return "contactForm";
-
-            return "contactFormSubmitted";
-        }
-
-        return "contactForm";
+    public String getName() {
+        return name;
     }
 
-    @TabFactory("Content")
-    public void contentTab(TabBuilder tab) {
-        tab.addStatic("This paragraph requires no configuration");
-        tab.addHidden("bogus", "bogus");
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
