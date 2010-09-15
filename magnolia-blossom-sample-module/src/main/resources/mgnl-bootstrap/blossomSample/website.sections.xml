@@ -36,6 +36,9 @@
     <sv:property sv:name="jcr:uuid" sv:type="String">
       <sv:value>18082c0f-ec6a-48d6-9a6e-7e6b7661ca92</sv:value>
     </sv:property>
+    <sv:property sv:name="title" sv:type="String">
+      <sv:value>About</sv:value>
+    </sv:property>
     <sv:node sv:name="MetaData">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>mgnl:metaData</sv:value>
@@ -213,6 +216,9 @@
     </sv:property>
     <sv:property sv:name="jcr:uuid" sv:type="String">
       <sv:value>2e6650fd-c8f8-45d3-8ef8-f6b91b524490</sv:value>
+    </sv:property>
+    <sv:property sv:name="title" sv:type="String">
+      <sv:value>Books</sv:value>
     </sv:property>
     <sv:node sv:name="MetaData">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
@@ -506,6 +512,9 @@
     </sv:property>
     <sv:property sv:name="jcr:uuid" sv:type="String">
       <sv:value>9d1ab3b6-dac5-486c-ad4e-7806a7529815</sv:value>
+    </sv:property>
+    <sv:property sv:name="title" sv:type="String">
+      <sv:value>Tours</sv:value>
     </sv:property>
     <sv:node sv:name="MetaData">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
@@ -830,6 +839,9 @@
     </sv:property>
     <sv:property sv:name="jcr:uuid" sv:type="String">
       <sv:value>b0d5c501-f2ba-4637-b5bc-935fcb6189ce</sv:value>
+    </sv:property>
+    <sv:property sv:name="title" sv:type="String">
+      <sv:value>Contact</sv:value>
     </sv:property>
     <sv:node sv:name="MetaData">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
