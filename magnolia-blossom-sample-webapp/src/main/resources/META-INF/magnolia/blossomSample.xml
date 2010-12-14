@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "module.dtd">
+<module>
+  <name>blossomSample</name>
+  <displayName>Blossom Sample Module</displayName>
+  <class>info.magnolia.blossom.sample.BlossomSampleModule</class>
+  <versionHandler>info.magnolia.blossom.sample.BlossomSampleVersionHandler</versionHandler>
+  <version>1.1-SNAPSHOT</version>
+  <dependencies>
+    <dependency>
+      <name>core</name>
+      <version>4.1/*</version>
+    </dependency>
+    <dependency>
+      <name>adminInterface</name>
+      <version>4.1/*</version>
+    </dependency>
+    <dependency>
+      <name>templating</name>
+      <version>4.1/*</version>
+    </dependency>
+    <dependency>
+      <name>fckEditor</name>
+      <version>4.1/*</version>
+    </dependency>
+    <dependency>
+      <name>blossom</name>
+      <version>1.1/*</version>
+    </dependency>
+  </dependencies>
+</module>
