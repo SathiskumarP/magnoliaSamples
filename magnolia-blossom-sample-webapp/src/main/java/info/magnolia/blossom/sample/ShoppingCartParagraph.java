@@ -68,7 +68,6 @@ public class ShoppingCartParagraph {
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
-        tab.addStatic("This paragraph requires no configuration");
-        tab.addHidden("bogus", "bogus");
+        tab.addUuidLink("checkoutLink", "Checkout Page", "The page to link to for checkout");
     }
 }

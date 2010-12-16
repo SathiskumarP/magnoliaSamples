@@ -17,6 +17,13 @@
 		<context:include-filter type="assignable" expression="info.magnolia.cms.beans.config.VirtualURIMapping"/>
 	</context:component-scan>
 
+  <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+  <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+    <property name="customArgumentResolver">
+      <bean class="info.magnolia.module.blossom.web.BlossomWebArgumentResolver" />
+    </property>
+  </bean>
+
   <bean class="info.magnolia.module.blossom.preexecution.BlossomHandlerMapping">
     <property name="targetHandlerMappings">
       <list>
@@ -28,8 +35,12 @@
     </property>
   </bean>
 
+  <bean class="info.magnolia.module.blossom.view.UuidRedirectViewResolver">
+    <property name="order" value="1" />
+  </bean>
+
 	<bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
-		<property name="order" value="1"/>
+		<property name="order" value="2"/>
 		<property name="prefix" value="/WEB-INF/blossomSample/templates/"/>
 		<property name="viewNames" value="*.ftl"/>
 		<property name="viewRenderer">
@@ -38,7 +49,7 @@
 	</bean>
 
 	<bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
-		<property name="order" value="2"/>
+		<property name="order" value="3"/>
 		<property name="prefix" value="/WEB-INF/blossomSample/templates/"/>
 		<property name="viewNames" value="*.jsp"/>
 		<property name="viewRenderer">
@@ -47,7 +58,7 @@
 	</bean>
 
 	<bean class="info.magnolia.module.blossom.view.ParagraphViewResolver">
-		<property name="order" value="3" />
+		<property name="order" value="4" />
 		<property name="prefix" value="/WEB-INF/blossomSample/paragraphs/"/>
 		<property name="suffix" value=".jsp"/>
 		<property name="viewRenderer">

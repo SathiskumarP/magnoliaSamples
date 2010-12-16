@@ -63,9 +63,7 @@ public class BookCategoryParagraph {
     private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/bookcategory")
-    public String handleRequest(ModelMap model) {
-
-        Content content = MgnlContext.getAggregationState().getCurrentContent();
+    public String handleRequest(ModelMap model, Content content) {
 
         String category = content.getNodeData("category").getString();
 

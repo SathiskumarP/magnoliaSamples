@@ -18,7 +18,7 @@
             <tr>
                 <td colspan="2" align="right">
                     <br/>
-                    <a href="${pageContext.request.contextPath}/checkout.html">Checkout &raquo;</a>
+                    <a href="<cms:out nodeDataName="checkoutLink" uuidToLink="relative" />.html">Checkout &raquo;</a>
                 </td>
             </tr>
         </table>

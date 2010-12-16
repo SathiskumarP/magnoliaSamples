@@ -40,7 +40,7 @@
             <td colspan="4" align="right">
                 <br/>
                 <br/>
-                <a href="${pageContext.request.contextPath}/payment.html">Proceed to payment &raquo;</a>
+                <a href="<cms:out nodeDataName="paymentLink" uuidToLink="relative" />.html">Proceed to payment &raquo;</a>
             </td>
         </tr>
     </table>

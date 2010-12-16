@@ -44,6 +44,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
@@ -64,26 +65,24 @@ import java.util.List;
 public class CommentsParagraph {
 
     @RequestMapping("/comments")
-    public String handleRequest(ModelMap model, HttpServletRequest request) throws RepositoryException {
+    public String handleRequest(ModelMap model, HttpServletRequest request, @RequestParam("action") String action, Content content) throws RepositoryException {
 
-        if ("add".equals(request.getParameter("action"))) {
-            writeComment(request);
+        if ("add".equals(action)) {
+            writeComment(request, content);
             return "redirect:" + request.getRequestURL();
         }
-        if ("delete".equals(request.getParameter("action"))) {
-            deleteComment(request);
+        if ("delete".equals(action)) {
+            deleteComment(request, content);
             return "redirect:" + request.getRequestURL();
         }
 
-        model.addAttribute("comments", readComments());
+        model.addAttribute("comments", readComments(content));
         return "comments";
     }
 
-    private List<Comment> readComments() throws RepositoryException {
+    private List<Comment> readComments(Content websiteNode) throws RepositoryException {
 
         List<Comment> list = new ArrayList<Comment>();
-
-        Content websiteNode = MgnlContext.getAggregationState().getCurrentContent();
 
         if (websiteNode.hasContent("comments")) {
             Content commentsNode = websiteNode.getContent("comments");
@@ -102,9 +101,7 @@ public class CommentsParagraph {
         return list;
     }
 
-    private void writeComment(HttpServletRequest request) throws RepositoryException {
-
-        Content websiteNode = MgnlContext.getAggregationState().getCurrentContent();
+    private void writeComment(HttpServletRequest request, Content websiteNode) throws RepositoryException {
 
         Content commentsNode;
         if (websiteNode.hasContent("comments"))
@@ -124,9 +121,7 @@ public class CommentsParagraph {
         websiteNode.save();
     }
 
-    private void deleteComment(HttpServletRequest request) throws RepositoryException {
-
-        Content websiteNode = MgnlContext.getAggregationState().getCurrentContent();
+    private void deleteComment(HttpServletRequest request, Content websiteNode) throws RepositoryException {
 
         if (websiteNode.hasContent("comments")) {
             Content commentsNode = websiteNode.getContent("comments");

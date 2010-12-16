@@ -40,8 +40,6 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.jcr.RepositoryException;
-
 /**
  * Simple paragraph for adding text to a page.
  */
@@ -56,7 +54,7 @@ public class TextParagraph {
     }
 
     @TabFactory("Content")
-    public void addDialog(TabBuilder builder) throws RepositoryException {
-        builder.addFckEditor("body", "Text", "");
+    public void addDialog(TabBuilder tab) {
+        tab.addFckEditor("body", "Text", "");
     }
 }

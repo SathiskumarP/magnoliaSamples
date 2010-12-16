@@ -69,5 +69,6 @@ public class ViewShoppingCartParagraph {
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
         tab.addEdit("title", "Title", "");
+        tab.addUuidLink("paymentLink", "Payment Page", "The page to link to for proceeding to payment");
     }
 }

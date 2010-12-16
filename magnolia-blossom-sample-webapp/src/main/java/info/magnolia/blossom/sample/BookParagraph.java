@@ -64,9 +64,7 @@ public class BookParagraph {
     private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/book")
-    public String handleRequest(ModelMap model, HttpSession session, HttpServletRequest request) {
-
-        Content content = MgnlContext.getAggregationState().getCurrentContent();
+    public String handleRequest(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
 
         String articleCode = content.getNodeData("articleCode").getString();
 
