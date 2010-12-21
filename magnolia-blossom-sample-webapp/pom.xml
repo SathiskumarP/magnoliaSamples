@@ -79,7 +79,7 @@
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-module-blossom</artifactId>
-      <version>1.1.2-SNAPSHOT</version>
+      <version>1.2-SNAPSHOT</version>
     </dependency>
     <!-- Dependencies on Magnolia, based on http://svn.magnolia-cms.com/svn/community/magnolia/tags/magnolia-4.4.1/magnolia-empty-webapp/ -->
     <dependency>

@@ -41,7 +41,7 @@
 
 	<bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
 		<property name="order" value="2"/>
-		<property name="prefix" value="/WEB-INF/blossomSample/templates/"/>
+		<property name="prefix" value="/WEB-INF/templates/"/>
 		<property name="viewNames" value="*.ftl"/>
 		<property name="viewRenderer">
 			<bean class="info.magnolia.module.blossom.view.FreemarkerTemplateViewRenderer"/>
@@ -50,7 +50,7 @@
 
 	<bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
 		<property name="order" value="3"/>
-		<property name="prefix" value="/WEB-INF/blossomSample/templates/"/>
+		<property name="prefix" value="/WEB-INF/templates/"/>
 		<property name="viewNames" value="*.jsp"/>
 		<property name="viewRenderer">
 			<bean class="info.magnolia.module.blossom.view.JspTemplateViewRenderer"/>
@@ -59,7 +59,7 @@
 
 	<bean class="info.magnolia.module.blossom.view.ParagraphViewResolver">
 		<property name="order" value="4" />
-		<property name="prefix" value="/WEB-INF/blossomSample/paragraphs/"/>
+		<property name="prefix" value="/WEB-INF/paragraphs/"/>
 		<property name="suffix" value=".jsp"/>
 		<property name="viewRenderer">
 			<bean class="info.magnolia.module.blossom.view.JspParagraphViewRenderer"/>
