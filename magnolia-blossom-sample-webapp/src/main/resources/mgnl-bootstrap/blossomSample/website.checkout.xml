@@ -23,7 +23,7 @@
       <sv:value>2010-08-18T11:14:04.916+02:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-      <sv:value>2010-08-23T13:05:02.272+02:00</sv:value>
+      <sv:value>2011-02-10T14:02:36.581+01:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:template" sv:type="String">
       <sv:value>main</sv:value>
@@ -50,7 +50,7 @@
         <sv:value>2010-08-18T11:14:52.898+02:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-        <sv:value>2010-08-19T09:04:33.635+02:00</sv:value>
+        <sv:value>2011-02-10T14:02:36.576+01:00</sv:value>
       </sv:property>
     </sv:node>
     <sv:node sv:name="0">
@@ -62,6 +62,9 @@
       </sv:property>
       <sv:property sv:name="jcr:uuid" sv:type="String">
         <sv:value>115c3c0d-7211-44a2-b775-b700d682cda0</sv:value>
+      </sv:property>
+      <sv:property sv:name="paymentLink" sv:type="String">
+        <sv:value>af0f59a6-3e6f-443a-be2e-1df148b4a573</sv:value>
       </sv:property>
       <sv:property sv:name="title" sv:type="String">
         <sv:value>Your shopping cart contains</sv:value>
@@ -77,7 +80,7 @@
           <sv:value>2010-08-18T11:14:52.899+02:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-          <sv:value>2010-08-19T09:04:33.634+02:00</sv:value>
+          <sv:value>2011-02-10T14:02:36.576+01:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:template" sv:type="String">
           <sv:value>shoppingCartView</sv:value>

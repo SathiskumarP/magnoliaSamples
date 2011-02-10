@@ -231,7 +231,7 @@
         <sv:value>2010-08-18T11:31:40.642+02:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-        <sv:value>2010-08-18T15:15:42.690+02:00</sv:value>
+        <sv:value>2011-02-10T14:01:58.383+01:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:template" sv:type="String">
         <sv:value>main</sv:value>
@@ -333,7 +333,7 @@
           <sv:value>2010-08-18T15:15:42.687+02:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-          <sv:value>2010-08-18T15:15:42.689+02:00</sv:value>
+          <sv:value>2011-02-10T14:01:58.382+01:00</sv:value>
         </sv:property>
       </sv:node>
       <sv:node sv:name="0">
@@ -346,6 +346,9 @@
         <sv:property sv:name="jcr:uuid" sv:type="String">
           <sv:value>18194e43-8a9a-4337-8383-adb251f79dc5</sv:value>
         </sv:property>
+        <sv:property sv:name="checkoutLink" sv:type="String">
+          <sv:value>ff6cefa6-d958-47b1-af70-c82a414f17e1</sv:value>
+        </sv:property>
         <sv:node sv:name="MetaData">
           <sv:property sv:name="jcr:primaryType" sv:type="Name">
             <sv:value>mgnl:metaData</sv:value>
@@ -357,7 +360,7 @@
             <sv:value>2010-08-18T15:15:42.689+02:00</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-            <sv:value>2010-08-18T15:15:42.689+02:00</sv:value>
+            <sv:value>2011-02-10T14:01:58.363+01:00</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:template" sv:type="String">
             <sv:value>shoppingCart</sv:value>
@@ -386,7 +389,7 @@
           <sv:value>2010-08-18T11:14:03.879+02:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-          <sv:value>2010-08-23T13:05:34.913+02:00</sv:value>
+          <sv:value>2011-02-10T14:02:19.237+01:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:template" sv:type="String">
           <sv:value>main</sv:value>
@@ -469,7 +472,7 @@
             <sv:value>2010-08-18T11:15:18.373+02:00</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-            <sv:value>2010-08-18T11:15:18.375+02:00</sv:value>
+            <sv:value>2011-02-10T14:02:19.233+01:00</sv:value>
           </sv:property>
         </sv:node>
         <sv:node sv:name="0">
@@ -482,6 +485,9 @@
           <sv:property sv:name="jcr:uuid" sv:type="String">
             <sv:value>c3dc0c52-dd60-4880-9783-5f501867325f</sv:value>
           </sv:property>
+          <sv:property sv:name="checkoutLink" sv:type="String">
+            <sv:value>ff6cefa6-d958-47b1-af70-c82a414f17e1</sv:value>
+          </sv:property>
           <sv:node sv:name="MetaData">
             <sv:property sv:name="jcr:primaryType" sv:type="Name">
               <sv:value>mgnl:metaData</sv:value>
@@ -493,7 +499,7 @@
               <sv:value>2010-08-18T11:15:18.374+02:00</sv:value>
             </sv:property>
             <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-              <sv:value>2010-08-18T11:15:18.375+02:00</sv:value>
+              <sv:value>2011-02-10T14:02:19.232+01:00</sv:value>
             </sv:property>
             <sv:property sv:name="mgnl:template" sv:type="String">
               <sv:value>shoppingCart</sv:value>
@@ -527,7 +533,7 @@
         <sv:value>2010-08-18T11:31:41.245+02:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-        <sv:value>2010-08-18T16:45:43.660+02:00</sv:value>
+        <sv:value>2011-02-10T14:03:23.873+01:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:template" sv:type="String">
         <sv:value>main</sv:value>
@@ -629,7 +635,7 @@
           <sv:value>2010-08-18T16:45:43.658+02:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-          <sv:value>2010-08-18T16:45:43.660+02:00</sv:value>
+          <sv:value>2011-02-10T14:03:23.867+01:00</sv:value>
         </sv:property>
       </sv:node>
       <sv:node sv:name="0">
@@ -642,6 +648,9 @@
         <sv:property sv:name="jcr:uuid" sv:type="String">
           <sv:value>27792865-33c4-4799-ae9d-ae2901be2bfd</sv:value>
         </sv:property>
+        <sv:property sv:name="checkoutLink" sv:type="String">
+          <sv:value>ff6cefa6-d958-47b1-af70-c82a414f17e1</sv:value>
+        </sv:property>
         <sv:node sv:name="MetaData">
           <sv:property sv:name="jcr:primaryType" sv:type="Name">
             <sv:value>mgnl:metaData</sv:value>
@@ -653,7 +662,7 @@
             <sv:value>2010-08-18T16:45:43.659+02:00</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-            <sv:value>2010-08-18T16:45:43.659+02:00</sv:value>
+            <sv:value>2011-02-10T14:03:23.866+01:00</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:template" sv:type="String">
             <sv:value>shoppingCart</sv:value>
@@ -682,7 +691,7 @@
           <sv:value>2010-08-17T22:28:34.923+02:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-          <sv:value>2010-08-23T13:05:43.547+02:00</sv:value>
+          <sv:value>2011-02-10T14:03:38.071+01:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:template" sv:type="String">
           <sv:value>main</sv:value>
@@ -765,7 +774,7 @@
             <sv:value>2010-08-17T22:44:38.587+02:00</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-            <sv:value>2010-08-19T09:03:43.012+02:00</sv:value>
+            <sv:value>2011-02-10T14:03:38.064+01:00</sv:value>
           </sv:property>
         </sv:node>
         <sv:node sv:name="0">
@@ -778,6 +787,9 @@
           <sv:property sv:name="jcr:uuid" sv:type="String">
             <sv:value>f6690b4d-ac1d-4efc-9b60-636ed70a9eaa</sv:value>
           </sv:property>
+          <sv:property sv:name="checkoutLink" sv:type="String">
+            <sv:value>ff6cefa6-d958-47b1-af70-c82a414f17e1</sv:value>
+          </sv:property>
           <sv:node sv:name="MetaData">
             <sv:property sv:name="jcr:primaryType" sv:type="Name">
               <sv:value>mgnl:metaData</sv:value>
@@ -789,7 +801,7 @@
               <sv:value>2010-08-17T22:44:38.588+02:00</sv:value>
             </sv:property>
             <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-              <sv:value>2010-08-17T22:44:38.589+02:00</sv:value>
+              <sv:value>2011-02-10T14:03:38.064+01:00</sv:value>
             </sv:property>
             <sv:property sv:name="mgnl:template" sv:type="String">
               <sv:value>shoppingCart</sv:value>
@@ -854,7 +866,7 @@
         <sv:value>2010-08-18T11:31:50.854+02:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-        <sv:value>2010-08-18T14:22:30.637+02:00</sv:value>
+        <sv:value>2011-02-10T14:02:55.773+01:00</sv:value>
       </sv:property>
       <sv:property sv:name="mgnl:template" sv:type="String">
         <sv:value>main</sv:value>
@@ -881,7 +893,7 @@
           <sv:value>2010-08-18T11:33:13.753+02:00</sv:value>
         </sv:property>
         <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-          <sv:value>2010-08-18T11:33:13.754+02:00</sv:value>
+          <sv:value>2011-02-10T14:02:55.772+01:00</sv:value>
         </sv:property>
       </sv:node>
       <sv:node sv:name="0">
@@ -894,6 +906,9 @@
         <sv:property sv:name="jcr:uuid" sv:type="String">
           <sv:value>36c2565a-ef87-4449-9a8b-46c35102ba15</sv:value>
         </sv:property>
+        <sv:property sv:name="checkoutLink" sv:type="String">
+          <sv:value>ff6cefa6-d958-47b1-af70-c82a414f17e1</sv:value>
+        </sv:property>
         <sv:node sv:name="MetaData">
           <sv:property sv:name="jcr:primaryType" sv:type="Name">
             <sv:value>mgnl:metaData</sv:value>
@@ -905,7 +920,7 @@
             <sv:value>2010-08-18T11:33:13.754+02:00</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:lastmodified" sv:type="Date">
-            <sv:value>2010-08-18T11:33:13.754+02:00</sv:value>
+            <sv:value>2011-02-10T14:02:55.771+01:00</sv:value>
           </sv:property>
           <sv:property sv:name="mgnl:template" sv:type="String">
             <sv:value>shoppingCart</sv:value>
