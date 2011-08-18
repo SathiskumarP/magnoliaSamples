@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE module SYSTEM "module.dtd">
+<module>
+  <name>blossomSampleWebflow</name>
+  <displayName>Blossom Sample WebFlow</displayName>
+  <description>Blossom Sample WebFlow</description>
+  <version>${project.version}</version>
+
+  <dependencies>
+    <dependency>
+      <name>core</name>
+      <version>${magnoliaVersion}/*</version>
+    </dependency>
+    <dependency>
+      <name>templating</name>
+      <version>${magnoliaVersion}/*</version>
+    </dependency>
+    <dependency>
+      <name>adminInterface</name>
+      <version>${magnoliaVersion}/*</version>
+    </dependency>
+    <dependency>
+      <name>blossom</name>
+      <version>${magnoliaVersion}/*</version>
+    </dependency>
+  </dependencies>
+
+</module>
