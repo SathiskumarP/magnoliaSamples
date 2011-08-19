@@ -35,6 +35,7 @@ package info.magnolia.blossom.sample.webflow;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -69,14 +70,90 @@ import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
  */
 public abstract class AbstractSingleFlowController extends FlowController {
 
+    /**
+     * Copied from DefaultFlowUrlHandler since it's private there.
+     */
+    private static final String DEFAULT_FLOW_EXECUTION_KEY_PARAMETER = "execution";
+
+    private String flowExecutionKeyParameter = DEFAULT_FLOW_EXECUTION_KEY_PARAMETER;
+    private UrlPathHelper urlPathHelper = new UrlPathHelper();
+    private CustomFlowUrlHandler flowUrlHandler;
     private String flowId;
 
-    protected AbstractSingleFlowController(final String flowId) {
+    protected AbstractSingleFlowController(String flowId) {
         this.flowId = flowId;
+        this.flowUrlHandler = new CustomFlowUrlHandler();
         CustomFlowHandlerAdapter flowHandlerAdapter = new CustomFlowHandlerAdapter();
-        flowHandlerAdapter.setFlowUrlHandler(new CustomFlowUrlHandler());
+        flowHandlerAdapter.setFlowUrlHandler(flowUrlHandler);
         super.setFlowHandlerAdapter(flowHandlerAdapter);
         super.registerFlowHandler(new CustomFlowHandler());
+    }
+
+    /**
+     * Extension point for customizing the default behaviour in FlowUrlHandler.
+     *
+     * @see org.springframework.webflow.context.servlet.FlowUrlHandler#getFlowId(javax.servlet.http.HttpServletRequest)
+     */
+    public String getFlowId(HttpServletRequest request) {
+        return flowId;
+    }
+
+    /**
+     * Extension point for customizing the default behaviour in FlowUrlHandler.
+     *
+     * @see org.springframework.webflow.context.servlet.FlowUrlHandler#getFlowExecutionKey(javax.servlet.http.HttpServletRequest)
+     */
+    public String getFlowExecutionKey(HttpServletRequest request) {
+        return request.getParameter(getFlowExecutionKeyParameter());
+    }
+
+    /**
+     * Extension point for customizing the default behaviour in FlowUrlHandler. Uses the originating URI to create a URI
+     * for resuming the flow.
+     *
+     * @see org.springframework.webflow.context.servlet.FlowUrlHandler#createFlowExecutionUrl(String, String, javax.servlet.http.HttpServletRequest)
+     */
+    public String createFlowExecutionUrl(String flowId, String flowExecutionKey, HttpServletRequest request) {
+        StringBuffer url = new StringBuffer();
+        url.append(urlPathHelper.getOriginatingRequestUri(request));
+        url.append('?');
+        HashMap<String, String> parameters = new HashMap<String, String>();
+        parameters.put(getFlowExecutionKeyParameter(), flowExecutionKey);
+        this.flowUrlHandler.appendQueryParameters(url, parameters, this.flowUrlHandler.getEncodingScheme(request));
+        return url.toString();
+    }
+
+    /**
+     * Extension point for customizing the default behaviour in FlowUrlHandler. uses the originating URI to create a URI
+     * for starting the flow.
+     *
+     * @see org.springframework.webflow.context.servlet.FlowUrlHandler#createFlowDefinitionUrl(String, org.springframework.webflow.core.collection.AttributeMap, javax.servlet.http.HttpServletRequest)
+     */
+    public String createFlowDefinitionUrl(String flowId, AttributeMap input, HttpServletRequest request) {
+        StringBuffer url = new StringBuffer();
+        url.append(urlPathHelper.getOriginatingRequestUri(request));
+        if (input != null && !input.isEmpty()) {
+            url.append('?');
+            this.flowUrlHandler.appendQueryParameters(url, input.asMap(), this.flowUrlHandler.getEncodingScheme(request));
+        }
+        return url.toString();
+    }
+
+    /**
+     * Extension point for customizing the default behaviour in FlowUrlHandler.
+     *
+     * @see org.springframework.webflow.context.servlet.DefaultFlowUrlHandler#setEncodingScheme(String)
+     */
+    public void setUrlEncodingScheme(String encodingScheme) {
+        flowUrlHandler.setEncodingScheme(encodingScheme);
+    }
+
+    public String getFlowExecutionKeyParameter() {
+        return this.flowExecutionKeyParameter;
+    }
+
+    public void setFlowExecutionKeyParameter(String flowExecutionKeyParameter) {
+        this.flowExecutionKeyParameter = flowExecutionKeyParameter;
     }
 
     /**
@@ -149,48 +226,43 @@ public abstract class AbstractSingleFlowController extends FlowController {
     }
 
     /**
-     * Custom FlowUrlHandler that will always resolve the same flowId and will generate redirect urls to the originating
-     * request URI.
+     * Custom FlowUrlHandler that allows subclasses of AbstractSingleFlowController to customize behaviour.
      */
     protected class CustomFlowUrlHandler extends DefaultFlowUrlHandler {
 
-        // TODO it might be useful to move these methods out and have this class simply delegating to them
-        // since they use the encoding functionality in the base class we'll have to either replicate or reuse it
-
-        /**
-         * Copied from DefaultFlowUrlHandler since its private there.
-         */
-        private static final String FLOW_EXECUTION_KEY_PARAMETER = "execution";
-
         public String getFlowId(HttpServletRequest request) {
-            return flowId;
+            return AbstractSingleFlowController.this.getFlowId(request);
         }
 
         @Override
         public String getFlowExecutionKey(HttpServletRequest request) {
-            return request.getParameter(FLOW_EXECUTION_KEY_PARAMETER);
+            return AbstractSingleFlowController.this.getFlowExecutionKey(request);
         }
 
         @Override
         public String createFlowExecutionUrl(String flowId, String flowExecutionKey, HttpServletRequest request) {
-            StringBuffer url = new StringBuffer();
-            url.append(new UrlPathHelper().getOriginatingRequestUri(request));
-            url.append('?');
-            HashMap<String, String> parameters = new HashMap<String, String>();
-            parameters.put(FLOW_EXECUTION_KEY_PARAMETER, flowExecutionKey);
-            appendQueryParameters(url, parameters, getEncodingScheme(request));
-            return url.toString();
+            return AbstractSingleFlowController.this.createFlowExecutionUrl(flowId, flowExecutionKey, request);
         }
 
         @Override
         public String createFlowDefinitionUrl(String flowId, AttributeMap input, HttpServletRequest request) {
-            StringBuffer url = new StringBuffer();
-            url.append(new UrlPathHelper().getOriginatingRequestUri(request));
-            if (input != null && !input.isEmpty()) {
-                url.append('?');
-                appendQueryParameters(url, input.asMap(), getEncodingScheme(request));
-            }
-            return url.toString();
+            return AbstractSingleFlowController.this.createFlowDefinitionUrl(flowId, input, request);
+        }
+
+        /**
+         * Overridden to allow access.
+         */
+        @Override
+        public void appendQueryParameters(StringBuffer url, Map parameters, String encodingScheme) {
+            super.appendQueryParameters(url, parameters, encodingScheme);
+        }
+
+        /**
+         * Overridden to allow access.
+         */
+        @Override
+        public String getEncodingScheme(HttpServletRequest request) {
+            return super.getEncodingScheme(request);
         }
     }
 
