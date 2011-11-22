@@ -7,7 +7,7 @@
   <packaging>war</packaging>
   <properties>
     <javaVersion>1.5</javaVersion>
-    <magnoliaVersion>4.4.1</magnoliaVersion>
+    <magnoliaVersion>4.4.5</magnoliaVersion>
     <springVersion>3.0.5.RELEASE</springVersion>
   </properties>
   <build>
@@ -51,6 +51,17 @@
       </plugin>
     </plugins>
   </build>
+  <distributionManagement>
+    <repository>
+      <id>magnolia.public.releases</id>
+      <url>http://nexus.magnolia-cms.com/content/repositories/magnolia.public.releases</url>
+    </repository>
+    <snapshotRepository>
+      <id>magnolia.public.snapshots</id>
+      <url>http://nexus.magnolia-cms.com/content/repositories/magnolia.public.snapshots</url>
+    </snapshotRepository>
+    <downloadUrl>http://sourceforge.net/projects/magnolia/files/</downloadUrl>
+  </distributionManagement>
   <!-- Repositories, for more details see http://wiki.magnolia-cms.com/display/DEV/Maven+setup -->
   <repositories>
     <repository>
@@ -82,7 +93,7 @@
       <artifactId>magnolia-module-blossom</artifactId>
       <version>1.2.3</version>
     </dependency>
-    <!-- Dependencies on Magnolia, based on http://svn.magnolia-cms.com/svn/community/magnolia/tags/magnolia-4.4.1/magnolia-empty-webapp/ -->
+    <!-- Dependencies on Magnolia, based on http://svn.magnolia-cms.com/svn/community/magnolia/tags/magnolia-4.4.5/magnolia-empty-webapp/ -->
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-module-templating</artifactId>
@@ -146,7 +157,7 @@
     <dependency>
       <groupId>org.apache.jackrabbit</groupId>
       <artifactId>jackrabbit-core</artifactId>
-      <version>1.6.2</version>
+      <version>1.6.4</version>
       <exclusions>
         <exclusion>
           <groupId>commons-logging</groupId>
