@@ -21,7 +21,7 @@
     </dependency>
     <dependency>
       <name>blossom</name>
-      <version>${magnoliaVersion}/*</version>
+      <version>${blossomVersion}/*</version>
     </dependency>
   </dependencies>
 
