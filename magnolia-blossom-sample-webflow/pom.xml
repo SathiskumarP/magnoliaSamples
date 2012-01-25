@@ -10,7 +10,8 @@
   <groupId>info.magnolia</groupId>
   <artifactId>magnolia-blossom-sample-webflow</artifactId>
   <packaging>jar</packaging>
-  <version>1.0.0-SNAPSHOT</version>
+  <version>1.2-SNAPSHOT</version>
+  <name>magnolia-blossom-sample-webflow</name>
   <properties>
     <javaVersion>1.5</javaVersion>
     <magnoliaVersion>4.4.1</magnoliaVersion>
