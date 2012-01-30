@@ -54,7 +54,7 @@
                 <cms:contentNodeIterator contentNodeCollectionName="main">
                     <cms:includeTemplate/>
                 </cms:contentNodeIterator>
-                <cms:newBar contentNodeCollectionName="main" paragraph="text,book,tour,comments,shoppingCartView,purchase,contact"/>
+                <cms:newBar contentNodeCollectionName="main" paragraph="blossom:components/text,book,tour,comments,shoppingCartView,purchase,contact"/>
             </div>
 
             <div id="rightcolumn">

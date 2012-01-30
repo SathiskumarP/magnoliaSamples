@@ -36,10 +36,9 @@ package info.magnolia.blossom.sample;
 import info.magnolia.blossom.sample.service.SalesApplicationWebService;
 import info.magnolia.blossom.sample.service.Tour;
 import info.magnolia.cms.core.Content;
-import info.magnolia.context.MgnlContext;
-import info.magnolia.module.blossom.annotation.Paragraph;
-import info.magnolia.module.blossom.annotation.ParagraphDescription;
 import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,8 +53,8 @@ import java.util.List;
 /**
  * Paragraph that displays a description of a tour. The tour is selectable by the editor in a dialog.
  */
-@Paragraph("Tour")
-@ParagraphDescription("Description of a tour")
+@Template("Tour")
+@TemplateDescription("Description of a tour")
 @Controller
 public class TourParagraph {
 

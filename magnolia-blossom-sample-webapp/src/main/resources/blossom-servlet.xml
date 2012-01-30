@@ -10,7 +10,6 @@
 	<context:annotation-config/>
 
 	<context:component-scan base-package="info.magnolia.blossom.sample" use-default-filters="false">
-		<context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.Paragraph"/>
 		<context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.Template"/>
 		<context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.DialogFactory"/>
 		<context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.VirtualURIMapper"/>
@@ -57,13 +56,13 @@
 		</property>
 	</bean>
 
-	<bean class="info.magnolia.module.blossom.view.ParagraphViewResolver">
-		<property name="order" value="4" />
-		<property name="prefix" value="/WEB-INF/paragraphs/"/>
-		<property name="suffix" value=".jsp"/>
-		<property name="viewRenderer">
-			<bean class="info.magnolia.module.blossom.view.JspParagraphViewRenderer"/>
-		</property>
-	</bean>
+  <bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
+    <property name="order" value="4"/>
+    <property name="prefix" value="/WEB-INF/paragraphs/"/>
+    <property name="suffix" value=".jsp"/>
+    <property name="viewRenderer">
+      <bean class="info.magnolia.module.blossom.view.JspTemplateViewRenderer"/>
+    </property>
+  </bean>
 
 </beans>

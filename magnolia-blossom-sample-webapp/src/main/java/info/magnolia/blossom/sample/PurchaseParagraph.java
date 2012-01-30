@@ -33,8 +33,8 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.module.blossom.annotation.Paragraph;
 import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -43,7 +43,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Displays a from where the visitor can fill in his address and so on to complete his purchase.
  */
 @Controller
-@Paragraph("Purchase Form")
+@Template("Purchase Form")
 public class PurchaseParagraph {
 
     @RequestMapping("/purchase")

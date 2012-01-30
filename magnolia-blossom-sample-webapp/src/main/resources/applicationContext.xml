@@ -6,8 +6,6 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 		http://www.magnolia-cms.com/schema/blossom http://www.magnolia-cms.com/schema/blossom-1.2.xsd">
 
-	<blossom:configuration />
-
   <bean class="info.magnolia.blossom.sample.service.SalesApplicationWebServiceImpl" />
 
 </beans>

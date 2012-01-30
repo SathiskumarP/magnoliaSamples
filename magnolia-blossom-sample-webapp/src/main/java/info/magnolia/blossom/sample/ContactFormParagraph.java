@@ -33,9 +33,9 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.module.blossom.annotation.Paragraph;
-import info.magnolia.module.blossom.annotation.ParagraphDescription;
 import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -48,8 +48,8 @@ import javax.servlet.http.HttpServletRequest;
  * Displays a contact form and a "Thank You" page after the contact form is submitted.
  */
 @Controller
-@Paragraph("Contact Form")
-@ParagraphDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
+@Template("Contact Form")
+@TemplateDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
 public class ContactFormParagraph {
 
     @RequestMapping("/contact")

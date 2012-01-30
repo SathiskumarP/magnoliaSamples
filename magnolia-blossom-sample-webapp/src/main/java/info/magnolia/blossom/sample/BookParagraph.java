@@ -36,10 +36,9 @@ package info.magnolia.blossom.sample;
 import info.magnolia.blossom.sample.service.Book;
 import info.magnolia.blossom.sample.service.SalesApplicationWebService;
 import info.magnolia.cms.core.Content;
-import info.magnolia.context.MgnlContext;
-import info.magnolia.module.blossom.annotation.Paragraph;
-import info.magnolia.module.blossom.annotation.ParagraphDescription;
 import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -55,8 +54,8 @@ import java.util.List;
  * Paragraph that displays information about a book. The book is selected by the editor in a dialog and
  * read from the SalesApplicationWebService at display time.
  */
-@Paragraph("Book")
-@ParagraphDescription("Description of a book")
+@Template("Book")
+@TemplateDescription("Description of a book")
 @Controller
 public class BookParagraph {
 

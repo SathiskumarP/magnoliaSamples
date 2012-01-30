@@ -34,9 +34,9 @@
 package info.magnolia.blossom.sample;
 
 import info.magnolia.blossom.sample.service.SalesApplicationWebService;
-import info.magnolia.module.blossom.annotation.Paragraph;
-import info.magnolia.module.blossom.annotation.ParagraphDescription;
 import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -49,8 +49,8 @@ import javax.servlet.http.HttpSession;
  * Lists the contents of the shopping cart in detail, with summarized total and a link to the purchase page.
  */
 @Controller
-@Paragraph("Shopping Cart View")
-@ParagraphDescription("List of the contents in the shopping cart")
+@Template("Shopping Cart View")
+@TemplateDescription("List of the contents in the shopping cart")
 public class ViewShoppingCartParagraph {
 
     @Autowired

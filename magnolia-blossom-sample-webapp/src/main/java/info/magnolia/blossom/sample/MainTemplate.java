@@ -45,7 +45,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Template with two columns, a main content area and a right side column.
  */
 @Controller
-@Template("Two Columns")
+@Template(value = "Two Columns", id ="blossom:pages/main")
 public class MainTemplate {
 
     @RequestMapping("/main")

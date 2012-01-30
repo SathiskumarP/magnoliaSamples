@@ -38,8 +38,8 @@ import info.magnolia.cms.core.Content;
 import info.magnolia.cms.core.HierarchyManager;
 import info.magnolia.cms.core.Path;
 import info.magnolia.context.MgnlContext;
-import info.magnolia.module.blossom.annotation.Paragraph;
 import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -61,7 +61,7 @@ import java.util.List;
  * is to persist comments either in a database or in a clustered JCR repository.
  */
 @Controller
-@Paragraph("Comments")
+@Template("Comments")
 public class CommentsParagraph {
 
     @RequestMapping("/comments")

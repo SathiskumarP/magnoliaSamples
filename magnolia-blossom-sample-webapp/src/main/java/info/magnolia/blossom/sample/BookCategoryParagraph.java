@@ -36,10 +36,9 @@ package info.magnolia.blossom.sample;
 import info.magnolia.blossom.sample.service.Book;
 import info.magnolia.blossom.sample.service.SalesApplicationWebService;
 import info.magnolia.cms.core.Content;
-import info.magnolia.context.MgnlContext;
-import info.magnolia.module.blossom.annotation.Paragraph;
-import info.magnolia.module.blossom.annotation.ParagraphDescription;
 import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -54,8 +53,8 @@ import java.util.List;
  * are fetched from the SalesApplicationWebService and the editor can then select which one should be
  * displayed.
  */
-@Paragraph("Book category")
-@ParagraphDescription("A list of the books for a certain category.")
+@Template("Book category")
+@TemplateDescription("A list of the books for a certain category.")
 @Controller
 public class BookCategoryParagraph {
 
