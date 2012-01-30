@@ -33,22 +33,23 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.blossom.sample.service.SalesApplicationWebService;
-import info.magnolia.module.blossom.annotation.TabFactory;
-import info.magnolia.module.blossom.annotation.Template;
-import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
+import info.magnolia.blossom.sample.service.SalesApplicationWebService;
+import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
+import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
  * Renders the contents of the shopping cart in a small summarized format.
  */
-@Template("Shopping Cart")
+@Template(value = "Shopping Cart", id = "sample:components/shoppingCart")
 @TemplateDescription("Shopping cart")
 @Controller
 public class ShoppingCartParagraph {
@@ -63,7 +64,7 @@ public class ShoppingCartParagraph {
 
         model.put("shoppingCart", shoppingCart);
 
-        return "shoppingCart";
+        return "components/shoppingCart.jsp";
     }
 
     @TabFactory("Content")

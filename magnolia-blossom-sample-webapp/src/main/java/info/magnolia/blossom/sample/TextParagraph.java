@@ -44,13 +44,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Simple paragraph for adding text to a page.
  */
 @Controller
-@Template(value="Text", id = "blossom:components/text")
+@Template(value="Text", id = "sample:components/text")
 @TemplateDescription("Simple text block")
 public class TextParagraph {
 
     @RequestMapping("/text")
     public String render() {
-        return "text";
+        return "components/text.jsp";
     }
 
     @TabFactory("Content")

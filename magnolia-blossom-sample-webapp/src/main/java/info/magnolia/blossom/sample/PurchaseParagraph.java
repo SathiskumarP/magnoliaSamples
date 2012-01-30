@@ -43,12 +43,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Displays a from where the visitor can fill in his address and so on to complete his purchase.
  */
 @Controller
-@Template("Purchase Form")
+@Template(value="Purchase Form", id="sample:components/purchase")
 public class PurchaseParagraph {
 
     @RequestMapping("/purchase")
     public String handleRequest() {
-        return "customerForm";
+        return "components/customerForm.jsp";
     }
 
     @TabFactory("Content")

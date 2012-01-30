@@ -54,14 +54,14 @@
                 <cms:contentNodeIterator contentNodeCollectionName="main">
                     <cms:includeTemplate/>
                 </cms:contentNodeIterator>
-                <cms:newBar contentNodeCollectionName="main" paragraph="blossom:components/text,book,tour,comments,shoppingCartView,purchase,contact"/>
+                <cms:newBar contentNodeCollectionName="main" paragraph="sample:components/text,sample:components/book,sample:components/tour,sample:components/comments,sample:components/shoppingCartView,sample:components/purchase,sample:components/contact"/>
             </div>
 
             <div id="rightcolumn">
                 <cms:contentNodeIterator contentNodeCollectionName="right">
                     <cms:includeTemplate/>
                 </cms:contentNodeIterator>
-                <cms:newBar contentNodeCollectionName="right" paragraph="text,shoppingCart,bookcategory"/>
+                <cms:newBar contentNodeCollectionName="right" paragraph="sample:components/text,sample:components/shoppingCart,sample:components/bookcategory"/>
             </div>
 
             <div id="copyright">Site produced in cooperation with the tourist board of Gothenburg</div>

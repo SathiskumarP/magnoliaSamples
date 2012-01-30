@@ -33,22 +33,23 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.module.blossom.annotation.TabFactory;
-import info.magnolia.module.blossom.annotation.Template;
-import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
+import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
+import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
  * Displays a contact form and a "Thank You" page after the contact form is submitted.
  */
 @Controller
-@Template("Contact Form")
+@Template(value = "Contact Form", id = "sample:components/contactForm")
 @TemplateDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
 public class ContactFormParagraph {
 
@@ -58,13 +59,14 @@ public class ContactFormParagraph {
         if ("POST".equals(request.getMethod())) {
 
             new ContactFormValidator().validate(contactForm, result);
-            if (result.hasErrors())
+            if (result.hasErrors()) {
                 return "contactForm";
+            }
 
             return "contactFormSubmitted";
         }
 
-        return "contactForm";
+        return "components/contactForm.jsp";
     }
 
     @TabFactory("Content")

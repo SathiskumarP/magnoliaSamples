@@ -33,6 +33,14 @@
  */
 package info.magnolia.blossom.sample;
 
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import info.magnolia.blossom.sample.service.Book;
 import info.magnolia.blossom.sample.service.SalesApplicationWebService;
 import info.magnolia.cms.core.Content;
@@ -40,20 +48,13 @@ import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import java.util.Collection;
-import java.util.List;
 
 /**
  * Paragraph that renders a list of the books in a configurable category. The available categories
  * are fetched from the SalesApplicationWebService and the editor can then select which one should be
  * displayed.
  */
-@Template("Book category")
+@Template(value = "Book category", id = "sample:components/book-category")
 @TemplateDescription("A list of the books for a certain category.")
 @Controller
 public class BookCategoryParagraph {
@@ -70,7 +71,7 @@ public class BookCategoryParagraph {
 
         model.put("books", books);
 
-        return "bookCategory";
+        return "components/bookCategory.jsp";
     }
 
     @TabFactory("Content")

@@ -33,23 +33,24 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.blossom.sample.service.SalesApplicationWebService;
-import info.magnolia.module.blossom.annotation.TabFactory;
-import info.magnolia.module.blossom.annotation.Template;
-import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
+import info.magnolia.blossom.sample.service.SalesApplicationWebService;
+import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
+import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
  * Lists the contents of the shopping cart in detail, with summarized total and a link to the purchase page.
  */
 @Controller
-@Template("Shopping Cart View")
+@Template(value = "Shopping Cart View", id = "sample:components/shoppingCartView")
 @TemplateDescription("List of the contents in the shopping cart")
 public class ViewShoppingCartParagraph {
 
@@ -63,7 +64,7 @@ public class ViewShoppingCartParagraph {
 
         model.put("shoppingCart", shoppingCart);
 
-        return "shoppingCartView";
+        return "components/shoppingCartView.jsp";
     }
 
     @TabFactory("Content")

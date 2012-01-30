@@ -33,6 +33,18 @@
  */
 package info.magnolia.blossom.sample;
 
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.List;
+import javax.jcr.RepositoryException;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import info.magnolia.cms.beans.config.ContentRepository;
 import info.magnolia.cms.core.Content;
 import info.magnolia.cms.core.HierarchyManager;
@@ -41,27 +53,16 @@ import info.magnolia.context.MgnlContext;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.dialog.TabBuilder;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-
-import javax.jcr.RepositoryException;
-import javax.servlet.http.HttpServletRequest;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Collection;
-import java.util.List;
 
 /**
  * A comment paragraph for letting visitors leave feedback.
- *
+ * <p/>
  * Please note that this style of persistence is not recommended. If you have multiple public instances the submitted
  * comments will only be stored on one instance. The instances will become inconsistent. The recommended strategy
  * is to persist comments either in a database or in a clustered JCR repository.
  */
 @Controller
-@Template("Comments")
+@Template(value = "Comments", id = "sample:components/comments")
 public class CommentsParagraph {
 
     @RequestMapping("/comments")
@@ -77,7 +78,7 @@ public class CommentsParagraph {
         }
 
         model.addAttribute("comments", readComments(content));
-        return "comments";
+        return "components/comments.jsp";
     }
 
     private List<Comment> readComments(Content websiteNode) throws RepositoryException {
@@ -104,10 +105,11 @@ public class CommentsParagraph {
     private void writeComment(HttpServletRequest request, Content websiteNode) throws RepositoryException {
 
         Content commentsNode;
-        if (websiteNode.hasContent("comments"))
+        if (websiteNode.hasContent("comments")) {
             commentsNode = websiteNode.getContent("comments");
-        else
+        } else {
             commentsNode = websiteNode.createContent("comments");
+        }
 
         HierarchyManager hierarchyManager = MgnlContext.getHierarchyManager(ContentRepository.WEBSITE);
         String label = Path.getUniqueLabel(hierarchyManager, commentsNode.getHandle(), "comment");

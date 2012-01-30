@@ -50,7 +50,7 @@ public class MainTemplate {
 
     @RequestMapping("/main")
     public String render(ModelMap model) {
-        return "template01.jsp";
+        return "pages/template01.jsp";
     }
 
     @DialogFactory("main-properties")
