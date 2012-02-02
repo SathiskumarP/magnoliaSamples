@@ -42,10 +42,12 @@ import org.springframework.validation.Validator;
  */
 public class ContactFormValidator implements Validator {
 
+    @Override
     public boolean supports(Class clazz) {
         return clazz.equals(ContactForm.class);
     }
 
+    @Override
     public void validate(Object target, Errors errors) {
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "required", "Name is required");
         ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required", "E-mail is required");

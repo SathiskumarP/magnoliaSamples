@@ -60,10 +60,10 @@ public class ContactFormParagraph {
 
             new ContactFormValidator().validate(contactForm, result);
             if (result.hasErrors()) {
-                return "contactForm";
+                return "components/contactForm.jsp";
             }
 
-            return "contactFormSubmitted";
+            return "components/contactFormSubmitted.jsp";
         }
 
         return "components/contactForm.jsp";

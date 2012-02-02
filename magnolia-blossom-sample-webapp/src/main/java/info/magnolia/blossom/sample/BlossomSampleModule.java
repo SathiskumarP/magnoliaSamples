@@ -42,11 +42,13 @@ import info.magnolia.module.blossom.module.BlossomModuleSupport;
  */
 public class BlossomSampleModule extends BlossomModuleSupport implements ModuleLifecycle {
 
+    @Override
     public void start(ModuleLifecycleContext moduleLifecycleContext) {
         initRootWebApplicationContext("classpath:/applicationContext.xml");
         initBlossomDispatcherServlet("blossom", "classpath:/blossom-servlet.xml");
     }
 
+    @Override
     public void stop(ModuleLifecycleContext moduleLifecycleContext) {
         destroyDispatcherServlets();
         closeRootWebApplicationContext();

@@ -77,6 +77,7 @@ public class SalesApplicationWebServiceImpl implements SalesApplicationWebServic
         tours.add(tour);
     }
 
+    @Override
     public Book getBook(String articleCode) {
         for (Book book : books) {
             if (book.getArticleCode().equals(articleCode))
@@ -85,14 +86,17 @@ public class SalesApplicationWebServiceImpl implements SalesApplicationWebServic
         return null;
     }
 
+    @Override
     public List<Book> getAllBooks() {
         return books;
     }
 
+    @Override
     public Collection<String> getBookCategories() {
         return bookCategories.keySet();
     }
 
+    @Override
     public List<Book> getBooksInCategory(String category) {
         String bookArticleCodes = bookCategories.get(category);
         if (bookArticleCodes != null) {
@@ -108,6 +112,7 @@ public class SalesApplicationWebServiceImpl implements SalesApplicationWebServic
         return null;
     }
 
+    @Override
     public Tour getTour(String articleCode) {
         for (Tour tour : tours) {
             if (tour.getArticleCode().equals(articleCode))
@@ -116,10 +121,12 @@ public class SalesApplicationWebServiceImpl implements SalesApplicationWebServic
         return null;
     }
 
+    @Override
     public List<Tour> getAllTours() {
         return tours;
     }
 
+    @Override
     public void placeOrder(Customer customer, List<Product> products) {
     }
 }

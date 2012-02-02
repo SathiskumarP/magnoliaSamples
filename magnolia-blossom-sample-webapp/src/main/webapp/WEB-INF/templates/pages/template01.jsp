@@ -54,7 +54,7 @@
                 <cms:contentNodeIterator contentNodeCollectionName="main">
                     <cms:includeTemplate/>
                 </cms:contentNodeIterator>
-                <cms:newBar contentNodeCollectionName="main" paragraph="sample:components/text,sample:components/book,sample:components/tour,sample:components/comments,sample:components/shoppingCartView,sample:components/purchase,sample:components/contact"/>
+                <cms:newBar contentNodeCollectionName="main" paragraph="sample:components/text,sample:components/book,sample:components/tour,sample:components/comments,sample:components/shoppingCartView,sample:components/purchase,sample:components/contactForm"/>
             </div>
 
             <div id="rightcolumn">
