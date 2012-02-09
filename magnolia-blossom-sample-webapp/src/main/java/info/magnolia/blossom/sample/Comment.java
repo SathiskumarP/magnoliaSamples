@@ -36,7 +36,7 @@ package info.magnolia.blossom.sample;
 import java.util.Date;
 
 /**
- * A comment as used by CommentsParagraph.
+ * A comment as used by {@link CommentsComponent}.
  */
 public class Comment {
 

@@ -55,7 +55,7 @@ import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
- * A comment paragraph for letting visitors leave feedback.
+ * A comment component for letting visitors leave feedback.
  * <p/>
  * Please note that this style of persistence is not recommended. If you have multiple public instances the submitted
  * comments will only be stored on one instance. The instances will become inconsistent. The recommended strategy
@@ -63,7 +63,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
  */
 @Controller
 @Template(value = "Comments", id = "sample:components/comments")
-public class CommentsParagraph {
+public class CommentsComponent {
 
     @RequestMapping("/comments")
     public String handleRequest(ModelMap model, HttpServletRequest request, @RequestParam("action") String action, Content content) throws RepositoryException {

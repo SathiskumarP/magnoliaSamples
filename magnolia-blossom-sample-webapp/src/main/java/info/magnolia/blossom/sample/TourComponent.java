@@ -52,12 +52,12 @@ import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
- * Paragraph that displays a description of a tour. The tour is selectable by the editor in a dialog.
+ * Component that displays a description of a tour. The tour is selectable by the editor in a dialog.
  */
 @Template(value = "Tour", id = "sample:components/tour")
 @TemplateDescription("Description of a tour")
 @Controller
-public class TourParagraph {
+public class TourComponent {
 
     @Autowired
     private SalesApplicationWebService salesApplicationWebService;

@@ -33,20 +33,43 @@
  */
 package info.magnolia.blossom.sample;
 
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import info.magnolia.blossom.sample.service.SalesApplicationWebService;
+import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
+import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
- * Displays a from where the visitor can fill in his address and so on to complete his purchase.
+ * Lists the contents of the shopping cart in detail, with summarized total and a link to the purchase page.
  */
 @Controller
-@Template(value="Purchase Form", id="sample:components/purchase")
-public class PurchaseParagraph {
+@Template(value = "Shopping Cart View", id = "sample:components/shoppingCartView")
+@TemplateDescription("List of the contents in the shopping cart")
+public class ViewShoppingCartComponent {
 
-    @RequestMapping("/purchase")
-    public String handleRequest() {
-        return "components/customerForm.jsp";
+    @Autowired
+    private SalesApplicationWebService salesApplicationWebService;
+
+    @RequestMapping("/shoppingCartView")
+    public String handleRequest(ModelMap model, HttpSession session) {
+
+        ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
+
+        model.put("shoppingCart", shoppingCart);
+
+        return "components/shoppingCartView.jsp";
+    }
+
+    @TabFactory("Content")
+    public void contentTab(TabBuilder tab) {
+        tab.addEdit("title", "Title", "");
+        tab.addUuidLink("paymentLink", "Payment Page", "The page to link to for proceeding to payment");
     }
 }

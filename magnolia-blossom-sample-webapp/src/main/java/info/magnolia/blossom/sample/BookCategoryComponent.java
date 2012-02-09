@@ -33,10 +33,8 @@
  */
 package info.magnolia.blossom.sample;
 
-import java.util.HashMap;
+import java.util.Collection;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -52,45 +50,33 @@ import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
- * Paragraph that displays information about a book. The book is selected by the editor in a dialog and
- * read from the SalesApplicationWebService at display time.
+ * Component that renders a list of the books in a configurable category. The available categories
+ * are fetched from the SalesApplicationWebService and the editor can then select which one should be
+ * displayed.
  */
-@Template(value = "Book", id = "sample:components/book")
-@TemplateDescription("Description of a book")
+@Template(value = "Book category", id = "sample:components/bookCategory")
+@TemplateDescription("A list of the books for a certain category.")
 @Controller
-public class BookParagraph {
+public class BookCategoryComponent {
 
     @Autowired
     private SalesApplicationWebService salesApplicationWebService;
 
-    @RequestMapping("/book")
-    public String handleRequest(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
+    @RequestMapping("/bookcategory")
+    public String handleRequest(ModelMap model, Content content) {
 
-        String articleCode = content.getNodeData("articleCode").getString();
+        String category = content.getNodeData("category").getString();
 
-        Book book = salesApplicationWebService.getBook(articleCode);
+        List<Book> books = salesApplicationWebService.getBooksInCategory(category);
 
-        if ("add".equals(request.getParameter("action"))) {
+        model.put("books", books);
 
-            ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
-
-            shoppingCart.addItem(book, Integer.parseInt(request.getParameter("quantity")));
-
-            return "redirect:" + request.getRequestURL();
-        }
-
-        model.put("book", book);
-
-        return "components/book.jsp";
+        return "components/bookCategory.jsp";
     }
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
-        List<Book> books = salesApplicationWebService.getAllBooks();
-        HashMap<String, String> options = new HashMap<String, String>();
-        for (Book book : books) {
-            options.put(book.getTitle(), book.getArticleCode());
-        }
-        tab.addSelect("articleCode", "Book", "", options);
+        Collection<String> categories = salesApplicationWebService.getBookCategories();
+        tab.addSelect("category", "Category", "", categories);
     }
 }

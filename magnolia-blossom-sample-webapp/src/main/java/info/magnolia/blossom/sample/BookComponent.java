@@ -33,6 +33,9 @@
  */
 package info.magnolia.blossom.sample;
 
+import java.util.HashMap;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,36 +43,54 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import info.magnolia.blossom.sample.service.Book;
 import info.magnolia.blossom.sample.service.SalesApplicationWebService;
+import info.magnolia.cms.core.Content;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
- * Lists the contents of the shopping cart in detail, with summarized total and a link to the purchase page.
+ * Component that displays information about a book. The book is selected by the editor in a dialog and
+ * read from the SalesApplicationWebService at display time.
  */
+@Template(value = "Book", id = "sample:components/book")
+@TemplateDescription("Description of a book")
 @Controller
-@Template(value = "Shopping Cart View", id = "sample:components/shoppingCartView")
-@TemplateDescription("List of the contents in the shopping cart")
-public class ViewShoppingCartParagraph {
+public class BookComponent {
 
     @Autowired
     private SalesApplicationWebService salesApplicationWebService;
 
-    @RequestMapping("/shoppingCartView")
-    public String handleRequest(ModelMap model, HttpSession session) {
+    @RequestMapping("/book")
+    public String handleRequest(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
 
-        ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
+        String articleCode = content.getNodeData("articleCode").getString();
 
-        model.put("shoppingCart", shoppingCart);
+        Book book = salesApplicationWebService.getBook(articleCode);
 
-        return "components/shoppingCartView.jsp";
+        if ("add".equals(request.getParameter("action"))) {
+
+            ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
+
+            shoppingCart.addItem(book, Integer.parseInt(request.getParameter("quantity")));
+
+            return "redirect:" + request.getRequestURL();
+        }
+
+        model.put("book", book);
+
+        return "components/book.jsp";
     }
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
-        tab.addEdit("title", "Title", "");
-        tab.addUuidLink("paymentLink", "Payment Page", "The page to link to for proceeding to payment");
+        List<Book> books = salesApplicationWebService.getAllBooks();
+        HashMap<String, String> options = new HashMap<String, String>();
+        for (Book book : books) {
+            options.put(book.getTitle(), book.getArticleCode());
+        }
+        tab.addSelect("articleCode", "Book", "", options);
     }
 }

@@ -28,7 +28,7 @@
     #menu ul li a:hover {background:#fafafa;color:#4b4b4b}
     #content {background-color:white;padding:15px;margin-bottom:20px;-moz-border-radius-bottomleft:5px;-moz-border-radius-bottomright:5px;}
 	#main { float:left; width: 625px; background-color: #ffffff;}
-	#rightcolumn { float:left; width: 200px; background-color: #ffffff;margin-left:20px;}
+	#promos { float:left; width: 200px; background-color: #ffffff;margin-left:20px;}
     #copyright {padding:20px 15px 0 15px;clear:both;text-align:center;color: #737373;}
 
 </style>
@@ -53,7 +53,7 @@
 
         <cms:area name="main" components="sample:components/text,sample:components/book,sample:components/tour,sample:components/comments,sample:components/shoppingCartView,sample:components/purchase,sample:components/contactForm" />
 
-        <cms:area name="rightColumn" />
+        <cms:area name="promos" />
 
             <div id="copyright">Site produced in cooperation with the tourist board of Gothenburg</div>
 

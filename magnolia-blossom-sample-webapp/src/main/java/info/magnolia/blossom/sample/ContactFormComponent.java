@@ -33,43 +33,37 @@
  */
 package info.magnolia.blossom.sample;
 
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import info.magnolia.blossom.sample.service.SalesApplicationWebService;
-import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
- * Renders the contents of the shopping cart in a small summarized format.
+ * Displays a contact form and a "Thank You" page after the contact form is submitted.
  */
-@Template(value = "Shopping Cart", id = "sample:components/shoppingCart")
-@TemplateDescription("Shopping cart")
 @Controller
-public class ShoppingCartParagraph {
+@Template(value = "Contact Form", id = "sample:components/contactForm")
+@TemplateDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
+public class ContactFormComponent {
 
-    @Autowired
-    private SalesApplicationWebService salesApplicationWebService;
+    @RequestMapping("/contact")
+    public String handleRequest(@ModelAttribute ContactForm contactForm, BindingResult result, HttpServletRequest request) {
 
-    @RequestMapping("/shoppingCart")
-    public String handleRequest(ModelMap model, HttpSession session) {
+        if ("POST".equals(request.getMethod())) {
 
-        ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
+            new ContactFormValidator().validate(contactForm, result);
+            if (result.hasErrors()) {
+                return "components/contactForm.jsp";
+            }
 
-        model.put("shoppingCart", shoppingCart);
+            return "components/contactFormSubmitted.jsp";
+        }
 
-        return "components/shoppingCart.jsp";
-    }
-
-    @TabFactory("Content")
-    public void contentTab(TabBuilder tab) {
-        tab.addCheckbox("inheritable", "Inheritance", "Check this box to have this component inherited in sub-pages");
-        tab.addUuidLink("checkoutLink", "Checkout Page", "The page to link to for checkout");
+        return "components/contactForm.jsp";
     }
 }

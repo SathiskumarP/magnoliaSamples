@@ -60,27 +60,27 @@ public class MainTemplate {
             tab.addEdit("qwe", "Area", "Area");
         }
 
-        @RequestMapping("/templateWithAreas/main")
+        @RequestMapping("/mainTemplate/main")
         public String render() {
             return "areas/main.jsp";
         }
     }
 
     @Controller
-    @Area(value = "rightColumn", title = "Right Column", optional = TernaryBoolean.TRUE)
+    @Area(value = "promos", title = "Promos", optional = TernaryBoolean.TRUE)
 //    @Inherits
     @AvailableComponents({"sample:components/text", "sample:components/shoppingCart", "sample:components/bookCategory"})
-    public static class RightColumn {
+    public static class PromosArea {
 
-        @RequestMapping("/templateWithAreas/right")
+        @RequestMapping("/mainTemplate/promos")
         public String render() {
-            return "areas/rightColumn.jsp";
+            return "areas/promos.jsp";
         }
     }
 
-    @RequestMapping("/main")
+    @RequestMapping("/mainTemplate")
     public String render(ModelMap model) {
-        return "pages/template01.jsp";
+        return "pages/main.jsp";
     }
 
     @TabFactory("Content")

@@ -33,37 +33,20 @@
  */
 package info.magnolia.blossom.sample;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import info.magnolia.module.blossom.annotation.Template;
-import info.magnolia.module.blossom.annotation.TemplateDescription;
 
 /**
- * Displays a contact form and a "Thank You" page after the contact form is submitted.
+ * Displays a from where the visitor can fill in his address and so on to complete his purchase.
  */
 @Controller
-@Template(value = "Contact Form", id = "sample:components/contactForm")
-@TemplateDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
-public class ContactFormParagraph {
+@Template(value="Purchase Form", id="sample:components/purchase")
+public class PurchaseComponent {
 
-    @RequestMapping("/contact")
-    public String handleRequest(@ModelAttribute ContactForm contactForm, BindingResult result, HttpServletRequest request) {
-
-        if ("POST".equals(request.getMethod())) {
-
-            new ContactFormValidator().validate(contactForm, result);
-            if (result.hasErrors()) {
-                return "components/contactForm.jsp";
-            }
-
-            return "components/contactFormSubmitted.jsp";
-        }
-
-        return "components/contactForm.jsp";
+    @RequestMapping("/purchase")
+    public String handleRequest() {
+        return "components/customerForm.jsp";
     }
 }
