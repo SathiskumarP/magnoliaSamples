@@ -186,6 +186,10 @@ Number of occurrences: %o%n
     <priority value="WARN" />
   </category>
 
+  <category name="info.magnolia.module.blossom">
+    <priority value="ALL" />
+  </category>
+
   <root>
     <priority value="ALL" />
     <appender-ref ref="log-error" />

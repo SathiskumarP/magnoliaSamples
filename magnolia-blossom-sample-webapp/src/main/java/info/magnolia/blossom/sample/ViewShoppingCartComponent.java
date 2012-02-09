@@ -50,7 +50,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
  * Lists the contents of the shopping cart in detail, with summarized total and a link to the purchase page.
  */
 @Controller
-@Template(value = "Shopping Cart View", id = "sample:components/shoppingCartView")
+@Template(value = "Shopping Cart View", id = "blossomSample:components/shoppingCartView")
 @TemplateDescription("List of the contents in the shopping cart")
 public class ViewShoppingCartComponent {
 

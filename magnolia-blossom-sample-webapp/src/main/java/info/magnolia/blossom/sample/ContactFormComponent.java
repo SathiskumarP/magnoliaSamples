@@ -47,7 +47,7 @@ import info.magnolia.module.blossom.annotation.TemplateDescription;
  * Displays a contact form and a "Thank You" page after the contact form is submitted.
  */
 @Controller
-@Template(value = "Contact Form", id = "sample:components/contactForm")
+@Template(value = "Contact Form", id = "blossomSample:components/contactForm")
 @TemplateDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
 public class ContactFormComponent {
 

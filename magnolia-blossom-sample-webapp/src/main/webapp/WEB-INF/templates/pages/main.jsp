@@ -51,7 +51,7 @@
 
         <div id="content">
 
-        <cms:area name="main" components="sample:components/text,sample:components/book,sample:components/tour,sample:components/comments,sample:components/shoppingCartView,sample:components/purchase,sample:components/contactForm" />
+        <cms:area name="main" components="blossomSample:components/text,blossomSample:components/book,blossomSample:components/tour,blossomSample:components/comments,blossomSample:components/shoppingCartView,blossomSample:components/purchase,blossomSample:components/contactForm" />
 
         <cms:area name="promos" />
 

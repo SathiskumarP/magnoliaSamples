@@ -62,7 +62,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
  * is to persist comments either in a database or in a clustered JCR repository.
  */
 @Controller
-@Template(value = "Comments", id = "sample:components/comments")
+@Template(value = "Comments", id = "blossomSample:components/comments")
 public class CommentsComponent {
 
     @RequestMapping("/comments")

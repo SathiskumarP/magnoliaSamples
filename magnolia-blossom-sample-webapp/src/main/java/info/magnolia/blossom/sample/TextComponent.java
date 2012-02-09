@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Simple component for adding text to a page.
  */
 @Controller
-@Template(value="Text", id = "sample:components/text")
+@Template(value="Text", id = "blossomSample:components/text")
 @TemplateDescription("Simple text block")
 public class TextComponent {
 

@@ -55,7 +55,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
  * Component that displays information about a book. The book is selected by the editor in a dialog and
  * read from the SalesApplicationWebService at display time.
  */
-@Template(value = "Book", id = "sample:components/book")
+@Template(value = "Book", id = "blossomSample:components/book")
 @TemplateDescription("Description of a book")
 @Controller
 public class BookComponent {

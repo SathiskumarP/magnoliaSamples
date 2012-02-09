@@ -69,7 +69,7 @@ public class MainTemplate {
     @Controller
     @Area(value = "promos", title = "Promos", optional = TernaryBoolean.TRUE)
 //    @Inherits
-    @AvailableComponents({"sample:components/text", "sample:components/shoppingCart", "sample:components/bookCategory"})
+    @AvailableComponents({"blossomSample:components/text", "blossomSample:components/shoppingCart", "blossomSample:components/bookCategory"})
     public static class PromosArea {
 
         @RequestMapping("/mainTemplate/promos")
