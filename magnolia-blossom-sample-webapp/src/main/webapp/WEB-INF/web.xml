@@ -18,9 +18,6 @@
     <dispatcher>ERROR</dispatcher>
   </filter-mapping>
   <listener>
-    <listener-class>info.magnolia.module.blossom.support.ServletContextExposingContextListener</listener-class>
-  </listener>
-  <listener>
     <listener-class>info.magnolia.init.MagnoliaServletContextListener</listener-class>
   </listener>
   <!-- These are the default paths searched for magnolia configuration. Uncomment if you need to customize these.

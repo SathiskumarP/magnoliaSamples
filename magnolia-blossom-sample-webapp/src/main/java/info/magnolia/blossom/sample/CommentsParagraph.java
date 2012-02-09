@@ -131,10 +131,4 @@ public class CommentsParagraph {
             websiteNode.save();
         }
     }
-
-    @TabFactory("Content")
-    public void contentTab(TabBuilder tab) {
-        tab.addStatic("This paragraph requires no configuration");
-        tab.addHidden("bogus", "bogus");
-    }
 }

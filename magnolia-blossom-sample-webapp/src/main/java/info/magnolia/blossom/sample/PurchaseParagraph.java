@@ -33,11 +33,10 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.module.blossom.annotation.TabFactory;
-import info.magnolia.module.blossom.annotation.Template;
-import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import info.magnolia.module.blossom.annotation.Template;
 
 /**
  * Displays a from where the visitor can fill in his address and so on to complete his purchase.
@@ -49,11 +48,5 @@ public class PurchaseParagraph {
     @RequestMapping("/purchase")
     public String handleRequest() {
         return "components/customerForm.jsp";
-    }
-
-    @TabFactory("Content")
-    public void contentTab(TabBuilder tab) {
-        tab.addStatic("This paragraph requires no configuration");
-        tab.addHidden("bogus", "bogus");
     }
 }

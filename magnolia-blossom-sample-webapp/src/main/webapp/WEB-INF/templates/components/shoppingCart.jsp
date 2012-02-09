@@ -2,7 +2,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@ taglib uri="cms-taglib" prefix="cms" %>
 <%@ taglib uri="blossom-taglib" prefix="blossom" %>
-<cms:editBar />
 
 <div style="padding:5px;border: 1px solid lightgray;-moz-border-radius:4px;margin-bottom:10px;">
     <span style="display:block;font-size:20px;border-bottom:1px solid;margin-bottom:3px;">Shopping Cart</span>

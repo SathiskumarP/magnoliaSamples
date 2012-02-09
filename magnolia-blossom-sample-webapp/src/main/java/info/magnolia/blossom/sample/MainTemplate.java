@@ -33,29 +33,58 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.module.blossom.annotation.DialogFactory;
-import info.magnolia.module.blossom.annotation.Template;
-import info.magnolia.module.blossom.dialog.DialogBuilder;
-import info.magnolia.module.blossom.dialog.TabBuilder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import info.magnolia.module.blossom.annotation.Area;
+import info.magnolia.module.blossom.annotation.AvailableComponents;
+import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TernaryBoolean;
+import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
  * Template with two columns, a main content area and a right side column.
  */
 @Controller
-@Template(value = "Two Columns", id ="blossom:pages/main")
+@Template(value = "Two Columns", id = "blossom:pages/main")
 public class MainTemplate {
+
+    @Area("main")
+    @Controller
+    public static class MainArea {
+
+        @TabFactory("Content")
+        public void apa(TabBuilder tab) {
+            tab.addEdit("qwe", "Area", "Area");
+        }
+
+        @RequestMapping("/templateWithAreas/main")
+        public String render() {
+            return "areas/main.jsp";
+        }
+    }
+
+    @Controller
+    @Area(value = "rightColumn", title = "Right Column", optional = TernaryBoolean.TRUE)
+//    @Inherits
+    @AvailableComponents({"sample:components/text", "sample:components/shoppingCart", "sample:components/bookCategory"})
+    public static class RightColumn {
+
+        @RequestMapping("/templateWithAreas/right")
+        public String render() {
+            return "areas/rightColumn.jsp";
+        }
+    }
 
     @RequestMapping("/main")
     public String render(ModelMap model) {
         return "pages/template01.jsp";
     }
 
-    @DialogFactory("main-properties")
-    public void propertiesDialog(DialogBuilder builder) {
-        TabBuilder settings = builder.addTab("Content");
-        settings.addEdit("title", "Title", "");
+    @TabFactory("Content")
+    public void propertiesDialog(TabBuilder tab) {
+        tab.addEdit("title", "Title", "");
     }
 }

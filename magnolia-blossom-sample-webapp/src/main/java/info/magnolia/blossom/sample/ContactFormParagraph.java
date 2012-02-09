@@ -40,10 +40,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
  * Displays a contact form and a "Thank You" page after the contact form is submitted.
@@ -67,11 +65,5 @@ public class ContactFormParagraph {
         }
 
         return "components/contactForm.jsp";
-    }
-
-    @TabFactory("Content")
-    public void contentTab(TabBuilder tab) {
-        tab.addStatic("This paragraph requires no configuration");
-        tab.addHidden("bogus", "bogus");
     }
 }

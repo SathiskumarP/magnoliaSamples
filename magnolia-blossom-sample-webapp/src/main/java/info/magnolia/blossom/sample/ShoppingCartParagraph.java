@@ -69,6 +69,7 @@ public class ShoppingCartParagraph {
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
+        tab.addCheckbox("inheritable", "Inheritance", "Check this box to have this component inherited in sub-pages");
         tab.addUuidLink("checkoutLink", "Checkout Page", "The page to link to for checkout");
     }
 }

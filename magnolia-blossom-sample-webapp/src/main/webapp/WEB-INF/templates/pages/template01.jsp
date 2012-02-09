@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="cms-taglib" prefix="cms" %>
+<%@ taglib uri="http://magnolia-cms.com/taglib/templating-components/cms" prefix="cms" %>
+<%@ taglib uri="cms-taglib" prefix="cmsold" %>
 <%@ taglib uri="blossom-taglib" prefix="blossom" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
@@ -31,16 +32,16 @@
     #copyright {padding:20px 15px 0 15px;clear:both;text-align:center;color: #737373;}
 
 </style>
+    <cms:init />
 </head>
 <body>
-	<cms:mainBar adminButtonVisible="true" dialog="main-properties" label="Properties" />
 
     <div id="container">
 
         <div id="logo">Visit Gothenburg</div>
 
         <div id="menu">
-            <cms:setNode var="sections" path="/sections" />
+            <cmsold:setNode var="sections" path="/sections" />
             <ul>
             <c:forEach items="${sections.children}" var="section">
                 <li><a href="${pageContext.request.contextPath}${section.handle}.html">${section.title}</a></li>
@@ -50,19 +51,9 @@
 
         <div id="content">
 
-            <div id="main">
-                <cms:contentNodeIterator contentNodeCollectionName="main">
-                    <cms:includeTemplate/>
-                </cms:contentNodeIterator>
-                <cms:newBar contentNodeCollectionName="main" paragraph="sample:components/text,sample:components/book,sample:components/tour,sample:components/comments,sample:components/shoppingCartView,sample:components/purchase,sample:components/contactForm"/>
-            </div>
+        <cms:area name="main" components="sample:components/text,sample:components/book,sample:components/tour,sample:components/comments,sample:components/shoppingCartView,sample:components/purchase,sample:components/contactForm" />
 
-            <div id="rightcolumn">
-                <cms:contentNodeIterator contentNodeCollectionName="right">
-                    <cms:includeTemplate/>
-                </cms:contentNodeIterator>
-                <cms:newBar contentNodeCollectionName="right" paragraph="sample:components/text,sample:components/shoppingCart,sample:components/bookcategory"/>
-            </div>
+        <cms:area name="rightColumn" />
 
             <div id="copyright">Site produced in cooperation with the tourist board of Gothenburg</div>
 
