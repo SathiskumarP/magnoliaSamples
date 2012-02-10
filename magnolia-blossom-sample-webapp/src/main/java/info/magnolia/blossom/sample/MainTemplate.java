@@ -39,6 +39,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import info.magnolia.module.blossom.annotation.Area;
 import info.magnolia.module.blossom.annotation.AvailableComponents;
+import info.magnolia.module.blossom.annotation.Inherits;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TernaryBoolean;
@@ -48,7 +49,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
  * Template with two columns, a main content area and a right side column.
  */
 @Controller
-@Template(value = "Two Columns", id = "blossom:pages/main")
+@Template(value = "Two Columns", id = "blossomSample:pages/main")
 public class MainTemplate {
 
     @Area("main")
@@ -68,7 +69,7 @@ public class MainTemplate {
 
     @Controller
     @Area(value = "promos", title = "Promos", optional = TernaryBoolean.TRUE)
-//    @Inherits
+    @Inherits
     @AvailableComponents({"blossomSample:components/text", "blossomSample:components/shoppingCart", "blossomSample:components/bookCategory"})
     public static class PromosArea {
 
