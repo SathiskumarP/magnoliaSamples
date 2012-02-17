@@ -1,7 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="blossom-taglib" prefix="blossom" %>
-<%@ taglib uri="cms-taglib" prefix="cmsold" %>
+<%@ include file="/WEB-INF/templates/includes/taglibs.jsp"%>
 
 <h1>${content.title}</h1>
 <c:if test="${shoppingCart.numberOfItems eq 0}">

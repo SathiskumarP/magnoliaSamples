@@ -1,8 +1,5 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="cms-taglib" prefix="cms" %>
-<%@ taglib uri="blossom-taglib" prefix="blossom" %>
+<%@ include file="/WEB-INF/templates/includes/taglibs.jsp"%>
 
-<h1><cms:out nodeDataName="title" /></h1>
+<h1><cmsold:out nodeDataName="title" /></h1>
 
-<p><cms:out nodeDataName="body" /></p>
+<p><cmsold:out nodeDataName="body" /></p>

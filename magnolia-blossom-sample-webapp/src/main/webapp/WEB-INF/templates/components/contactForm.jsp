@@ -1,7 +1,4 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
-<%@ taglib uri="blossom-taglib" prefix="blossom" %>
-<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+<%@ include file="/WEB-INF/templates/includes/taglibs.jsp"%>
 
 <style type="text/css">
     .textinput {margin-bottom:8px;}

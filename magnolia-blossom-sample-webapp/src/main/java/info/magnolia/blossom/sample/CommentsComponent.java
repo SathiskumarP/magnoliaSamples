@@ -50,9 +50,7 @@ import info.magnolia.cms.core.Content;
 import info.magnolia.cms.core.HierarchyManager;
 import info.magnolia.cms.core.Path;
 import info.magnolia.context.MgnlContext;
-import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
-import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
  * A comment component for letting visitors leave feedback.

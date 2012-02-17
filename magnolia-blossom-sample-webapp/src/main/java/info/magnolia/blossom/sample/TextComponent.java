@@ -33,18 +33,19 @@
  */
 package info.magnolia.blossom.sample;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Simple component for adding text to a page.
  */
 @Controller
-@Template(value="Text", id = "blossomSample:components/text")
+@Template(value = "Text", id = "blossomSample:components/text")
 @TemplateDescription("Simple text block")
 public class TextComponent {
 

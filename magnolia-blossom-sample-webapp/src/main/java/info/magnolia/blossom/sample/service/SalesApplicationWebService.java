@@ -54,5 +54,5 @@ public interface SalesApplicationWebService {
 
     List<Tour> getAllTours();
 
-    void placeOrder(Customer customer, List<Product> products);
+    void placeOrder(Order order);
 }

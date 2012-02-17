@@ -33,12 +33,12 @@
  */
 package info.magnolia.blossom.sample;
 
-import info.magnolia.blossom.sample.service.Product;
-
-import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpSession;
+
+import info.magnolia.blossom.sample.service.Product;
 
 /**
  * The shopping cart is held in session.
@@ -73,6 +73,10 @@ public class ShoppingCart implements Serializable {
             totalItems += item.getQuantity();
         }
         return totalItems;
+    }
+
+    public void clear() {
+        items.clear();
     }
 
     public static ShoppingCart getShoppingCart(HttpSession session) {

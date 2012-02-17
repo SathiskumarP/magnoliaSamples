@@ -33,11 +33,9 @@
  */
 package info.magnolia.blossom.sample;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import javax.jcr.Node;
-import javax.jcr.NodeIterator;
 import javax.jcr.RepositoryException;
 
 import org.springframework.stereotype.Controller;
@@ -94,7 +92,7 @@ public class MainTemplate {
     @RequestMapping("/mainTemplate")
     public String render(Node page, ModelMap model) throws RepositoryException {
 
-        Map<String, String> navigation = new LinkedHashMap<String, String> ();
+        Map<String, String> navigation = new LinkedHashMap<String, String>();
         for (Node node : NodeUtil.getNodes(page.getSession().getNode("/home"), MgnlNodeType.NT_PAGE)) {
             if (!PropertyUtil.getBoolean(node, "hideInNavigation", false)) {
                 navigation.put(node.getPath(), PropertyUtil.getString(node, "title", ""));

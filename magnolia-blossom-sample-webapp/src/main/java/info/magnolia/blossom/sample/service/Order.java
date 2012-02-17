@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2011 Magnolia International
+ * This file Copyright (c) 2012 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,22 +31,25 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample;
+package info.magnolia.blossom.sample.service;
 
-import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
-import info.magnolia.module.blossom.annotation.VirtualURIMapper;
+public class Order {
 
-/**
- * URIMapper that maps /about to /sections/about
- */
-@VirtualURIMapper
-public class SampleURIMapper {
+    private Customer customer;
+    private List<OrderRow> rows;
 
-    public String mapper(String uri, HttpServletRequest request) {
-        if (uri.equals("/about")) {
-            return "/sections/about";
-        }
-        return null;
+    public Order(Customer customer, List<OrderRow> rows) {
+        this.customer = customer;
+        this.rows = rows;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public List<OrderRow> getRows() {
+        return rows;
     }
 }

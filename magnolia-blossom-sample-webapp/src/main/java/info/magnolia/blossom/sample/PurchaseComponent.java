@@ -33,20 +33,50 @@
  */
 package info.magnolia.blossom.sample;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import info.magnolia.blossom.sample.service.Customer;
+import info.magnolia.blossom.sample.service.Order;
+import info.magnolia.blossom.sample.service.OrderRow;
+import info.magnolia.blossom.sample.service.SalesApplicationWebService;
 import info.magnolia.module.blossom.annotation.Template;
 
 /**
  * Displays a from where the visitor can fill in his address and so on to complete his purchase.
  */
 @Controller
-@Template(value="Purchase Form", id="blossomSample:components/purchase")
+@Template(value = "Purchase Form", id = "blossomSample:components/purchase")
 public class PurchaseComponent {
 
+    @Autowired
+    private SalesApplicationWebService salesApplicationWebService;
+
     @RequestMapping("/purchase")
-    public String handleRequest() {
-        return "components/customerForm.jsp";
+    public String handleRequest(@ModelAttribute Customer customer, HttpServletRequest request, HttpSession session) {
+        if ("POST".equals(request.getMethod())) {
+
+            ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
+
+            List<OrderRow> rows = new ArrayList<OrderRow>();
+            for (ShoppingCartItem cartItem : shoppingCart.getItems()) {
+                rows.add(new OrderRow(cartItem.getProduct().getArticleCode(), cartItem.getQuantity()));
+            }
+            Order order = new Order(customer, rows);
+
+            salesApplicationWebService.placeOrder(order);
+
+            shoppingCart.clear();
+
+            return "components/purchaseFormSubmitted.jsp";
+        }
+        return "components/purchaseForm.jsp";
     }
 }

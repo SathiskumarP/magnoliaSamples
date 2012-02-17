@@ -1,5 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="cms" uri="http://magnolia-cms.com/taglib/templating-components/cms"%>
+<%@ include file="/WEB-INF/templates/includes/taglibs.jsp"%>
 
 <div id="main">
     <c:forEach items="${components}" var="component">

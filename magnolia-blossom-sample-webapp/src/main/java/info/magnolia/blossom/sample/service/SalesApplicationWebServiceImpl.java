@@ -80,8 +80,9 @@ public class SalesApplicationWebServiceImpl implements SalesApplicationWebServic
     @Override
     public Book getBook(String articleCode) {
         for (Book book : books) {
-            if (book.getArticleCode().equals(articleCode))
+            if (book.getArticleCode().equals(articleCode)) {
                 return book;
+            }
         }
         return null;
     }
@@ -103,8 +104,9 @@ public class SalesApplicationWebServiceImpl implements SalesApplicationWebServic
             List<Book> booksInCategory = new ArrayList<Book>();
             for (String articleCode : bookArticleCodes.split(",")) {
                 for (Book book : books) {
-                    if (book.getArticleCode().equals(articleCode))
+                    if (book.getArticleCode().equals(articleCode)) {
                         booksInCategory.add(book);
+                    }
                 }
             }
             return booksInCategory;
@@ -115,8 +117,9 @@ public class SalesApplicationWebServiceImpl implements SalesApplicationWebServic
     @Override
     public Tour getTour(String articleCode) {
         for (Tour tour : tours) {
-            if (tour.getArticleCode().equals(articleCode))
+            if (tour.getArticleCode().equals(articleCode)) {
                 return tour;
+            }
         }
         return null;
     }
@@ -127,6 +130,11 @@ public class SalesApplicationWebServiceImpl implements SalesApplicationWebServic
     }
 
     @Override
-    public void placeOrder(Customer customer, List<Product> products) {
+    public void placeOrder(Order order) {
+        System.out.println("Order placed by customer (" + order.getCustomer().getFirstName() + " " + order.getCustomer().getLastName() + ")");
+        System.out.println("  for articles:");
+        for (OrderRow row : order.getRows()) {
+            System.out.println("    " + row.getArticleCode() + "\t " + row.getQuantity() + " unit(s).");
+        }
     }
 }
