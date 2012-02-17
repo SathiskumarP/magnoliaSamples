@@ -41,10 +41,9 @@
         <div id="logo">Visit Gothenburg</div>
 
         <div id="menu">
-            <cmsold:setNode var="sections" path="/sections" />
             <ul>
-            <c:forEach items="${sections.children}" var="section">
-                <li><a href="${pageContext.request.contextPath}${section.handle}.html">${section.title}</a></li>
+            <c:forEach items="${navigation}" var="navigationEntry">
+                <li><a href="${pageContext.request.contextPath}${navigationEntry.key}.html">${navigationEntry.value}</a></li>
             </c:forEach>
             </ul>
         </div>

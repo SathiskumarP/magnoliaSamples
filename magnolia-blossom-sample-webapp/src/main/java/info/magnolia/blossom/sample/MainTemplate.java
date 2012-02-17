@@ -33,11 +33,22 @@
  */
 package info.magnolia.blossom.sample;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import javax.jcr.Node;
+import javax.jcr.NodeIterator;
+import javax.jcr.RepositoryException;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import info.magnolia.cms.core.MgnlNodeType;
+import info.magnolia.jcr.util.NodeUtil;
+import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.module.blossom.annotation.Area;
+import info.magnolia.module.blossom.annotation.AvailableComponentClasses;
 import info.magnolia.module.blossom.annotation.AvailableComponents;
 import info.magnolia.module.blossom.annotation.Inherits;
 import info.magnolia.module.blossom.annotation.TabFactory;
@@ -70,7 +81,8 @@ public class MainTemplate {
     @Controller
     @Area(value = "promos", title = "Promos", optional = TernaryBoolean.TRUE)
     @Inherits
-    @AvailableComponents({"blossomSample:components/text", "blossomSample:components/shoppingCart", "blossomSample:components/bookCategory"})
+    @AvailableComponents({"blossomSample:components/shoppingCart", "blossomSample:components/bookCategory"})
+    @AvailableComponentClasses({TextComponent.class})
     public static class PromosArea {
 
         @RequestMapping("/mainTemplate/promos")
@@ -80,12 +92,22 @@ public class MainTemplate {
     }
 
     @RequestMapping("/mainTemplate")
-    public String render(ModelMap model) {
+    public String render(Node page, ModelMap model) throws RepositoryException {
+
+        Map<String, String> navigation = new LinkedHashMap<String, String> ();
+        for (Node node : NodeUtil.getNodes(page.getSession().getNode("/home"), MgnlNodeType.NT_PAGE)) {
+            if (!PropertyUtil.getBoolean(node, "hideInNavigation", false)) {
+                navigation.put(node.getPath(), PropertyUtil.getString(node, "title", ""));
+            }
+        }
+        model.put("navigation", navigation);
+
         return "pages/main.jsp";
     }
 
     @TabFactory("Content")
     public void propertiesDialog(TabBuilder tab) {
         tab.addEdit("title", "Title", "");
+        tab.addCheckbox("hideInNavigation", "Hide in navigation", "Check this box to hide this page in navigation");
     }
 }
