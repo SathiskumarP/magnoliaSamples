@@ -49,7 +49,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
 /**
  * Renders the contents of the shopping cart in a small summarized format.
  */
-@Template(value = "Shopping Cart", id = "blossomSample:components/shoppingCart")
+@Template(title = "Shopping Cart", id = "blossomSample:components/shoppingCart")
 @TemplateDescription("Shopping cart")
 @Controller
 public class ShoppingCartComponent {

@@ -53,7 +53,7 @@ import info.magnolia.module.blossom.annotation.Template;
  * Displays a from where the visitor can fill in his address and so on to complete his purchase.
  */
 @Controller
-@Template(value = "Purchase Form", id = "blossomSample:components/purchase")
+@Template(title = "Purchase Form", id = "blossomSample:components/purchase")
 public class PurchaseComponent {
 
     @Autowired

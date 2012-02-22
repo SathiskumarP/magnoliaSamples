@@ -58,7 +58,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
  * Template with two columns, a main content area and a right side column.
  */
 @Controller
-@Template(value = "Two Columns", id = "blossomSample:pages/main")
+@Template(title = "Two Columns", id = "blossomSample:pages/main")
 public class MainTemplate {
 
     @Area("main")

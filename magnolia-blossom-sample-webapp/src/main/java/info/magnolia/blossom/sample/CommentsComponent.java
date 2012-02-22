@@ -60,7 +60,7 @@ import info.magnolia.module.blossom.annotation.Template;
  * is to persist comments either in a database or in a clustered JCR repository.
  */
 @Controller
-@Template(value = "Comments", id = "blossomSample:components/comments")
+@Template(title = "Comments", id = "blossomSample:components/comments")
 public class CommentsComponent {
 
     @RequestMapping("/comments")

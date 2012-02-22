@@ -54,7 +54,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
 /**
  * Component that displays a description of a tour. The tour is selectable by the editor in a dialog.
  */
-@Template(value = "Tour", id = "blossomSample:components/tour")
+@Template(title = "Tour", id = "blossomSample:components/tour")
 @TemplateDescription("Description of a tour")
 @Controller
 public class TourComponent {

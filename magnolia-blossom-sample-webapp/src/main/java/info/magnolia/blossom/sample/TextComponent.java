@@ -45,7 +45,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
  * Simple component for adding text to a page.
  */
 @Controller
-@Template(value = "Text", id = "blossomSample:components/text")
+@Template(title = "Text", id = "blossomSample:components/text")
 @TemplateDescription("Simple text block")
 public class TextComponent {
 

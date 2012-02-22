@@ -54,7 +54,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
  * are fetched from the SalesApplicationWebService and the editor can then select which one should be
  * displayed.
  */
-@Template(value = "Book category", id = "blossomSample:components/bookCategory")
+@Template(title = "Book category", id = "blossomSample:components/bookCategory")
 @TemplateDescription("A list of the books for a certain category.")
 @Controller
 public class BookCategoryComponent {
