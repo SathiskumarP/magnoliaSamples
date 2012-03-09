@@ -8,7 +8,7 @@
   <name>magnolia-blossom-sample-webapp</name>
   <properties>
     <javaVersion>1.6</javaVersion>
-    <magnoliaVersion>4.5-SNAPSHOT</magnoliaVersion>
+    <magnoliaVersion>4.5</magnoliaVersion>
     <springVersion>3.0.5.RELEASE</springVersion>
     <blossomVersion>2.0-SNAPSHOT</blossomVersion>
   </properties>
