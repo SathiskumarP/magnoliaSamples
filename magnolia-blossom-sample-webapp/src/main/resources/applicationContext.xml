@@ -4,7 +4,7 @@
 	   xmlns:blossom="http://www.magnolia-cms.com/schema/blossom"
 	   xsi:schemaLocation="
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
-		http://www.magnolia-cms.com/schema/blossom http://www.magnolia-cms.com/schema/blossom-1.2.xsd">
+		http://www.magnolia-cms.com/schema/blossom http://www.magnolia-cms.com/schema/blossom-2.0.xsd">
 
   <bean class="info.magnolia.blossom.sample.service.SalesApplicationWebServiceImpl" />
 
