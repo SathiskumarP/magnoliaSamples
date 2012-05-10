@@ -1,0 +1,36 @@
+
+# /magnolia-blossom-sample-module/
+/magnolia-blossom-sample-module/target
+/magnolia-blossom-sample-module/*.iml
+/magnolia-blossom-sample-module/*.ipr
+/magnolia-blossom-sample-module/*.iws
+/magnolia-blossom-sample-module/*.log
+/magnolia-blossom-sample-module/.idea
+/magnolia-blossom-sample-module/.project
+/magnolia-blossom-sample-module/.classpath
+/magnolia-blossom-sample-module/.settings
+/magnolia-blossom-sample-module/.checkstyle
+
+# /magnolia-blossom-sample-webapp/
+/magnolia-blossom-sample-webapp/target
+/magnolia-blossom-sample-webapp/*.iml
+/magnolia-blossom-sample-webapp/*.ipr
+/magnolia-blossom-sample-webapp/*.iws
+/magnolia-blossom-sample-webapp/*.log
+/magnolia-blossom-sample-webapp/.idea
+/magnolia-blossom-sample-webapp/.project
+/magnolia-blossom-sample-webapp/.classpath
+/magnolia-blossom-sample-webapp/.settings
+/magnolia-blossom-sample-webapp/.checkstyle
+
+# /magnolia-blossom-sample-webflow/
+/magnolia-blossom-sample-webflow/target
+/magnolia-blossom-sample-webflow/*.iml
+/magnolia-blossom-sample-webflow/*.ipr
+/magnolia-blossom-sample-webflow/*.iws
+/magnolia-blossom-sample-webflow/*.log
+/magnolia-blossom-sample-webflow/.idea
+/magnolia-blossom-sample-webflow/.project
+/magnolia-blossom-sample-webflow/.classpath
+/magnolia-blossom-sample-webflow/.settings
+/magnolia-blossom-sample-webflow/.checkstyle
