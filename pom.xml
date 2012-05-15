@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>info.magnolia</groupId>
+  <parent>
+     <groupId>info.magnolia</groupId>
+     <artifactId>magnolia-parent-pom-community-module</artifactId>
+     <version>23</version>
+  </parent>
   <artifactId>magnolia-blossom-samples</artifactId>
   <packaging>pom</packaging>
   <name>magnolia-blossom-samples</name>
   <version>2.0-SNAPSHOT</version>
   <scm>
-    <connection>scm:svn:http://svn.magnolia-cms.com/svn/community/modules/blossom/samples/branches/magnolia-blossom-samples-1.2</connection>
-    <developerConnection>scm:svn:http://svn.magnolia-cms.com/svn/community/modules/blossom/samples/branches/magnolia-blossom-samples-1.2</developerConnection>
-    <url>http://svn.magnolia-cms.com/view/community/modules/blossom/samples/branches/magnolia-blossom-samples-1.2</url>
+    <connection>scm:git:http://git.magnolia-cms.com/modules/blossom/samples</connection>
+    <developerConnection>scm:git:https://git.magnolia-cms.com/modules/blossom/samples</developerConnection>
+    <url>https://git.magnolia-cms.com/gitweb/?p=modules/blossom/samples.git</url>
   </scm>
   <modules>
 <!--
