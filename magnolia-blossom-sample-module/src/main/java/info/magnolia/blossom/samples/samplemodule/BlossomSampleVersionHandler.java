@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2011 Magnolia International
+ * This file Copyright (c) 2012 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,24 +31,24 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample;
+package info.magnolia.blossom.samples.samplemodule;
 
-import info.magnolia.module.ModuleLifecycle;
-import info.magnolia.module.ModuleLifecycleContext;
-import info.magnolia.module.blossom.module.BlossomModuleSupport;
+import java.util.ArrayList;
+import java.util.List;
+
+import info.magnolia.module.DefaultModuleVersionHandler;
+import info.magnolia.module.InstallContext;
+import info.magnolia.module.delta.Task;
 
 /**
- * Module class that starts and stops Spring when called by Magnolia.
+ * VersionHandler for the module.
  */
-public class BlossomSampleModule extends BlossomModuleSupport implements ModuleLifecycle {
+public class BlossomSampleVersionHandler extends DefaultModuleVersionHandler {
 
-    public void start(ModuleLifecycleContext moduleLifecycleContext) {
-        initRootWebApplicationContext("classpath:/applicationContext.xml");
-        initBlossomDispatcherServlet("blossom", "classpath:/blossom-servlet.xml");
-    }
+    @Override
+    protected List<Task> getExtraInstallTasks(InstallContext installContext) {
+        ArrayList<Task> tasks = new ArrayList<Task>();
 
-    public void stop(ModuleLifecycleContext moduleLifecycleContext) {
-        destroyDispatcherServlets();
-        closeRootWebApplicationContext();
+        return tasks;
     }
 }

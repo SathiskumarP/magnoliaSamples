@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2011 Magnolia International
+ * This file Copyright (c) 2012 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,38 +31,24 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample;
+package info.magnolia.blossom.samples.samplemodule;
+
+import info.magnolia.module.ModuleLifecycle;
+import info.magnolia.module.ModuleLifecycleContext;
+import info.magnolia.module.blossom.module.BlossomModuleSupport;
 
 /**
- * Bean representing a contact form.
+ * Module class that starts and stops Spring when called by Magnolia.
  */
-public class ContactForm {
+public class BlossomSampleModule extends BlossomModuleSupport implements ModuleLifecycle {
 
-    private String name;
-    private String email;
-    private String message;
-
-    public String getName() {
-        return name;
+    public void start(ModuleLifecycleContext moduleLifecycleContext) {
+        initRootWebApplicationContext("classpath:/applicationContext.xml");
+        initBlossomDispatcherServlet("blossom", "classpath:/blossom-servlet.xml");
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public void stop(ModuleLifecycleContext moduleLifecycleContext) {
+        destroyDispatcherServlets();
+        closeRootWebApplicationContext();
     }
 }

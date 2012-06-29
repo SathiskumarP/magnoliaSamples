@@ -5,22 +5,24 @@
   <parent>
     <groupId>info.magnolia</groupId>
     <artifactId>magnolia-parent-pom-community-module</artifactId>
-    <version>16</version>
+    <version>19</version>
   </parent>
   <groupId>info.magnolia</groupId>
   <artifactId>magnolia-blossom-sample-module</artifactId>
+  <version>2.0.0-SNAPSHOT</version>
   <packaging>jar</packaging>
-  <version>1.0.0-SNAPSHOT</version>
+  <name>magnolia-blossom-sample-module</name>
   <properties>
     <javaVersion>1.5</javaVersion>
-    <magnoliaVersion>4.3.2</magnoliaVersion>
-    <springVersion>2.5.6</springVersion>
+    <magnoliaVersion>4.5</magnoliaVersion>
+    <springVersion>3.0.7.RELEASE</springVersion>
+    <blossomVersion>2.0</blossomVersion>
   </properties>
   <dependencies>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-module-blossom</artifactId>
-      <version>1.1.1</version>
+      <version>${blossomVersion}</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
@@ -59,9 +61,8 @@
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-taglib-cms</artifactId>
+      <artifactId>magnolia-templating-jsp</artifactId>
       <version>${magnoliaVersion}</version>
-      <scope>provided</scope>
     </dependency>
   </dependencies>
 </project>

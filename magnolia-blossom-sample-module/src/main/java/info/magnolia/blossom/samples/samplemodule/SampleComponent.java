@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2011 Magnolia International
+ * This file Copyright (c) 2012 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,44 +31,31 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample;
+package info.magnolia.blossom.samples.samplemodule;
 
-import info.magnolia.blossom.sample.service.SalesApplicationWebService;
-import info.magnolia.module.blossom.annotation.Paragraph;
-import info.magnolia.module.blossom.annotation.ParagraphDescription;
-import info.magnolia.module.blossom.annotation.TabFactory;
-import info.magnolia.module.blossom.dialog.TabBuilder;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpSession;
+import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
+import info.magnolia.module.blossom.dialog.TabBuilder;
 
 /**
- * Renders the contents of the shopping cart in a small summarized format.
+ * Sample component that allows for editing its text body.
  */
-@Paragraph("Shopping Cart")
-@ParagraphDescription("Shopping cart")
 @Controller
-public class ShoppingCartParagraph {
+@Template(title = "Sample component", id = "blossomModuleSample:components/text")
+@TemplateDescription("Sample component")
+public class SampleComponent {
 
-    @Autowired
-    private SalesApplicationWebService salesApplicationWebService;
-
-    @RequestMapping("/shoppingCart")
-    public String handleRequest(ModelMap model, HttpSession session) {
-
-        ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
-
-        model.put("shoppingCart", shoppingCart);
-
-        return "shoppingCart";
+    @RequestMapping("/sampleComponent")
+    public String render() {
+        return "components/sampleComponent.jsp";
     }
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
-        tab.addStatic("This paragraph requires no configuration");
-        tab.addHidden("bogus", "bogus");
+        tab.addFckEditor("body", "Text", "");
     }
 }
