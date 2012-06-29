@@ -66,8 +66,7 @@ public class MainTemplate {
     public static class MainArea {
 
         @TabFactory("Content")
-        public void apa(TabBuilder tab) {
-            tab.addEdit("qwe", "Area", "Area");
+        public void contentTab(TabBuilder tab) {
         }
 
         @RequestMapping("/mainTemplate/main")
