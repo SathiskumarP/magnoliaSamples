@@ -16,9 +16,7 @@
     <url>https://git.magnolia-cms.com/gitweb/?p=modules/blossom/samples.git</url>
   </scm>
   <modules>
-<!--
     <module>magnolia-blossom-sample-module</module>
--->
     <module>magnolia-blossom-sample-webapp</module>
     <module>magnolia-blossom-sample-webflow</module>
   </modules>
