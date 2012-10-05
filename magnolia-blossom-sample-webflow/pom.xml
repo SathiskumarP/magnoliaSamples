@@ -4,7 +4,7 @@
   <parent>
     <groupId>info.magnolia</groupId>
     <artifactId>magnolia-parent-pom-community-module</artifactId>
-    <version>16</version>
+    <version>24</version>
   </parent>
   <groupId>info.magnolia</groupId>
   <artifactId>magnolia-blossom-sample-webflow</artifactId>
@@ -15,7 +15,7 @@
     <javaVersion>1.5</javaVersion>
     <magnoliaVersion>4.4.1</magnoliaVersion>
     <springVersion>3.0.5.RELEASE</springVersion>
-    <blossomVersion>1.2.2</blossomVersion>
+    <blossomVersion>1.2.4</blossomVersion>
   </properties>
   <dependencies>
     <dependency>
