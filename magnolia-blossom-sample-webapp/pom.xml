@@ -10,7 +10,7 @@
     <javaVersion>1.6</javaVersion>
     <magnoliaVersion>4.5</magnoliaVersion>
     <springVersion>3.0.7.RELEASE</springVersion>
-    <blossomVersion>2.0</blossomVersion>
+    <blossomVersion>2.0.1</blossomVersion>
   </properties>
   <distributionManagement>
     <repository>
