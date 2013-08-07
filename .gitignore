@@ -1,4 +1,6 @@
 
+/target
+
 # /magnolia-blossom-sample-module/
 /magnolia-blossom-sample-module/target
 /magnolia-blossom-sample-module/*.iml
