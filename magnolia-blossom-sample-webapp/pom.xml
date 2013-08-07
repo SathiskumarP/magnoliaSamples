@@ -1,273 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>info.magnolia</groupId>
+  <parent>
+    <groupId>info.magnolia</groupId>
+    <artifactId>magnolia-blossom-sample</artifactId>
+    <version>2.0-SNAPSHOT</version>
+    <relativePath>../pom.xml</relativePath>
+  </parent>
   <artifactId>magnolia-blossom-sample-webapp</artifactId>
-  <version>2.0-SNAPSHOT</version>
+  <name>magnolia-blossom-sample: webapp</name>
   <packaging>war</packaging>
-  <name>magnolia-blossom-sample-webapp</name>
-  <properties>
-    <javaVersion>1.6</javaVersion>
-    <magnoliaVersion>4.5</magnoliaVersion>
-    <springVersion>3.0.7.RELEASE</springVersion>
-    <blossomVersion>2.0</blossomVersion>
-  </properties>
-  <distributionManagement>
-    <repository>
-      <id>magnolia.public.releases</id>
-      <url>http://nexus.magnolia-cms.com/content/repositories/magnolia.public.releases</url>
-    </repository>
-    <snapshotRepository>
-      <id>magnolia.public.snapshots</id>
-      <url>http://nexus.magnolia-cms.com/content/repositories/magnolia.public.snapshots</url>
-    </snapshotRepository>
-    <downloadUrl>http://sourceforge.net/projects/magnolia/files/</downloadUrl>
-  </distributionManagement>
-  <!-- Repositories, for more details see http://wiki.magnolia-cms.com/display/DEV/Maven+setup -->
-  <repositories>
-    <repository>
-      <id>magnolia.nexus.public</id>
-      <url>http://nexus.magnolia-cms.com/content/groups/public/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>
-  </repositories>
-  <pluginRepositories>
-    <pluginRepository>
-      <id>magnolia.nexus.public</id>
-      <url>http://nexus.magnolia-cms.com/content/groups/public/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </pluginRepository>
-  </pluginRepositories>
   <dependencies>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-blossom</artifactId>
-      <version>${blossomVersion}</version>
-    </dependency>
-
-    <!-- Dependencies on Spring Framework -->
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>${springVersion}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-aop</artifactId>
-      <version>${springVersion}</version>
-      <exclusions>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
+    <!-- Add your project specific dependencies here: -->
 
     <dependency>
-      <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-      <scope>provided</scope>
+      <groupId>info.magnolia</groupId>
+      <artifactId>magnolia-empty-webapp</artifactId>
+      <type>pom</type>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-templating-compatibility-taglib-cms</artifactId>
-      <version>${magnoliaVersion}</version>
+      <artifactId>magnolia-empty-webapp</artifactId>
+      <type>war</type>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-templating-jsp</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-
-    <!-- Dependencies on Magnolia, based on http://svn.magnolia-cms.com/svn/community/magnolia/tags/magnolia-4.4.5/magnolia-empty-webapp/ -->
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-rendering</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-templating</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-templating-editor</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-core</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-admininterface</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-cache</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-exchange-simple</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-gui</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-jaas</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-fckeditor</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-mail</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-store-client</artifactId>
-      <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>org.apache.jackrabbit</groupId>
-      <artifactId>jackrabbit-core</artifactId>
-      <version>2.4.0</version>
-      <exclusions>
-        <exclusion>
-          <artifactId>bcprov-jdk15</artifactId>
-          <groupId>org.bouncycastle</groupId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <!-- JCR-3158, MAGNOLIA-3892 -->
-    <dependency>
-      <groupId>commons-dbcp</groupId>
-      <artifactId>commons-dbcp</artifactId>
-      <version>1.4</version>
-    </dependency>
-    <!-- https://issues.apache.org/jira/browse/JCR-2885 -->
-    <dependency>
-      <groupId>org.apache.tika</groupId>
-      <artifactId>tika-parsers</artifactId>
-      <version>0.9</version>
-      <exclusions>
-        <exclusion>
-          <groupId>log4j</groupId>
-          <artifactId>log4j</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>commons-logging</groupId>
-          <artifactId>commons-logging</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId> org.bouncycastle</groupId>
-          <artifactId>bcprov-jdk15</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId> org.bouncycastle</groupId>
-          <artifactId>bcmail-jdk15</artifactId>
-        </exclusion>
-        <exclusion>
-          <groupId>rome</groupId>
-          <artifactId>rome</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <!-- to compensate for removed java 1.5 dep from tika and to keep all BC deps at same version -->
-    <dependency>
-      <groupId> org.bouncycastle</groupId>
-      <artifactId>bcmail-jdk16</artifactId>
-      <version>1.46</version>
-    </dependency>
-    <dependency>
-      <groupId>net.sourceforge.openutils</groupId>
-      <artifactId>openutils-log4j</artifactId>
-      <version>2.0.5</version>
-    </dependency>
-    <!-- tika brings in rome-0.9 that doesn't work with rome-fetcher-1.0 required for rss-aggregator-moudle. Hence we enforce rome-1.0 already here. -->
-    <dependency>
-      <groupId>rome</groupId>
-      <artifactId>rome</artifactId>
-      <version>1.0</version>
-      <exclusions>
-        <exclusion>
-          <groupId>jdom</groupId>
-          <artifactId>jdom</artifactId>
-        </exclusion>
-      </exclusions>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit-dep</artifactId>
-      <version>4.10</version>
-      <scope>test</scope>
+      <artifactId>magnolia-blossom-sample-module</artifactId>
+      <version>${project.version}</version>
     </dependency>
   </dependencies>
+
   <build>
     <plugins>
       <plugin>
-        <artifactId>maven-compiler-plugin</artifactId>
+        <artifactId>maven-war-plugin</artifactId>
         <configuration>
-          <source>${javaVersion}</source>
-          <target>${javaVersion}</target>
-        </configuration>
-      </plugin>
-      <plugin>
-        <artifactId>maven-clean-plugin</artifactId>
-        <configuration>
-          <filesets>
-            <fileset>
-              <directory>src/main/webapp/cache</directory>
-            </fileset>
-            <fileset>
-              <directory>src/main/webapp/logs</directory>
-            </fileset>
-            <fileset>
-              <directory>src/main/webapp/repositories</directory>
-            </fileset>
-            <fileset>
-              <directory>src/main/webapp/templates</directory>
-            </fileset>
-            <fileset>
-              <directory>src/main/webapp/tmp</directory>
-            </fileset>
-          </filesets>
-        </configuration>
-      </plugin>
-      <plugin>
-        <groupId>org.mortbay.jetty</groupId>
-        <artifactId>jetty-maven-plugin</artifactId>
-        <configuration>
-          <scanIntervalSeconds>5</scanIntervalSeconds>
+          <!-- exclude jars copied "physically" from the webapp overlay - so we only get those resolved by Maven's dependency management -->
+          <dependentWarExcludes>WEB-INF/lib/*.jar</dependentWarExcludes>
         </configuration>
       </plugin>
     </plugins>
