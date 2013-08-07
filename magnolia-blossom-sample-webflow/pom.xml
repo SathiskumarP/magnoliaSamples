@@ -9,7 +9,7 @@
   <groupId>info.magnolia</groupId>
   <artifactId>magnolia-blossom-sample-webflow</artifactId>
   <packaging>jar</packaging>
-  <version>2.0-SNAPSHOT</version>
+  <version>3.0-SNAPSHOT</version>
   <name>magnolia-blossom-sample-webflow</name>
   <properties>
     <javaVersion>1.5</javaVersion>
@@ -79,8 +79,4 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
-
-  <scm>
-    <tag>magnolia-blossom-samples-2.0.x</tag>
-  </scm>
 </project>
