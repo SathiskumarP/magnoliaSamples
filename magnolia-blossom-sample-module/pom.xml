@@ -12,7 +12,7 @@
   <packaging>jar</packaging>
   <name>magnolia-blossom-sample-module</name>
   <properties>
-    <magnoliaVersion>4.5.8</magnoliaVersion>
+    <magnoliaVersion>5.0.1</magnoliaVersion>
     <javaVersion>1.6</javaVersion>
     <springVersion>3.1.4.RELEASE</springVersion>
   </properties>
@@ -42,16 +42,17 @@
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-templating-compatibility-taglib-cms</artifactId>
       <version>4.5.3</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-fckeditor</artifactId>
-      <version>${magnoliaVersion}</version>
+      <exclusions>
+        <exclusion>
+          <groupId>info.magnolia</groupId>
+          <artifactId>magnolia-module-admininterface</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-module-blossom</artifactId>
-      <version>2.0.1</version>
+      <version>3.0-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.springframework</groupId>
