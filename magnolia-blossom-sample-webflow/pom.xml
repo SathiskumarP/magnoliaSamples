@@ -79,4 +79,8 @@
       </snapshots>
     </pluginRepository>
   </pluginRepositories>
+
+  <scm>
+    <tag>magnolia-blossom-samples-2.0.x</tag>
+  </scm>
 </project>
