@@ -13,7 +13,7 @@
   <name>blossomSampleModule Magnolia Module</name>
   <properties>
     <magnoliaVersion>4.5.8</magnoliaVersion>
-    <javaVersion>1.5</javaVersion>
+    <javaVersion>1.6</javaVersion>
     <springVersion>3.1.4.RELEASE</springVersion>
   </properties>
 

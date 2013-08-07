@@ -33,7 +33,9 @@
  */
 package info.magnolia.blossom.sample.module.service;
 
-
+/**
+ * A row in an order.
+ */
 public class OrderRow {
 
     private String articleCode;

@@ -61,6 +61,9 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
 @Template(title = "Two Columns", id = "blossomSampleModule:pages/main")
 public class MainTemplate {
 
+    /**
+     * Main area.
+     */
     @Area("main")
     @Controller
     public static class MainArea {
@@ -75,6 +78,9 @@ public class MainTemplate {
         }
     }
 
+    /**
+     * Promos area.
+     */
     @Controller
     @Area(value = "promos", title = "Promos", optional = TernaryBoolean.TRUE)
     @Inherits

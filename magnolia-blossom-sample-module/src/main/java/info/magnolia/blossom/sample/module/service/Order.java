@@ -36,6 +36,9 @@ package info.magnolia.blossom.sample.module.service;
 
 import java.util.List;
 
+/**
+ * Order placed by a customer.
+ */
 public class Order {
 
     private Customer customer;

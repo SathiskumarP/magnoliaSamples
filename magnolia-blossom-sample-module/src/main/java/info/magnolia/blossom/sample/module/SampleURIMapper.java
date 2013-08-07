@@ -38,7 +38,7 @@ import info.magnolia.module.blossom.annotation.VirtualURIMapper;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * URIMapper that maps /about to /sections/about
+ * URIMapper that maps /about to /sections/about.
  */
 @VirtualURIMapper
 public class SampleURIMapper {
