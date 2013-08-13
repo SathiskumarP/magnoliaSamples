@@ -44,7 +44,9 @@ import info.magnolia.blossom.sample.module.service.SalesApplicationWebService;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.UiConfig;
+import info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter;
 
 /**
  * Lists the contents of the shopping cart in detail, with summarized total and a link to the purchase page.
@@ -68,8 +70,10 @@ public class ViewShoppingCartComponent {
     }
 
     @TabFactory("Content")
-    public void contentTab(TabBuilder tab) {
-        tab.addEdit("title", "Title", "");
-        tab.addUuidLink("paymentLink", "Payment Page", "The page to link to for proceeding to payment");
+    public void contentTab(UiConfig cfg, TabBuilder tab) {
+        tab.fields(
+                cfg.fields.text("title").label("Title"),
+                cfg.fields.link("paymentLink").label("Payment page").description("The page to link to for proceeding to payment").appName("pages").targetWorkspace("website").identifierToPathConverter(new BaseIdentifierToPathConverter())
+        );
     }
 }

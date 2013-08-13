@@ -33,7 +33,6 @@
  */
 package info.magnolia.blossom.sample.module;
 
-import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -49,7 +48,10 @@ import info.magnolia.cms.core.Content;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.OptionBuilder;
+import info.magnolia.module.blossom.dialog.config.SelectFieldBuilder;
+import info.magnolia.module.blossom.dialog.config.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.UiConfig;
 
 /**
  * Component that displays a description of a tour. The tour is selectable by the editor in a dialog.
@@ -84,12 +86,12 @@ public class TourComponent {
     }
 
     @TabFactory("Content")
-    public void contentTab(TabBuilder tab) {
+    public void contentTab(UiConfig cfg, TabBuilder tab) {
         List<Tour> tours = salesApplicationWebService.getAllTours();
-        HashMap<String, String> options = new HashMap<String, String>();
+        SelectFieldBuilder field = cfg.fields.select("articleCode").label("Tour");
         for (Tour tour : tours) {
-            options.put(tour.getName(), tour.getArticleCode());
+            field.options(new OptionBuilder().label(tour.getName()).value(tour.getArticleCode()));
         }
-        tab.addSelect("articleCode", "Tour", "", options);
+        tab.fields(field);
     }
 }

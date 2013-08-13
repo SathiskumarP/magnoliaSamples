@@ -47,7 +47,8 @@ import info.magnolia.cms.core.Content;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.UiConfig;
 
 /**
  * Component that renders a list of the books in a configurable category. The available categories
@@ -75,8 +76,8 @@ public class BookCategoryComponent {
     }
 
     @TabFactory("Content")
-    public void contentTab(TabBuilder tab) {
+    public void contentTab(UiConfig cfg, TabBuilder tab) {
         Collection<String> categories = salesApplicationWebService.getBookCategories();
-        tab.addSelect("category", "Category", "", categories);
+        tab.fields(cfg.fields.select("category").label("Category").options(categories));
     }
 }

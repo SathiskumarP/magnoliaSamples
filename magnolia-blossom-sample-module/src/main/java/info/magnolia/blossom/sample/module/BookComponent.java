@@ -33,7 +33,6 @@
  */
 package info.magnolia.blossom.sample.module;
 
-import java.util.HashMap;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -49,7 +48,10 @@ import info.magnolia.cms.core.Content;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.OptionBuilder;
+import info.magnolia.module.blossom.dialog.config.SelectFieldBuilder;
+import info.magnolia.module.blossom.dialog.config.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.UiConfig;
 
 /**
  * Component that displays information about a book. The book is selected by the editor in a dialog and
@@ -85,12 +87,12 @@ public class BookComponent {
     }
 
     @TabFactory("Content")
-    public void contentTab(TabBuilder tab) {
+    public void contentTab(UiConfig cfg, TabBuilder tab) {
         List<Book> books = salesApplicationWebService.getAllBooks();
-        HashMap<String, String> options = new HashMap<String, String>();
+        SelectFieldBuilder field = cfg.fields.select("articleCode").label("Book");
         for (Book book : books) {
-            options.put(book.getTitle(), book.getArticleCode());
+            field.options(new OptionBuilder().label(book.getTitle()).value(book.getArticleCode()));
         }
-        tab.addSelect("articleCode", "Book", "", options);
+        tab.fields(field);
     }
 }

@@ -39,7 +39,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.UiConfig;
 
 /**
  * Simple component for adding text to a page.
@@ -55,7 +56,7 @@ public class TextComponent {
     }
 
     @TabFactory("Content")
-    public void addDialog(TabBuilder tab) {
-        tab.addFckEditor("body", "Text", "");
+    public void addDialog(UiConfig cfg, TabBuilder tab) {
+        tab.fields(cfg.fields.richText("body").label("Text"));
     }
 }

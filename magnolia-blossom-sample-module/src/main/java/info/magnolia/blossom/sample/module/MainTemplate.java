@@ -52,7 +52,8 @@ import info.magnolia.module.blossom.annotation.Inherits;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TernaryBoolean;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.TabBuilder;
+import info.magnolia.module.blossom.dialog.config.UiConfig;
 
 /**
  * Template with two columns, a main content area and a right side column.
@@ -67,10 +68,6 @@ public class MainTemplate {
     @Area("main")
     @Controller
     public static class MainArea {
-
-        @TabFactory("Content")
-        public void contentTab(TabBuilder tab) {
-        }
 
         @RequestMapping("/mainTemplate/main")
         public String render() {
@@ -109,8 +106,10 @@ public class MainTemplate {
     }
 
     @TabFactory("Content")
-    public void propertiesDialog(TabBuilder tab) {
-        tab.addEdit("title", "Title", "");
-        tab.addCheckbox("hideInNavigation", "Hide in navigation", "Check this box to hide this page in navigation");
+    public void propertiesDialog(UiConfig cfg, TabBuilder tab) {
+        tab.fields(
+                cfg.fields.text("title").label("Title"),
+                cfg.fields.checkbox("hideInNavigation").label("Hide in navigation").description("Check this box to hide this page in navigation")
+        );
     }
 }
