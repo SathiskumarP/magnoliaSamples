@@ -13,7 +13,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <magnoliaVersion>5.0.1</magnoliaVersion>
+    <magnoliaVersion>5.1-SNAPSHOT</magnoliaVersion>
     <javaVersion>1.6</javaVersion>
   </properties>
 
