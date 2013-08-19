@@ -52,8 +52,8 @@ import info.magnolia.module.blossom.annotation.Inherits;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TernaryBoolean;
-import info.magnolia.module.blossom.dialog.config.TabBuilder;
-import info.magnolia.module.blossom.dialog.config.UiConfig;
+import info.magnolia.ui.form.config.TabBuilder;
+import info.magnolia.ui.framework.config.UiConfig;
 
 /**
  * Template with two columns, a main content area and a right side column.

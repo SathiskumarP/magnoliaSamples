@@ -39,8 +39,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.config.TabBuilder;
-import info.magnolia.module.blossom.dialog.config.UiConfig;
+import info.magnolia.ui.form.config.TabBuilder;
+import info.magnolia.ui.framework.config.UiConfig;
 
 /**
  * Simple component for adding text to a page.

@@ -44,8 +44,8 @@ import info.magnolia.blossom.sample.module.service.SalesApplicationWebService;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.config.TabBuilder;
-import info.magnolia.module.blossom.dialog.config.UiConfig;
+import info.magnolia.ui.form.config.TabBuilder;
+import info.magnolia.ui.framework.config.UiConfig;
 import info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter;
 
 /**

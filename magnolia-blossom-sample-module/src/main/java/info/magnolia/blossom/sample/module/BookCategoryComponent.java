@@ -47,8 +47,8 @@ import info.magnolia.cms.core.Content;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.config.TabBuilder;
-import info.magnolia.module.blossom.dialog.config.UiConfig;
+import info.magnolia.ui.form.config.TabBuilder;
+import info.magnolia.ui.framework.config.UiConfig;
 
 /**
  * Component that renders a list of the books in a configurable category. The available categories

@@ -48,10 +48,10 @@ import info.magnolia.cms.core.Content;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.module.blossom.dialog.config.OptionBuilder;
-import info.magnolia.module.blossom.dialog.config.SelectFieldBuilder;
-import info.magnolia.module.blossom.dialog.config.TabBuilder;
-import info.magnolia.module.blossom.dialog.config.UiConfig;
+import info.magnolia.ui.form.config.OptionBuilder;
+import info.magnolia.ui.form.config.SelectFieldBuilder;
+import info.magnolia.ui.form.config.TabBuilder;
+import info.magnolia.ui.framework.config.UiConfig;
 
 /**
  * Component that displays information about a book. The book is selected by the editor in a dialog and
