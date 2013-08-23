@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/blossomSampleModule/templates/includes/taglibs.jsp"%>
+<%@ include file="../includes/taglibs.jsp"%>
 
 <h1>Customer details</h1>
 

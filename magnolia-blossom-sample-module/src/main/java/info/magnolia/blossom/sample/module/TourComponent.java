@@ -65,7 +65,7 @@ public class TourComponent {
     private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/tour")
-    public String handleRequest(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
+    public String render(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
 
         String articleCode = content.getNodeData("articleCode").getString();
 

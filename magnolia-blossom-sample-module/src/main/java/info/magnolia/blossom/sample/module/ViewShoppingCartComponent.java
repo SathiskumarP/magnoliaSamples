@@ -60,7 +60,7 @@ public class ViewShoppingCartComponent {
     private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/shoppingCartView")
-    public String handleRequest(ModelMap model, HttpSession session) {
+    public String render(ModelMap model, HttpSession session) {
 
         ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
 

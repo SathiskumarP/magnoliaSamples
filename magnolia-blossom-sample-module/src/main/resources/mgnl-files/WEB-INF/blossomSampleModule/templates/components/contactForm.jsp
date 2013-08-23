@@ -1,4 +1,4 @@
-<%@ include file="/WEB-INF/blossomSampleModule/templates/includes/taglibs.jsp"%>
+<%@ include file="../includes/taglibs.jsp"%>
 
 <style type="text/css">
     .textinput {margin-bottom:8px;}

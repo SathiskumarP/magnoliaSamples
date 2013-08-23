@@ -1,4 +1,5 @@
-<%@ include file="/WEB-INF/blossomSampleModule/templates/includes/taglibs.jsp"%>
+<%--@elvariable id="comments" type="java.util.Collection<info.magnolia.blossom.sample.module.Comment>"--%>
+<%@ include file="../includes/taglibs.jsp"%>
 
 <script type="text/javascript">
     function deleteComment(id) {

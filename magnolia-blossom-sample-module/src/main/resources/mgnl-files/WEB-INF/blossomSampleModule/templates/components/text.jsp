@@ -1,5 +1,6 @@
-<%@ include file="/WEB-INF/blossomSampleModule/templates/includes/taglibs.jsp"%>
+<%--@elvariable id="content" type="info.magnolia.jcr.util.ContentMap"--%>
+<%@ include file="../includes/taglibs.jsp"%>
 
-<h1><cmsold:out nodeDataName="title" /></h1>
+<h1>${content.title}</h1>
 
-<p><cmsold:out nodeDataName="body" /></p>
+<p>${cmsfn:decode(content).body}</p>

@@ -64,7 +64,7 @@ import info.magnolia.module.blossom.annotation.Template;
 public class CommentsComponent {
 
     @RequestMapping("/comments")
-    public String handleRequest(ModelMap model, HttpServletRequest request, @RequestParam("action") String action, Content content) throws RepositoryException {
+    public String render(ModelMap model, HttpServletRequest request, @RequestParam("action") String action, Content content) throws RepositoryException {
 
         if ("add".equals(action)) {
             writeComment(request, content);

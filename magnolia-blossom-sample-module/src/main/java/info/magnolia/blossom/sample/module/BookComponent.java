@@ -66,7 +66,7 @@ public class BookComponent {
     private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/book")
-    public String handleRequest(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
+    public String render(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
 
         String articleCode = content.getNodeData("articleCode").getString();
 

@@ -56,7 +56,9 @@ public class TextComponent {
     }
 
     @TabFactory("Content")
-    public void addDialog(UiConfig cfg, TabBuilder tab) {
-        tab.fields(cfg.fields.richText("body").label("Text"));
+    public void contentTab(UiConfig cfg, TabBuilder tab) {
+        tab.fields(
+                cfg.fields.richText("body").label("Text")
+        );
     }
 }

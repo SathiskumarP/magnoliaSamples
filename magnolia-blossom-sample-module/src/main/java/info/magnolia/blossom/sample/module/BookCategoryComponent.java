@@ -64,7 +64,7 @@ public class BookCategoryComponent {
     private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/bookcategory")
-    public String handleRequest(ModelMap model, Content content) {
+    public String render(ModelMap model, Content content) {
 
         String category = content.getNodeData("category").getString();
 

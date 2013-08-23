@@ -60,7 +60,7 @@ public class PurchaseComponent {
     private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/purchase")
-    public String handleRequest(@ModelAttribute Customer customer, HttpServletRequest request, HttpSession session) {
+    public String render(@ModelAttribute Customer customer, HttpServletRequest request, HttpSession session) {
         if ("POST".equals(request.getMethod())) {
 
             ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);

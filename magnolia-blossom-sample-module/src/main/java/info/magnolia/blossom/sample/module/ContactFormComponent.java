@@ -52,7 +52,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ContactFormComponent {
 
     @RequestMapping("/contact")
-    public String handleRequest(@ModelAttribute ContactForm contactForm, BindingResult result, HttpServletRequest request) {
+    public String render(@ModelAttribute ContactForm contactForm, BindingResult result, HttpServletRequest request) {
 
         if ("POST".equals(request.getMethod())) {
 
