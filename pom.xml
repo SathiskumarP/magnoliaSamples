@@ -13,8 +13,10 @@
   <packaging>pom</packaging>
 
   <properties>
-    <magnoliaVersion>5.1-SNAPSHOT</magnoliaVersion>
+    <magnoliaVersion>5.1-alpha1</magnoliaVersion>
     <javaVersion>1.6</javaVersion>
+    <springVersion>3.1.4.RELEASE</springVersion>
+    <blossomVersion>3.0-alpha1</blossomVersion>
   </properties>
 
   <!-- Fill the following in, so you can use the release plugin -->
@@ -115,6 +117,8 @@
   <modules>
     <module>magnolia-blossom-sample-module</module>
     <module>magnolia-blossom-sample-webapp</module>
+<!--
     <module>magnolia-blossom-sample-webflow</module>
+-->
   </modules>
 </project>
