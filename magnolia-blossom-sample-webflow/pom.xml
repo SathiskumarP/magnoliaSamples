@@ -6,7 +6,7 @@
     <artifactId>magnolia-parent-pom-community-module</artifactId>
     <version>24</version>
   </parent>
-  <groupId>info.magnolia</groupId>
+  <groupId>info.magnolia.blossom</groupId>
   <artifactId>magnolia-blossom-sample-webflow</artifactId>
   <packaging>jar</packaging>
   <version>3.0-SNAPSHOT</version>

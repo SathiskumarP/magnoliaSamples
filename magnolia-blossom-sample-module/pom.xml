@@ -2,11 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
+    <groupId>info.magnolia.blossom</groupId>
     <artifactId>magnolia-blossom-samples</artifactId>
-    <groupId>info.magnolia</groupId>
     <version>3.0-SNAPSHOT</version>
   </parent>
-  <groupId>info.magnolia</groupId>
   <artifactId>magnolia-blossom-sample-module</artifactId>
   <packaging>jar</packaging>
   <name>magnolia-blossom-sample-module</name>
@@ -33,7 +32,7 @@
       <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
-      <groupId>info.magnolia</groupId>
+      <groupId>info.magnolia.blossom</groupId>
       <artifactId>magnolia-module-blossom</artifactId>
       <version>${blossomVersion}</version>
     </dependency>

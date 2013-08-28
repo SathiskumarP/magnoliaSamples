@@ -6,7 +6,7 @@
     <artifactId>magnolia-parent-pom-ce</artifactId>
     <version>25</version>
   </parent>
-  <groupId>info.magnolia</groupId>
+  <groupId>info.magnolia.blossom</groupId>
   <artifactId>magnolia-blossom-samples</artifactId>
   <name>magnolia-blossom-samples (parent pom)</name>
   <version>3.0-SNAPSHOT</version>
@@ -16,7 +16,7 @@
     <magnoliaVersion>5.1-alpha1</magnoliaVersion>
     <javaVersion>1.6</javaVersion>
     <springVersion>3.1.4.RELEASE</springVersion>
-    <blossomVersion>3.0-alpha1</blossomVersion>
+    <blossomVersion>3.0-SNAPSHOT</blossomVersion>
   </properties>
 
   <!-- Fill the following in, so you can use the release plugin -->
