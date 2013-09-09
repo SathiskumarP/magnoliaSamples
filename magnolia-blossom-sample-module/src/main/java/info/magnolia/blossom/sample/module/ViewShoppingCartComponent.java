@@ -35,18 +35,15 @@ package info.magnolia.blossom.sample.module;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import info.magnolia.blossom.sample.module.service.SalesApplicationWebService;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.ui.form.config.TabBuilder;
 import info.magnolia.ui.framework.config.UiConfig;
-import info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter;
 
 /**
  * Lists the contents of the shopping cart in detail, with summarized total and a link to the purchase page.
@@ -55,9 +52,6 @@ import info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter;
 @Template(title = "Shopping Cart View", id = "blossomSampleModule:components/shoppingCartView")
 @TemplateDescription("List of the contents in the shopping cart")
 public class ViewShoppingCartComponent {
-
-    @Autowired
-    private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/shoppingCartView")
     public String render(ModelMap model, HttpSession session) {
@@ -73,7 +67,7 @@ public class ViewShoppingCartComponent {
     public void contentTab(UiConfig cfg, TabBuilder tab) {
         tab.fields(
                 cfg.fields.text("title").label("Title"),
-                cfg.fields.link("paymentLink").label("Payment page").description("The page to link to for proceeding to payment").appName("pages").targetWorkspace("website").identifierToPathConverter(new BaseIdentifierToPathConverter())
+                cfg.fields.websiteLink("paymentLink").label("Payment page").description("The page to link to for proceeding to payment")
         );
     }
 }

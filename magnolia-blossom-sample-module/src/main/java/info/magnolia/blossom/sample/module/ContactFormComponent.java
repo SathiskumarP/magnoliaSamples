@@ -36,12 +36,11 @@ package info.magnolia.blossom.sample.module;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
 
-import javax.servlet.http.HttpServletRequest;
-
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Displays a contact form and a "Thank You" page after the contact form is submitted.
@@ -51,19 +50,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @TemplateDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
 public class ContactFormComponent {
 
-    @RequestMapping("/contact")
-    public String render(@ModelAttribute ContactForm contactForm, BindingResult result, HttpServletRequest request) {
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String viewForm(@ModelAttribute ContactForm contactForm) {
+        return "components/contactForm.jsp";
+    }
 
-        if ("POST".equals(request.getMethod())) {
-
-            new ContactFormValidator().validate(contactForm, result);
-            if (result.hasErrors()) {
-                return "components/contactForm.jsp";
-            }
-
-            return "components/contactFormSubmitted.jsp";
+    @RequestMapping(value = "/contact", method = RequestMethod.POST)
+    public String handleSubmit(@ModelAttribute ContactForm contactForm, BindingResult result) {
+        new ContactFormValidator().validate(contactForm, result);
+        if (result.hasErrors()) {
+            return "components/contactForm.jsp";
         }
 
-        return "components/contactForm.jsp";
+        return "redirect:/home/contact/thankyou.html";
     }
 }

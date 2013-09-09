@@ -58,7 +58,8 @@ public class TextComponent {
     @TabFactory("Content")
     public void contentTab(UiConfig cfg, TabBuilder tab) {
         tab.fields(
-                cfg.fields.richText("body").label("Text")
+                cfg.fields.text("heading").label("Heading"),
+                cfg.fields.richText("body").label("Text body")
         );
     }
 }

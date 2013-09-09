@@ -46,7 +46,6 @@ import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.ui.form.config.TabBuilder;
 import info.magnolia.ui.framework.config.UiConfig;
-import info.magnolia.ui.form.field.converter.BaseIdentifierToPathConverter;
 
 /**
  * Renders the contents of the shopping cart in a small summarized format.
@@ -73,7 +72,7 @@ public class ShoppingCartComponent {
     public void contentTab(UiConfig cfg, TabBuilder tab) {
         tab.fields(
                 cfg.fields.checkbox("inheritable").label("Inheritance").description("Check this box to have this component inherited in sub-pages"),
-                cfg.fields.link("checkoutLink").label("Checkout page").description("The page to link to for checkout").appName("pages").targetWorkspace("website").identifierToPathConverter(new BaseIdentifierToPathConverter())
+                cfg.fields.websiteLink("checkoutLink").label("Checkout page").description("The page to link to for checkout")
         );
     }
 }
