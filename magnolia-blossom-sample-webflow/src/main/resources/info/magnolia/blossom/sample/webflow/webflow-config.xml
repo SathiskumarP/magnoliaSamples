@@ -27,11 +27,11 @@
   <!-- Configures Web Flow to use Magnolia freemarker rendering -->
   <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
     <property name="viewResolvers">
-      <bean class="info.magnolia.module.blossom.view.ParagraphViewResolver">
+      <bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
         <property name="prefix" value="/info/magnolia/blossom/sample/webflow/"/>
         <property name="suffix" value=".ftl"/>
         <property name="viewRenderer">
-          <bean class="info.magnolia.module.blossom.view.FreemarkerParagraphViewRenderer"/>
+          <bean class="info.magnolia.module.blossom.view.FreemarkerTemplateViewRenderer"/>
         </property>
       </bean>
     </property>

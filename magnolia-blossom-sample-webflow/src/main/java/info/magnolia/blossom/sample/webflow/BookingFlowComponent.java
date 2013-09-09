@@ -42,20 +42,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.webflow.executor.FlowExecutor;
 
-import info.magnolia.module.blossom.annotation.Paragraph;
-import info.magnolia.module.blossom.annotation.TabFactory;
-import info.magnolia.module.blossom.dialog.TabBuilder;
+import info.magnolia.module.blossom.annotation.Template;
 
 /**
  * Controller that provides the booking flow.
- *
- * @version $Id$
  */
 @Controller
-@Paragraph("Booking Flow")
-public class BookingFlowParagraph extends AbstractSingleFlowController {
+@Template(title = "Booking Flow", id = "blossomSampleModule:components/bookingFlow")
+public class BookingFlowComponent extends AbstractSingleFlowController {
 
-    public BookingFlowParagraph() {
+    public BookingFlowComponent() {
         super("booking-flow");
     }
 
@@ -69,12 +65,5 @@ public class BookingFlowParagraph extends AbstractSingleFlowController {
     @RequestMapping("/booking-flow")
     public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
         return super.handleRequest(request, response);
-    }
-
-    // This is necessary since Magnolia won't add paragraphs with empty dialogs
-    @TabFactory("Settings")
-    public void addTab(TabBuilder tab) {
-        tab.addStatic("No configuration required.");
-        tab.addHidden("bogus", "bogus");
     }
 }

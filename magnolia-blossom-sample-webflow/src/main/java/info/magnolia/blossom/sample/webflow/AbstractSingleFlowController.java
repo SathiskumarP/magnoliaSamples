@@ -63,7 +63,6 @@ import org.springframework.webflow.mvc.servlet.FlowHandlerAdapter;
  * <li>when the flow completes and no view is set a redirect will be made to the original request uri</li>
  * </ul>
  *
- * @version $Id$
  * @see FlowController
  * @see FlowHandlerAdapter
  * @see org.springframework.webflow.mvc.servlet.FlowHandler

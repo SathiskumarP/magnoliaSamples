@@ -16,10 +16,6 @@
       <version>${magnoliaVersion}/*</version>
     </dependency>
     <dependency>
-      <name>adminInterface</name>
-      <version>${magnoliaVersion}/*</version>
-    </dependency>
-    <dependency>
       <name>blossom</name>
       <version>${blossomVersion}/*</version>
     </dependency>

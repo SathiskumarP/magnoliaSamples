@@ -38,8 +38,6 @@ import org.springframework.webflow.executor.FlowExecutor;
 
 /**
  * Extension of AbstractSingleFlowController that sets the FlowExecutor using auto wiring.
- *
- * @version $Id$
  */
 public abstract class AutowiredAbstractSingleFlowController extends AbstractSingleFlowController {
 

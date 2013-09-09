@@ -1,7 +1,3 @@
-[#assign cms=JspTaglibs["cms-taglib"]]
-[#assign cmsu=JspTaglibs["cms-util-taglib"]]
-
-[@cms.editBar/]
 
 <div id="bookingForm">
 	<form action="?">
