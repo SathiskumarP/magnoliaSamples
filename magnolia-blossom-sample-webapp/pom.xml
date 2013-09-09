@@ -28,6 +28,11 @@
       <artifactId>magnolia-blossom-sample-module</artifactId>
       <version>${project.version}</version>
     </dependency>
+    <dependency>
+      <groupId>info.magnolia.activation</groupId>
+      <artifactId>magnolia-module-activation</artifactId>
+      <version>5.0.2-SNAPSHOT</version>
+    </dependency>
   </dependencies>
 
   <build>
