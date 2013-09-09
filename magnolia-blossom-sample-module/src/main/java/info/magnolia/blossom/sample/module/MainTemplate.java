@@ -47,7 +47,6 @@ import info.magnolia.jcr.util.NodeUtil;
 import info.magnolia.jcr.util.PropertyUtil;
 import info.magnolia.module.blossom.annotation.Area;
 import info.magnolia.module.blossom.annotation.AvailableComponentClasses;
-import info.magnolia.module.blossom.annotation.AvailableComponents;
 import info.magnolia.module.blossom.annotation.Inherits;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
@@ -67,6 +66,7 @@ public class MainTemplate {
      */
     @Area("main")
     @Controller
+    @AvailableComponentClasses({TextComponent.class, BookComponent.class, TourComponent.class, CommentsComponent.class, ViewShoppingCartComponent.class, PurchaseComponent.class, ContactFormComponent.class, YoutubeComponent.class})
     public static class MainArea {
 
         @RequestMapping("/mainTemplate/main")
@@ -81,8 +81,7 @@ public class MainTemplate {
     @Controller
     @Area(value = "promos", title = "Promos", optional = TernaryBoolean.TRUE)
     @Inherits
-    @AvailableComponents({"blossomSampleModule:components/shoppingCart", "blossomSampleModule:components/bookCategory"})
-    @AvailableComponentClasses({TextComponent.class})
+    @AvailableComponentClasses({TextComponent.class, ShoppingCartComponent.class, BookCategoryComponent.class})
     public static class PromosArea {
 
         @RequestMapping("/mainTemplate/promos")
