@@ -47,7 +47,7 @@
 
         <div id="content">
 
-        <cms:area name="main" components="blossomSampleModule:components/text,blossomSampleModule:components/book,blossomSampleModule:components/tour,blossomSampleModule:components/comments,blossomSampleModule:components/shoppingCartView,blossomSampleModule:components/purchase,blossomSampleModule:components/contactForm" />
+        <cms:area name="main" components="blossomSampleModule:components/text,blossomSampleModule:components/book,blossomSampleModule:components/tour,blossomSampleModule:components/comments,blossomSampleModule:components/shoppingCartView,blossomSampleModule:components/purchase,blossomSampleModule:components/contactForm,blossomSampleModule:components/youtube" />
 
         <cms:area name="promos" />
 
