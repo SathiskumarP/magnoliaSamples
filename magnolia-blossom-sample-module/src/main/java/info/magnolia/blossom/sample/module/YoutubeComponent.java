@@ -46,6 +46,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+/**
+ * Component hosting youtube videos.
+ */
 @Controller
 @Template(title="Youtube video", id="blossomSampleModule:components/youtube")
 @TemplateDescription("Embeds a youtube page")
