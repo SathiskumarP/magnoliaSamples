@@ -24,7 +24,7 @@
       <scope>provided</scope>
     </dependency>
     <dependency>
-      <groupId>info.magnolia</groupId>
+      <groupId>info.magnolia.blossom</groupId>
       <artifactId>magnolia-module-blossom</artifactId>
       <version>${blossomVersion}</version>
     </dependency>
