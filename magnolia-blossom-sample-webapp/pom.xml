@@ -4,7 +4,7 @@
   <parent>
     <groupId>info.magnolia.blossom</groupId>
     <artifactId>magnolia-blossom-samples</artifactId>
-    <version>3.0-SNAPSHOT</version>
+    <version>3.0-rc1</version>
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>magnolia-blossom-sample-webapp</artifactId>
@@ -31,17 +31,17 @@
     <dependency>
       <groupId>info.magnolia.activation</groupId>
       <artifactId>magnolia-module-activation</artifactId>
-      <version>5.0.2-SNAPSHOT</version>
+      <version>5.0.2</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia.cache</groupId>
       <artifactId>magnolia-module-cache</artifactId>
-      <version>5.0.3-SNAPSHOT</version>
+      <version>5.0.2</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-module-legacy-admininterface</artifactId>
-      <version>5.1-SNAPSHOT</version>
+      <version>5.1-rc1</version>
     </dependency>
   </dependencies>
 
