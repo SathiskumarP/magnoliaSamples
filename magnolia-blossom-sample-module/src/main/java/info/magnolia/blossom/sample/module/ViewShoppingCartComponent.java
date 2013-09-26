@@ -67,7 +67,7 @@ public class ViewShoppingCartComponent {
     public void contentTab(UiConfig cfg, TabBuilder tab) {
         tab.fields(
                 cfg.fields.text("title").label("Title"),
-                cfg.fields.websiteLink("paymentLink").label("Payment page").description("The page to link to for proceeding to payment")
+                cfg.fields.pageLink("paymentLink").label("Payment page").description("The page to link to for proceeding to payment")
         );
     }
 }

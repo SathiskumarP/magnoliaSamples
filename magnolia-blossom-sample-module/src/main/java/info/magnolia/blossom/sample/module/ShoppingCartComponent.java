@@ -72,7 +72,7 @@ public class ShoppingCartComponent {
     public void contentTab(UiConfig cfg, TabBuilder tab) {
         tab.fields(
                 cfg.fields.checkbox("inheritable").label("Inheritance").description("Check this box to have this component inherited in sub-pages"),
-                cfg.fields.websiteLink("checkoutLink").label("Checkout page").description("The page to link to for checkout")
+                cfg.fields.pageLink("checkoutLink").label("Checkout page").description("The page to link to for checkout")
         );
     }
 }

@@ -35,13 +35,13 @@ package info.magnolia.blossom.sample.module;
 
 import java.util.ArrayList;
 import java.util.List;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import info.magnolia.blossom.sample.module.service.Customer;
 import info.magnolia.blossom.sample.module.service.Order;
@@ -59,24 +59,27 @@ public class PurchaseComponent {
     @Autowired
     private SalesApplicationWebService salesApplicationWebService;
 
-    @RequestMapping("/purchase")
-    public String render(@ModelAttribute Customer customer, HttpServletRequest request, HttpSession session) {
-        if ("POST".equals(request.getMethod())) {
-
-            ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
-
-            List<OrderRow> rows = new ArrayList<OrderRow>();
-            for (ShoppingCartItem cartItem : shoppingCart.getItems()) {
-                rows.add(new OrderRow(cartItem.getProduct().getArticleCode(), cartItem.getQuantity()));
-            }
-            Order order = new Order(customer, rows);
-
-            salesApplicationWebService.placeOrder(order);
-
-            shoppingCart.clear();
-
-            return "components/purchaseFormSubmitted.jsp";
-        }
+    @RequestMapping(value = "/purchase", method = RequestMethod.GET)
+    public String render(@ModelAttribute Customer customer) {
         return "components/purchaseForm.jsp";
+    }
+
+    @RequestMapping(value = "/purchase", method = RequestMethod.POST)
+    public String handleSubmit(Customer customer, HttpSession session) {
+
+        ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
+
+        List<OrderRow> rows = new ArrayList<OrderRow>();
+        for (ShoppingCartItem cartItem : shoppingCart.getItems()) {
+            rows.add(new OrderRow(cartItem.getProduct().getArticleCode(), cartItem.getQuantity()));
+        }
+
+        Order order = new Order(customer, rows);
+
+        salesApplicationWebService.placeOrder(order);
+
+        shoppingCart.clear();
+
+        return "components/purchaseFormSubmitted.jsp";
     }
 }
