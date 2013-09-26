@@ -33,8 +33,14 @@
  */
 package info.magnolia.blossom.sample.module;
 
+import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
+import info.magnolia.ui.form.config.TabBuilder;
+import info.magnolia.ui.framework.config.UiConfig;
+
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -56,12 +62,21 @@ public class ContactFormComponent {
     }
 
     @RequestMapping(value = "/contact", method = RequestMethod.POST)
-    public String handleSubmit(@ModelAttribute ContactForm contactForm, BindingResult result) {
+    public String handleSubmit(@ModelAttribute ContactForm contactForm, BindingResult result, Node content) throws RepositoryException {
+
         new ContactFormValidator().validate(contactForm, result);
+
         if (result.hasErrors()) {
             return "components/contactForm.jsp";
         }
 
-        return "redirect:/home/contact/thankyou.html";
+        return "website:" + content.getProperty("successPage").getString();
+    }
+
+    @TabFactory("Content")
+    public void contentTab(UiConfig cfg, TabBuilder tab) {
+        tab.fields(
+                cfg.fields.pageLink("successPage").label("Success page")
+        );
     }
 }
