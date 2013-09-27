@@ -58,7 +58,7 @@ import info.magnolia.ui.framework.config.UiConfig;
  * Template with two columns, a main content area and a right side column.
  */
 @Controller
-@Template(title = "Two Columns", id = "blossomSampleModule:pages/main")
+@Template(title = "Main", id = "blossomSampleModule:pages/main")
 public class MainTemplate {
 
     /**
