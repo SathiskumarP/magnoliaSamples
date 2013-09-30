@@ -76,12 +76,12 @@ public class MainTemplate {
     }
 
     /**
-     * Promos area.
+     * Promos area, uses the {@link Promo} component category annotation to specify which components are available.
      */
     @Controller
     @Area(value = "promos", title = "Promos", optional = TernaryBoolean.TRUE)
     @Inherits
-    @AvailableComponentClasses({TextComponent.class, ShoppingCartComponent.class, BookCategoryComponent.class})
+    @AvailableComponentClasses({Promo.class})
     public static class PromosArea {
 
         @RequestMapping("/mainTemplate/promos")

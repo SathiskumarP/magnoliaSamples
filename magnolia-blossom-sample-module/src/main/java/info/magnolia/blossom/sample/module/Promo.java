@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2013 Magnolia International
+ * This file Copyright (c) 2013 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -33,34 +33,19 @@
  */
 package info.magnolia.blossom.sample.module;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+import info.magnolia.module.blossom.annotation.ComponentCategory;
 
-import info.magnolia.module.blossom.annotation.TabFactory;
-import info.magnolia.module.blossom.annotation.Template;
-import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.ui.form.config.TabBuilder;
-import info.magnolia.ui.framework.config.UiConfig;
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
 
 /**
- * Simple component for adding text to a page.
+ * Component category annotation, all components annotated with it will be available in the promos area of
+ * {@link MainTemplate}.
  */
-@Controller
-@Template(title = "Text", id = "blossomSampleModule:components/text")
-@TemplateDescription("Simple text block")
-@Promo
-public class TextComponent {
-
-    @RequestMapping("/text")
-    public String render() {
-        return "components/text.jsp";
-    }
-
-    @TabFactory("Content")
-    public void contentTab(UiConfig cfg, TabBuilder tab) {
-        tab.fields(
-                cfg.fields.text("heading").label("Heading"),
-                cfg.fields.richText("body").label("Text body")
-        );
-    }
+@Retention(RetentionPolicy.RUNTIME)
+@Target(ElementType.TYPE)
+@ComponentCategory
+public @interface Promo {
 }

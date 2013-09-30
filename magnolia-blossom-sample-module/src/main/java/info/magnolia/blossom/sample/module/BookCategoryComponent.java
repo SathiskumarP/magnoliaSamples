@@ -58,6 +58,7 @@ import javax.jcr.RepositoryException;
 @Template(title = "Book category", id = "blossomSampleModule:components/bookCategory")
 @TemplateDescription("A list of the books for a certain category.")
 @Controller
+@Promo
 public class BookCategoryComponent {
 
     @Autowired

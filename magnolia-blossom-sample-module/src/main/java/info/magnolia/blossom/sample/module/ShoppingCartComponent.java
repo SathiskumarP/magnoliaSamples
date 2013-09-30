@@ -53,6 +53,7 @@ import info.magnolia.ui.framework.config.UiConfig;
 @Template(title = "Shopping Cart", id = "blossomSampleModule:components/shoppingCart")
 @TemplateDescription("Shopping cart")
 @Controller
+@Promo
 public class ShoppingCartComponent {
 
     @Autowired
