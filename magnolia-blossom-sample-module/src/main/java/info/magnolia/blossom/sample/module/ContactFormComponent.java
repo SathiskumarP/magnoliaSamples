@@ -58,7 +58,7 @@ public class ContactFormComponent {
 
     @RequestMapping(value = "/contact", method = RequestMethod.GET)
     public String viewForm(@ModelAttribute ContactForm contactForm) {
-        return "components/contactForm.jsp";
+        return "components/contactForm.ftl";
     }
 
     @RequestMapping(value = "/contact", method = RequestMethod.POST)
@@ -67,7 +67,7 @@ public class ContactFormComponent {
         new ContactFormValidator().validate(contactForm, result);
 
         if (result.hasErrors()) {
-            return "components/contactForm.jsp";
+            return "components/contactForm.ftl";
         }
 
         return "website:" + content.getProperty("successPage").getString();

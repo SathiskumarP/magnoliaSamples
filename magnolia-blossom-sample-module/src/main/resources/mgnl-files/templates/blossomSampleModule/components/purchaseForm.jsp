@@ -1,5 +1,9 @@
 <%@ include file="../includes/taglibs.jsp"%>
 
+<style type="text/css">
+  .textinput {margin-bottom:8px;}
+</style>
+
 <h1>Customer details</h1>
 
 <form:form action="?" commandName="customer" method="POST">
