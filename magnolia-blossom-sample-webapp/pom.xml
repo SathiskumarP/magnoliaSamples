@@ -28,21 +28,6 @@
       <artifactId>magnolia-blossom-sample-module</artifactId>
       <version>${project.version}</version>
     </dependency>
-    <dependency>
-      <groupId>info.magnolia.activation</groupId>
-      <artifactId>magnolia-module-activation</artifactId>
-      <version>5.0.2</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia.cache</groupId>
-      <artifactId>magnolia-module-cache</artifactId>
-      <version>5.0.2</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-module-legacy-admininterface</artifactId>
-      <version>5.1-SNAPSHOT</version>
-    </dependency>
   </dependencies>
 
   <build>
