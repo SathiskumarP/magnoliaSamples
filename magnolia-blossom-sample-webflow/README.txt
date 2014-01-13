@@ -11,15 +11,21 @@ Instructions to install and use
 
 * add this to your applicationContext.xml or equivalent
 
-      <import resource="classpath:/info/magnolia/blossom/sample/webflow/webflow-config.xml" />
+    <import resource="classpath:/info/magnolia/blossom/sample/webflow/webflow-config.xml" />
 
-* add this to your blossom-servlet.xml or equivalent (not required if you're adding this to blossom-sample-webapp)
+* add this to your blossom-servlet.xml or equivalent
 
-	<context:component-scan base-package="info.magnolia.blossom.sample" use-default-filters="false">
-		<context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.Paragraph"/>
-	</context:component-scan>
+    <context:component-scan base-package="info.magnolia.blossom.sample" use-default-filters="false">
+        <context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.Template"/>
+    </context:component-scan>
 
-* add 'booking-flow' to a new bar in one of your templates
+* add 'booking-flow' as an available component on your areas
+
+    @AvailableComponents({"blossomSampleModule:components/bookingFlow"})
+
+    or:
+
+    @AvailableComponentClasses(BookingFlowComponent.class)
 
 Note on caching
 -----------------------
