@@ -14,7 +14,6 @@
     <context:include-filter type="assignable" expression="info.magnolia.cms.beans.config.VirtualURIMapping"/>
   </context:component-scan>
 
-  <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
   <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
     <property name="customArgumentResolver">
       <bean class="info.magnolia.module.blossom.web.BlossomWebArgumentResolver" />
@@ -30,6 +29,9 @@
       </list>
     </property>
   </bean>
+
+  <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+
   <bean class="info.magnolia.module.blossom.view.UuidRedirectViewResolver">
     <property name="order" value="1" />
   </bean>
