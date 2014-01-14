@@ -19,6 +19,7 @@
       <bean class="info.magnolia.module.blossom.web.BlossomWebArgumentResolver" />
     </property>
   </bean>
+
   <bean class="info.magnolia.module.blossom.preexecution.BlossomHandlerMapping">
     <property name="targetHandlerMappings">
       <list>
@@ -76,6 +77,12 @@
               <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
                 <property name="name" value="cmsfn"/>
                 <property name="componentClass" value="info.magnolia.templating.functions.TemplatingFunctions"/>
+              </bean>
+            </entry>
+            <entry key="damfn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="damfn"/>
+                <property name="componentClass" value="info.magnolia.dam.asset.functions.DamTemplatingFunctions"/>
               </bean>
             </entry>
           </map>
