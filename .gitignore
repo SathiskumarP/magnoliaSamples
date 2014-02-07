@@ -16,6 +16,7 @@
 
 # /magnolia-blossom-sample-webapp/
 /magnolia-blossom-sample-webapp/target
+/magnolia-blossom-sample-webapp/overlays
 /magnolia-blossom-sample-webapp/*.iml
 /magnolia-blossom-sample-webapp/*.ipr
 /magnolia-blossom-sample-webapp/*.iws
