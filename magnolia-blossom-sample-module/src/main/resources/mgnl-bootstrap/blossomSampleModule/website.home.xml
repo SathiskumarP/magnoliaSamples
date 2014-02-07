@@ -1041,6 +1041,9 @@
           <sv:property sv:name="body" sv:type="String">
             <sv:value>&lt;p&gt;Thanks for your message!&lt;/p&gt;</sv:value>
           </sv:property>
+          <sv:property sv:name="heading" sv:type="String">
+            <sv:value>Thanks for your message</sv:value>
+          </sv:property>
           <sv:property sv:name="jcr:createdBy" sv:type="String">
             <sv:value>admin</sv:value>
           </sv:property>

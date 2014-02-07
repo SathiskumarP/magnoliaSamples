@@ -56,6 +56,7 @@ public class TextComponent {
 
     @TabFactory("Content")
     public void addDialog(TabBuilder tab) {
+        tab.addEdit("heading", "Heading", "");
         tab.addFckEditor("body", "Text", "");
     }
 }
