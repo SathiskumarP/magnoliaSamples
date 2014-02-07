@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2012 Magnolia International
+ * This file Copyright (c) 2010-2013 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -33,15 +33,19 @@
  */
 package info.magnolia.blossom.sample.module;
 
+import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
+import info.magnolia.module.blossom.dialog.TabBuilder;
 
-import javax.servlet.http.HttpServletRequest;
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * Displays a contact form and a "Thank You" page after the contact form is submitted.
@@ -51,19 +55,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @TemplateDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
 public class ContactFormComponent {
 
-    @RequestMapping("/contact")
-    public String handleRequest(@ModelAttribute ContactForm contactForm, BindingResult result, HttpServletRequest request) {
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String viewForm(@ModelAttribute ContactForm contactForm) {
+        return "components/contactForm.ftl";
+    }
 
-        if ("POST".equals(request.getMethod())) {
+    @RequestMapping(value = "/contact", method = RequestMethod.POST)
+    public String handleSubmit(@ModelAttribute ContactForm contactForm, BindingResult result, Node content) throws RepositoryException {
 
-            new ContactFormValidator().validate(contactForm, result);
-            if (result.hasErrors()) {
-                return "components/contactForm.jsp";
-            }
+        new ContactFormValidator().validate(contactForm, result);
 
-            return "components/contactFormSubmitted.jsp";
+        if (result.hasErrors()) {
+            return "components/contactForm.ftl";
         }
 
-        return "components/contactForm.jsp";
+        return "website:" + content.getProperty("successPage").getString();
+    }
+
+    @TabFactory("Content")
+    public void contentTab(TabBuilder tab) {
+        tab.addUuidLink("successPage", "Success page", "");
     }
 }

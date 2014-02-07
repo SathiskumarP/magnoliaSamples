@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2012 Magnolia International
+ * This file Copyright (c) 2010-2013 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -63,7 +63,7 @@ public class TourComponent {
     private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/tour")
-    public String handleRequest(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
+    public String render(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
 
         String articleCode = content.getNodeData("articleCode").getString();
 

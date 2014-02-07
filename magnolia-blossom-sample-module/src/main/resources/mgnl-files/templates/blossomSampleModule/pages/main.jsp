@@ -1,4 +1,6 @@
-<%@ include file="/WEB-INF/blossomSampleModule/templates/includes/taglibs.jsp"%>
+<%--@elvariable id="content" type="info.magnolia.jcr.util.ContentMap"--%>
+<%--@elvariable id="navigation" type="java.util.Map<java.lang.String, java.lang.String>"--%>
+<%@ include file="../includes/taglibs.jsp"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="sv" lang="sv">
 <head>
@@ -45,7 +47,7 @@
 
         <div id="content">
 
-        <cms:area name="main" components="blossomSampleModule:components/text,blossomSampleModule:components/book,blossomSampleModule:components/tour,blossomSampleModule:components/comments,blossomSampleModule:components/shoppingCartView,blossomSampleModule:components/purchase,blossomSampleModule:components/contactForm" />
+        <cms:area name="main" />
 
         <cms:area name="promos" />
 

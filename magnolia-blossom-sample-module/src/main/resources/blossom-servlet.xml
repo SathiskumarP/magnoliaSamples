@@ -14,12 +14,12 @@
     <context:include-filter type="assignable" expression="info.magnolia.cms.beans.config.VirtualURIMapping"/>
   </context:component-scan>
 
-  <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
   <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
     <property name="customArgumentResolver">
       <bean class="info.magnolia.module.blossom.web.BlossomWebArgumentResolver" />
     </property>
   </bean>
+
   <bean class="info.magnolia.module.blossom.preexecution.BlossomHandlerMapping">
     <property name="targetHandlerMappings">
       <list>
@@ -30,6 +30,9 @@
       </list>
     </property>
   </bean>
+
+  <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
+
   <bean class="info.magnolia.module.blossom.view.UuidRedirectViewResolver">
     <property name="order" value="1" />
   </bean>
@@ -37,7 +40,7 @@
   <!-- JSP - renders all views that end with .jsp -->
   <bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
     <property name="order" value="2"/>
-    <property name="prefix" value="/WEB-INF/blossomSampleModule/templates/"/>
+    <property name="prefix" value="/templates/blossomSampleModule/"/>
     <property name="viewNames" value="*.jsp"/>
     <property name="viewRenderer">
       <bean class="info.magnolia.module.blossom.view.JspTemplateViewRenderer"/>

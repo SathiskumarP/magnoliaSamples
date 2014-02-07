@@ -1,4 +1,6 @@
-<%@ include file="/WEB-INF/blossomSampleModule/templates/includes/taglibs.jsp"%>
+<%--@elvariable id="content" type="info.magnolia.jcr.util.ContentMap"--%>
+<%--@elvariable id="shoppingCart" type="info.magnolia.blossom.sample.module.ShoppingCart"--%>
+<%@ include file="../includes/taglibs.jsp"%>
 
 <div style="padding:5px;border: 1px solid lightgray;-moz-border-radius:4px;margin-bottom:10px;">
     <span style="display:block;font-size:20px;border-bottom:1px solid;margin-bottom:3px;">Shopping Cart</span>
@@ -14,7 +16,7 @@
             <tr>
                 <td colspan="2" align="right">
                     <br/>
-                    <a href="<cmsold:out nodeDataName="checkoutLink" uuidToLink="relative" />.html">Checkout &raquo;</a>
+                    <a href="${cmsfn:linkForWorkspace("website", content.checkoutLink)}">Checkout &raquo;</a>
                 </td>
             </tr>
         </table>

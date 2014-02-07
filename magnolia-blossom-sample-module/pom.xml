@@ -12,7 +12,7 @@
   <packaging>jar</packaging>
   <name>magnolia-blossom-sample-module</name>
   <properties>
-    <magnoliaVersion>4.5.8</magnoliaVersion>
+    <magnoliaVersion>4.5.12</magnoliaVersion>
     <javaVersion>1.6</javaVersion>
     <springVersion>3.1.4.RELEASE</springVersion>
   </properties>
@@ -37,11 +37,6 @@
       <groupId>info.magnolia</groupId>
       <artifactId>magnolia-templating-jsp</artifactId>
       <version>${magnoliaVersion}</version>
-    </dependency>
-    <dependency>
-      <groupId>info.magnolia</groupId>
-      <artifactId>magnolia-templating-compatibility-taglib-cms</artifactId>
-      <version>4.5.3</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia</groupId>

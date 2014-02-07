@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2012 Magnolia International
+ * This file Copyright (c) 2010-2013 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -35,12 +35,10 @@ package info.magnolia.blossom.sample.module;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import info.magnolia.blossom.sample.module.service.SalesApplicationWebService;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
@@ -54,11 +52,8 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
 @Controller
 public class ShoppingCartComponent {
 
-    @Autowired
-    private SalesApplicationWebService salesApplicationWebService;
-
     @RequestMapping("/shoppingCart")
-    public String handleRequest(ModelMap model, HttpSession session) {
+    public String render(ModelMap model, HttpSession session) {
 
         ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
 

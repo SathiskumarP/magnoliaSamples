@@ -1,4 +1,5 @@
-<%@ include file="/WEB-INF/blossomSampleModule/templates/includes/taglibs.jsp"%>
+<%--@elvariable id="book" type="info.magnolia.blossom.sample.module.service.Book"--%>
+<%@ include file="../includes/taglibs.jsp"%>
 
 <h2>${book.title}</h2>
 

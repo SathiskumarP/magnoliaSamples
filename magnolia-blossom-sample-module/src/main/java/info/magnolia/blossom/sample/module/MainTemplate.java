@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2012 Magnolia International
+ * This file Copyright (c) 2010-2013 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -58,7 +58,7 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
  * Template with two columns, a main content area and a right side column.
  */
 @Controller
-@Template(title = "Two Columns", id = "blossomSampleModule:pages/main")
+@Template(title = "Main", id = "blossomSampleModule:pages/main")
 public class MainTemplate {
 
     /**
@@ -66,6 +66,7 @@ public class MainTemplate {
      */
     @Area("main")
     @Controller
+    @AvailableComponentClasses({TextComponent.class, BookComponent.class, TourComponent.class, CommentsComponent.class, ViewShoppingCartComponent.class, PurchaseComponent.class, ContactFormComponent.class})
     public static class MainArea {
 
         @TabFactory("Content")

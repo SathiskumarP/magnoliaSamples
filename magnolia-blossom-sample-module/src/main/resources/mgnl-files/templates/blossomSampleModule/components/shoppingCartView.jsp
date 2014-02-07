@@ -1,4 +1,6 @@
-<%@ include file="/WEB-INF/blossomSampleModule/templates/includes/taglibs.jsp"%>
+<%--@elvariable id="content" type="info.magnolia.jcr.util.ContentMap"--%>
+<%--@elvariable id="shoppingCart" type="info.magnolia.blossom.sample.module.ShoppingCart"--%>
+<%@ include file="../includes/taglibs.jsp"%>
 
 <h1>${content.title}</h1>
 <c:if test="${shoppingCart.numberOfItems eq 0}">
@@ -36,7 +38,7 @@
             <td colspan="4" align="right">
                 <br/>
                 <br/>
-                <a href="<cmsold:out nodeDataName="paymentLink" uuidToLink="relative" />.html">Proceed to payment &raquo;</a>
+                <a href="${cmsfn:linkForWorkspace("website", content.paymentLink)}">Proceed to payment &raquo;</a>
             </td>
         </tr>
     </table>

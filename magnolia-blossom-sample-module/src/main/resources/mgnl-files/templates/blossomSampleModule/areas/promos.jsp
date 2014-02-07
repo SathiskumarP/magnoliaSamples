@@ -1,6 +1,7 @@
-<%@ include file="/WEB-INF/blossomSampleModule/templates/includes/taglibs.jsp"%>
+<%--@elvariable id="components" type="java.util.Collection"--%>
+<%@ include file="../includes/taglibs.jsp" %>
 
-<div id="main">
+<div id="promos">
     <c:forEach items="${components}" var="component">
         <cms:component content="${component}" />
     </c:forEach>

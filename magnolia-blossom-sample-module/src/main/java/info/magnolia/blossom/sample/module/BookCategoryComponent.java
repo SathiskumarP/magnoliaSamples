@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2012 Magnolia International
+ * This file Copyright (c) 2010-2013 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -34,20 +34,20 @@
 package info.magnolia.blossom.sample.module;
 
 import java.util.Collection;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import info.magnolia.blossom.sample.module.service.Book;
 import info.magnolia.blossom.sample.module.service.SalesApplicationWebService;
-import info.magnolia.cms.core.Content;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.module.blossom.dialog.TabBuilder;
+
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 
 /**
  * Component that renders a list of the books in a configurable category. The available categories
@@ -60,23 +60,18 @@ import info.magnolia.module.blossom.dialog.TabBuilder;
 public class BookCategoryComponent {
 
     @Autowired
-    private SalesApplicationWebService salesApplicationWebService;
+    private SalesApplicationWebService service;
 
     @RequestMapping("/bookcategory")
-    public String handleRequest(ModelMap model, Content content) {
-
-        String category = content.getNodeData("category").getString();
-
-        List<Book> books = salesApplicationWebService.getBooksInCategory(category);
-
-        model.put("books", books);
-
+    public String render(ModelMap model, Node content) throws RepositoryException {
+        String category = content.getProperty("category").getString();
+        model.put("books", service.getBooksInCategory(category));
         return "components/bookCategory.jsp";
     }
 
     @TabFactory("Content")
     public void contentTab(TabBuilder tab) {
-        Collection<String> categories = salesApplicationWebService.getBookCategories();
+        Collection<String> categories = service.getBookCategories();
         tab.addSelect("category", "Category", "", categories);
     }
 }
