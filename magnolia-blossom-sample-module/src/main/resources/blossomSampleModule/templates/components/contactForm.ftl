@@ -10,13 +10,13 @@
 <h1>Contact Form</h1>
 
 <form action="?" method="POST">
-[@blossom.pecidInput /]
+    [@blossom.pecidInput /]
     Your Name<br/>
-[@spring.formInput path="contactForm.name" attributes='class="textinput"' /]&nbsp;[@spring.showErrors separator=", " classOrStyle="errorMessage" /]<br/>
+    [@spring.formInput path="contactForm.name" attributes='class="textinput"' /]&nbsp;[@spring.showErrors separator=", " classOrStyle="errorMessage" /]<br/>
     Your E-mail<br/>
-[@spring.formInput path="contactForm.email" attributes='class="textinput"' /]&nbsp;[@spring.showErrors separator=", " classOrStyle="errorMessage" /]<br/>
-[@spring.bind path="contactForm.message" /]
+    [@spring.formInput path="contactForm.email" attributes='class="textinput"' /]&nbsp;[@spring.showErrors separator=", " classOrStyle="errorMessage" /]<br/>
+    [@spring.bind path="contactForm.message" /]
     Message&nbsp;[@spring.showErrors separator=", " classOrStyle="errorMessage" /]<br/>
-[@spring.formTextarea path="contactForm.message" attributes='cols="60" rows="20" class="textinput"' /]<br/>
+    [@spring.formTextarea path="contactForm.message" attributes='cols="60" rows="20" class="textinput"' /]<br/>
     <input type="submit" value="Send" />
 </form>
