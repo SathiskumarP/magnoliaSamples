@@ -2,7 +2,7 @@
 <%@ include file="../includes/taglibs.jsp" %>
 
 <div>
-    <c:forEach items="${components}" var="component">
-        <cms:component content="${component}" />
-    </c:forEach>
+  <c:forEach items="${components}" var="component">
+    <cms:component content="${component}" />
+  </c:forEach>
 </div>
