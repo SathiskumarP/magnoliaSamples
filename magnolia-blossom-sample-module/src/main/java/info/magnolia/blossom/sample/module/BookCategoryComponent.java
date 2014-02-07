@@ -62,18 +62,18 @@ import javax.jcr.RepositoryException;
 public class BookCategoryComponent {
 
     @Autowired
-    private SalesApplicationWebService service;
+    private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/bookcategory")
     public String render(ModelMap model, Node content) throws RepositoryException {
         String category = content.getProperty("category").getString();
-        model.put("books", service.getBooksInCategory(category));
+        model.put("books", salesApplicationWebService.getBooksInCategory(category));
         return "components/bookCategory.jsp";
     }
 
     @TabFactory("Content")
     public void contentTab(UiConfig cfg, TabBuilder tab) {
-        Collection<String> categories = service.getBookCategories();
+        Collection<String> categories = salesApplicationWebService.getBookCategories();
         tab.fields(
                 cfg.fields.select("category").label("Category").options(categories)
         );

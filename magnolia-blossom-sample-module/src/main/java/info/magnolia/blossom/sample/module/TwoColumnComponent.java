@@ -52,7 +52,7 @@ public class TwoColumnComponent {
      */
     @Area("left")
     @Controller
-    @AvailableComponentClasses({TextComponent.class})
+    @AvailableComponentClasses({TextComponent.class, BookCategoryComponent.class})
     public static class LeftArea {
 
         @RequestMapping("/twoColumn/left")
@@ -66,7 +66,7 @@ public class TwoColumnComponent {
      */
     @Area("right")
     @Controller
-    @AvailableComponentClasses({TextComponent.class})
+    @AvailableComponentClasses({TextComponent.class, BookCategoryComponent.class})
     public static class RightArea {
 
         @RequestMapping("/twoColumn/right")

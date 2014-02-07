@@ -35,12 +35,10 @@ package info.magnolia.blossom.sample.module;
 
 import javax.servlet.http.HttpSession;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import info.magnolia.blossom.sample.module.service.SalesApplicationWebService;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
@@ -55,9 +53,6 @@ import info.magnolia.ui.framework.config.UiConfig;
 @Controller
 @Promo
 public class ShoppingCartComponent {
-
-    @Autowired
-    private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping("/shoppingCart")
     public String render(ModelMap model, HttpSession session) {
