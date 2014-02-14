@@ -18,6 +18,14 @@
     <property name="customArgumentResolver">
       <bean class="info.magnolia.module.blossom.web.BlossomWebArgumentResolver" />
     </property>
+    <!-- For @Valid - JSR-303 Bean Validation API -->
+    <property name="webBindingInitializer">
+      <bean class="org.springframework.web.bind.support.ConfigurableWebBindingInitializer">
+        <property name="validator">
+          <bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
+        </property>
+      </bean>
+    </property>
   </bean>
 
   <bean class="info.magnolia.module.blossom.preexecution.BlossomHandlerMapping">
