@@ -34,6 +34,16 @@
 package info.magnolia.blossom.sample.module.setup;
 
 import info.magnolia.module.DefaultModuleVersionHandler;
+import info.magnolia.module.InstallContext;
+import info.magnolia.module.delta.AbstractTask;
+import info.magnolia.module.delta.Task;
+import info.magnolia.module.delta.TaskExecutionException;
+import info.magnolia.module.files.BasicFileExtractor;
+import info.magnolia.module.files.ModuleFileExtractorTransformer;
+
+import java.io.IOException;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * This class is optional and lets you manager the versions of your module,
@@ -42,4 +52,19 @@ import info.magnolia.module.DefaultModuleVersionHandler;
  */
 public class BlossomSampleModuleVersionHandler extends DefaultModuleVersionHandler {
 
+    protected List<Task> getStartupTasks(final InstallContext ctx) {
+
+        // extracts files from mgnl-files on every startup - useful for development
+        Task extractTask = new AbstractTask("Files extraction", "Extracts module files but don't perform any md5 checks.") {
+            public void execute(InstallContext installContext) throws TaskExecutionException {
+                final String moduleName = ctx.getCurrentModuleDefinition().getName();
+                try {
+                    new BasicFileExtractor().extractFiles(new ModuleFileExtractorTransformer(moduleName));
+                } catch (IOException e) {
+                    throw new TaskExecutionException("Could not extract files for module " + ctx.getCurrentModuleDefinition() + ": " + e.getMessage(), e);
+                }
+            }
+        };
+        return Collections.singletonList(extractTask);
+    }
 }
