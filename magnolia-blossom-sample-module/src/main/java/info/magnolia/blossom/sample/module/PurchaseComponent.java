@@ -36,9 +36,11 @@ package info.magnolia.blossom.sample.module;
 import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -60,12 +62,16 @@ public class PurchaseComponent {
     private SalesApplicationWebService salesApplicationWebService;
 
     @RequestMapping(value = "/purchase", method = RequestMethod.GET)
-    public String render(@ModelAttribute Customer customer) {
+    public String render(@ModelAttribute PurchaseForm form) {
         return "components/purchaseForm.jsp";
     }
 
     @RequestMapping(value = "/purchase", method = RequestMethod.POST)
-    public String handleSubmit(Customer customer, HttpSession session) {
+    public String handleSubmit(@Valid PurchaseForm form, BindingResult result, HttpSession session) {
+
+        if (result.hasErrors()) {
+            return "components/purchaseForm.jsp";
+        }
 
         ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
 
@@ -73,6 +79,14 @@ public class PurchaseComponent {
         for (ShoppingCartItem cartItem : shoppingCart.getItems()) {
             rows.add(new OrderRow(cartItem.getProduct().getArticleCode(), cartItem.getQuantity()));
         }
+
+        Customer customer = new Customer();
+        customer.setFirstName(form.getFirstName());
+        customer.setLastName(form.getLastName());
+        customer.setAddressLine1(form.getAddressLine1());
+        customer.setAddressLine2(form.getAddressLine2());
+        customer.setPhoneNumber(form.getPhoneNumber());
+        customer.setEmail(form.getEmail());
 
         Order order = new Order(customer, rows);
 
