@@ -13,7 +13,7 @@
   <packaging>pom</packaging>
 
   <properties>
-    <magnoliaVersion>5.1</magnoliaVersion>
+    <magnoliaVersion>5.2.2</magnoliaVersion>
     <javaVersion>1.6</javaVersion>
     <springVersion>3.2.4.RELEASE</springVersion>
     <blossomVersion>3.0</blossomVersion>
@@ -54,7 +54,7 @@
       <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-module-legacy-admininterface</artifactId>
-        <version>5.1</version>
+        <version>5.2.2</version>
       </dependency>
 
       <!-- TEST -->
