@@ -57,7 +57,7 @@ public class TwoColumnComponent {
 
         @RequestMapping("/twoColumn/left")
         public String render() {
-            return "areas/left.jsp";
+            return "components/leftArea.jsp";
         }
     }
 
@@ -71,7 +71,7 @@ public class TwoColumnComponent {
 
         @RequestMapping("/twoColumn/right")
         public String render() {
-            return "areas/right.jsp";
+            return "components/rightArea.jsp";
         }
     }
 

@@ -75,7 +75,7 @@ public class MainTemplate {
 
         @RequestMapping("/mainTemplate/main")
         public String render() {
-            return "areas/main.jsp";
+            return "pages/mainArea.jsp";
         }
     }
 
@@ -91,7 +91,7 @@ public class MainTemplate {
 
         @RequestMapping("/mainTemplate/promos")
         public String render() {
-            return "areas/promos.jsp";
+            return "pages/promosArea.jsp";
         }
     }
 
