@@ -69,7 +69,7 @@
   <!-- Freemarker - renders all views that end with .ftl -->
   <bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
     <property name="order" value="3"/>
-    <property name="prefix" value="/blossomSampleModule/templates/"/>
+    <property name="prefix" value="/blossomSampleModule/"/>
     <property name="viewNames" value="*.ftl"/>
     <property name="viewRenderer">
       <bean class="info.magnolia.module.blossom.view.FreemarkerTemplateViewRenderer">
