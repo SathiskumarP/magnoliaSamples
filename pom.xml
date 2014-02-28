@@ -15,7 +15,7 @@
   <properties>
     <magnoliaVersion>5.2.2</magnoliaVersion>
     <javaVersion>1.6</javaVersion>
-    <springVersion>3.2.4.RELEASE</springVersion>
+    <springVersion>3.2.8.RELEASE</springVersion>
     <blossomVersion>3.0</blossomVersion>
   </properties>
 
