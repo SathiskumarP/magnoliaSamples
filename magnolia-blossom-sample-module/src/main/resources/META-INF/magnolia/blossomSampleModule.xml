@@ -27,7 +27,7 @@
     </dependency>
     <dependency>
       <name>blossom</name>
-      <version>3.0/*</version>
+      <version>3.0.1/*</version>
     </dependency>
   </dependencies>
 </module>
