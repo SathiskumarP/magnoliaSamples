@@ -13,10 +13,10 @@
   <packaging>pom</packaging>
 
   <properties>
-    <magnoliaVersion>5.2.2</magnoliaVersion>
+    <magnoliaVersion>5.2.4</magnoliaVersion>
     <javaVersion>1.6</javaVersion>
     <springVersion>3.2.8.RELEASE</springVersion>
-    <blossomVersion>3.0.1</blossomVersion>
+    <blossomVersion>3.0.2</blossomVersion>
   </properties>
 
   <!-- Fill the following in, so you can use the release plugin -->
@@ -51,10 +51,32 @@
         <type>pom</type>
         <scope>import</scope>
       </dependency>
+      <!-- to prevent older version being pulled in by magnolia-module-cache -->
       <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-module-legacy-admininterface</artifactId>
-        <version>5.2.2</version>
+        <version>5.2.3</version>
+      </dependency>
+      <!-- to prevent older versions being pulled in by magnolia-dam -->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-admincentral</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-framework</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-contentapp</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-form</artifactId>
+        <version>${magnoliaVersion}</version>
       </dependency>
 
       <!-- TEST -->

@@ -34,7 +34,7 @@
     <dependency>
       <groupId>info.magnolia.dam</groupId>
       <artifactId>magnolia-dam</artifactId>
-      <version>1.2.2</version>
+      <version>1.2.4</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia.blossom</groupId>
