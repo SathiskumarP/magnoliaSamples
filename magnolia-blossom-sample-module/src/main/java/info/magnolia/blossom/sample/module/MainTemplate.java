@@ -108,7 +108,7 @@ public class MainTemplate {
     public void contentTab(UiConfig cfg, TabBuilder tab) {
         tab.fields(
                 cfg.fields.text("title").label("Title"),
-                cfg.fields.checkbox("hideInNavigation").label("Hide in navigation").description("Check this box to hide this page in navigation")
+                cfg.fields.checkbox("hideInNavigation").label("Hide in navigation").description("Check this box to hide this page in navigation").buttonLabel("")
         );
     }
 }
