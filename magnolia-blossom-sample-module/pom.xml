@@ -33,8 +33,28 @@
     </dependency>
     <dependency>
       <groupId>info.magnolia.dam</groupId>
-      <artifactId>magnolia-dam</artifactId>
-      <version>1.2.4</version>
+      <artifactId>magnolia-dam-api</artifactId>
+      <version>${damVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.dam</groupId>
+      <artifactId>magnolia-dam-app</artifactId>
+      <version>${damVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.dam</groupId>
+      <artifactId>magnolia-dam-core</artifactId>
+      <version>${damVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.dam</groupId>
+      <artifactId>magnolia-dam-jcr</artifactId>
+      <version>${damVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.dam</groupId>
+      <artifactId>magnolia-dam-templating</artifactId>
+      <version>${damVersion}</version>
     </dependency>
     <dependency>
       <groupId>info.magnolia.blossom</groupId>
