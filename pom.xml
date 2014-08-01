@@ -17,7 +17,7 @@
     <magnoliaVersion>5.3.1</magnoliaVersion>
     <damVersion>2.0.1</damVersion>
     <springVersion>3.2.10.RELEASE</springVersion>
-    <blossomVersion>3.0.3-SNAPSHOT</blossomVersion>
+    <blossomVersion>3.0.3</blossomVersion>
   </properties>
 
   <!-- Fill the following in, so you can use the release plugin -->
