@@ -27,13 +27,58 @@
   <!-- Configures Web Flow to use Magnolia freemarker rendering -->
   <bean id="mvcViewFactoryCreator" class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
     <property name="viewResolvers">
-      <bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
-        <property name="prefix" value="/info/magnolia/blossom/sample/webflow/"/>
-        <property name="suffix" value=".ftl"/>
-        <property name="viewRenderer">
-          <bean class="info.magnolia.module.blossom.view.FreemarkerTemplateViewRenderer"/>
-        </property>
-      </bean>
+      <list>
+        <bean class="info.magnolia.module.blossom.view.UuidRedirectViewResolver" />
+        <bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
+          <property name="order" value="2"/>
+          <property name="prefix" value="/templates/blossomSampleModule/"/>
+          <property name="viewNames" value="*.jsp"/>
+          <property name="viewRenderer">
+            <bean class="info.magnolia.module.blossom.view.JspTemplateViewRenderer">
+              <property name="contextAttributes">
+                <map>
+                  <entry key="damfn">
+                    <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                      <property name="name" value="damfn"/>
+                      <property name="componentClass" value="info.magnolia.dam.asset.functions.DamTemplatingFunctions"/>
+                    </bean>
+                  </entry>
+                </map>
+              </property>
+            </bean>
+          </property>
+        </bean>
+        <bean class="info.magnolia.module.blossom.view.TemplateViewResolver">
+          <property name="prefix" value="/info/magnolia/blossom/sample/webflow/"/>
+          <property name="suffix" value=".ftl"/>
+          <property name="viewRenderer">
+            <bean class="info.magnolia.module.blossom.view.FreemarkerTemplateViewRenderer">
+              <property name="contextAttributes">
+                <map>
+                  <entry key="cms">
+                    <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                      <property name="name" value="cms"/>
+                      <property name="componentClass" value="info.magnolia.templating.freemarker.Directives"/>
+                    </bean>
+                  </entry>
+                  <entry key="cmsfn">
+                    <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                      <property name="name" value="cmsfn"/>
+                      <property name="componentClass" value="info.magnolia.templating.functions.TemplatingFunctions"/>
+                    </bean>
+                  </entry>
+                  <entry key="damfn">
+                    <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                      <property name="name" value="damfn"/>
+                      <property name="componentClass" value="info.magnolia.dam.asset.functions.DamTemplatingFunctions"/>
+                    </bean>
+                  </entry>
+                </map>
+              </property>
+            </bean>
+          </property>
+        </bean>
+      </list>
     </property>
     <property name="useSpringBeanBinding" value="true" />
   </bean>

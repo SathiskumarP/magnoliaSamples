@@ -33,9 +33,17 @@
  */
 package info.magnolia.blossom.sample.webflow;
 
+import info.magnolia.context.MgnlContext;
+import info.magnolia.link.LinkException;
+import info.magnolia.link.LinkUtil;
+import info.magnolia.module.blossom.view.UuidRedirectViewResolver;
+
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -212,6 +220,33 @@ public abstract class AbstractSingleFlowController extends FlowController {
         return false;
     }
 
+    /**
+     * Allows for rewriting url prior to redirection.
+     *
+     * Implements support for redirecting to the currently rendered page using a placeholder. I.e:
+     * <code>
+     * view="externalRedirect:magnolia-redirect:main-content"
+     * </code>
+     *
+     * @param url the url Spring WebFlow intends to redirect to
+     * @return the rewritten url or if no change was made returns the passed in url unchanged
+     */
+    protected String rewriteRedirectUrl(String url) throws IOException {
+        try {
+            if (url.equals("/" + UuidRedirectViewResolver.REDIRECT_MAIN_CONTENT_PLACEHOLDER)) {
+                Node node = MgnlContext.getAggregationState().getMainContentNode();
+                String workspaceName = node.getSession().getWorkspace().getName();
+                String identifier = node.getIdentifier();
+                url = LinkUtil.convertUUIDtoURI(identifier, workspaceName);
+            }
+            return url;
+        } catch (RepositoryException e) {
+            throw new IOException("Could not convert placeholder to link", e);
+        } catch (LinkException e) {
+            throw new IOException("Could not convert placeholder to link", e);
+        }
+    }
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
         super.setApplicationContext(applicationContext);
@@ -314,6 +349,12 @@ public abstract class AbstractSingleFlowController extends FlowController {
             if (!AbstractSingleFlowController.this.defaultHandleException(flowId, e, request, response)) {
                 super.defaultHandleException(flowId, e, request, response);
             }
+        }
+
+        @Override
+        protected void sendRedirect(String url, HttpServletRequest request, HttpServletResponse response) throws IOException {
+            url = rewriteRedirectUrl(url);
+            super.sendRedirect(url, request, response);
         }
     }
 }

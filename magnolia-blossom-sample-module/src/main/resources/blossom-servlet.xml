@@ -41,6 +41,8 @@
     </property>
   </bean>
 
+  <bean class="info.magnolia.blossom.sample.webflow.BookingFlowComponent" />
+
   <bean class="org.springframework.web.servlet.mvc.SimpleControllerHandlerAdapter" />
 
   <bean class="info.magnolia.module.blossom.view.UuidRedirectViewResolver">
