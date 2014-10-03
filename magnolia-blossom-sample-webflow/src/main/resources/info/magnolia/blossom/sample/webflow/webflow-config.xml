@@ -40,7 +40,7 @@
                   <entry key="damfn">
                     <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
                       <property name="name" value="damfn"/>
-                      <property name="componentClass" value="info.magnolia.dam.asset.functions.DamTemplatingFunctions"/>
+                      <property name="componentClass" value="info.magnolia.dam.templating.functions.DamTemplatingFunctions"/>
                     </bean>
                   </entry>
                 </map>
@@ -70,7 +70,7 @@
                   <entry key="damfn">
                     <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
                       <property name="name" value="damfn"/>
-                      <property name="componentClass" value="info.magnolia.dam.asset.functions.DamTemplatingFunctions"/>
+                      <property name="componentClass" value="info.magnolia.dam.templating.functions.DamTemplatingFunctions"/>
                     </bean>
                   </entry>
                 </map>
