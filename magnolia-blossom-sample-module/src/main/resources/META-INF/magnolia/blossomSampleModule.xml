@@ -2,8 +2,8 @@
 <!DOCTYPE module SYSTEM "module.dtd" >
 <module>
   <name>blossomSampleModule</name>
-  <displayName>${project.name}</displayName>
-  <description>${project.description}</description>
+  <displayName>Blossom Sample Module</displayName>
+  <description>Blossom Sample Module</description>
   <class>info.magnolia.blossom.sample.module.BlossomSampleModule</class>
   <versionHandler>info.magnolia.blossom.sample.module.setup.BlossomSampleModuleVersionHandler</versionHandler>
   <version>${project.version}</version>
@@ -11,23 +11,23 @@
   <dependencies>
     <dependency>
       <name>core</name>
-      <version>5.0/*</version>
+      <version>${magnoliaVersion}/*</version>
     </dependency>
     <dependency>
       <name>rendering</name>
-      <version>5.0/*</version>
+      <version>${magnoliaVersion}/*</version>
     </dependency>
     <dependency>
       <name>templating</name>
-      <version>5.0/*</version>
+      <version>${magnoliaVersion}/*</version>
     </dependency>
     <dependency>
       <name>templating-jsp</name>
-      <version>5.0/*</version>
+      <version>${magnoliaVersion}/*</version>
     </dependency>
     <dependency>
       <name>blossom</name>
-      <version>3.0.2/*</version>
+      <version>${blossomVersion}/*</version>
     </dependency>
   </dependencies>
 </module>

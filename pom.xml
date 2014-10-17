@@ -14,10 +14,10 @@
 
   <properties>
     <javaVersion>1.6</javaVersion>
-    <magnoliaVersion>5.3.1</magnoliaVersion>
-    <damVersion>2.0.1</damVersion>
-    <springVersion>3.2.10.RELEASE</springVersion>
-    <blossomVersion>3.0.4-SNAPSHOT</blossomVersion>
+    <magnoliaVersion>5.3.4</magnoliaVersion>
+    <damVersion>2.0.4</damVersion>
+    <springVersion>4.1.1.RELEASE</springVersion>
+    <blossomVersion>3.0.4</blossomVersion>
   </properties>
 
   <!-- Fill the following in, so you can use the release plugin -->

@@ -10,7 +10,7 @@
   <packaging>jar</packaging>
   <name>magnolia-blossom-sample-webflow</name>
   <properties>
-    <springWebFlowVersion>2.3.2.RELEASE</springWebFlowVersion>
+    <springWebFlowVersion>2.4.1.RELEASE</springWebFlowVersion>
   </properties>
   <dependencies>
     <dependency>
@@ -46,9 +46,9 @@
     </dependency>
     <dependency>
       <groupId>javax.servlet</groupId>
-      <artifactId>servlet-api</artifactId>
-      <version>2.5</version>
-      <scope>compile</scope>
+      <artifactId>javax.servlet-api</artifactId>
+      <version>3.0.1</version>
+      <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>info.magnolia.blossom</groupId>

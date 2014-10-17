@@ -121,7 +121,7 @@ public abstract class AbstractSingleFlowController extends FlowController {
      * @see org.springframework.webflow.context.servlet.FlowUrlHandler#createFlowExecutionUrl(String, String, javax.servlet.http.HttpServletRequest)
      */
     public String createFlowExecutionUrl(String flowId, String flowExecutionKey, HttpServletRequest request) {
-        StringBuffer url = new StringBuffer();
+        StringBuilder url = new StringBuilder();
         url.append(urlPathHelper.getOriginatingRequestUri(request));
         url.append('?');
         HashMap<String, String> parameters = new HashMap<String, String>();
@@ -137,7 +137,7 @@ public abstract class AbstractSingleFlowController extends FlowController {
      * @see org.springframework.webflow.context.servlet.FlowUrlHandler#createFlowDefinitionUrl(String, org.springframework.webflow.core.collection.AttributeMap, javax.servlet.http.HttpServletRequest)
      */
     public String createFlowDefinitionUrl(String flowId, AttributeMap input, HttpServletRequest request) {
-        StringBuffer url = new StringBuffer();
+        StringBuilder url = new StringBuilder();
         url.append(urlPathHelper.getOriginatingRequestUri(request));
         if (input != null && !input.isEmpty()) {
             url.append('?');
@@ -168,7 +168,7 @@ public abstract class AbstractSingleFlowController extends FlowController {
      *
      * @see org.springframework.webflow.mvc.servlet.FlowHandler#createExecutionInputMap(javax.servlet.http.HttpServletRequest)
      */
-    public MutableAttributeMap createExecutionInputMap(HttpServletRequest request) {
+    public MutableAttributeMap<Object> createExecutionInputMap(HttpServletRequest request) {
         return null;
     }
 
@@ -178,7 +178,7 @@ public abstract class AbstractSingleFlowController extends FlowController {
      * @return null to fall back to default implementation
      * @see FlowHandlerAdapter#defaultCreateFlowExecutionInputMap(javax.servlet.http.HttpServletRequest)
      */
-    protected MutableAttributeMap defaultCreateFlowExecutionInputMap(HttpServletRequest request) {
+    protected MutableAttributeMap<Object> defaultCreateFlowExecutionInputMap(HttpServletRequest request) {
         return null;
     }
 
@@ -287,7 +287,7 @@ public abstract class AbstractSingleFlowController extends FlowController {
          * Overridden to allow access.
          */
         @Override
-        public void appendQueryParameters(StringBuffer url, Map parameters, String encodingScheme) {
+        public <T> void appendQueryParameters(StringBuilder url, Map<java.lang.String, T> parameters, String encodingScheme) {
             super.appendQueryParameters(url, parameters, encodingScheme);
         }
 
@@ -311,7 +311,7 @@ public abstract class AbstractSingleFlowController extends FlowController {
         }
 
         @Override
-        public MutableAttributeMap createExecutionInputMap(HttpServletRequest request) {
+        public MutableAttributeMap<Object> createExecutionInputMap(HttpServletRequest request) {
             return AbstractSingleFlowController.this.createExecutionInputMap(request);
         }
 
@@ -332,8 +332,8 @@ public abstract class AbstractSingleFlowController extends FlowController {
     protected class CustomFlowHandlerAdapter extends FlowHandlerAdapter {
 
         @Override
-        protected MutableAttributeMap defaultCreateFlowExecutionInputMap(HttpServletRequest request) {
-            MutableAttributeMap map = AbstractSingleFlowController.this.defaultCreateFlowExecutionInputMap(request);
+        protected MutableAttributeMap<Object> defaultCreateFlowExecutionInputMap(HttpServletRequest request) {
+            MutableAttributeMap<Object> map = AbstractSingleFlowController.this.defaultCreateFlowExecutionInputMap(request);
             return map != null ? map : super.defaultCreateFlowExecutionInputMap(request);
         }
 

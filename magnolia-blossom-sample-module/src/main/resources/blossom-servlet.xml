@@ -14,7 +14,7 @@
     <context:include-filter type="assignable" expression="info.magnolia.cms.beans.config.VirtualURIMapping"/>
   </context:component-scan>
 
-  <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+  <bean class="info.magnolia.module.blossom.web.BlossomRequestMappingHandlerAdapter">
     <property name="customArgumentResolvers">
       <list>
         <bean class="info.magnolia.module.blossom.web.BlossomHandlerMethodArgumentResolver" />
@@ -27,6 +27,11 @@
           <bean class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
         </property>
       </bean>
+    </property>
+    <property name="redirectPatterns">
+      <list>
+        <value>website:*</value>
+      </list>
     </property>
   </bean>
 
