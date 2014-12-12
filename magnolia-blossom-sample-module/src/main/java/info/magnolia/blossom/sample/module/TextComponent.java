@@ -33,14 +33,15 @@
  */
 package info.magnolia.blossom.sample.module;
 
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-
+import info.magnolia.dam.app.ui.config.DamConfig;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
 import info.magnolia.ui.form.config.TabBuilder;
 import info.magnolia.ui.framework.config.UiConfig;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  * Simple component for adding text to a page.
@@ -57,9 +58,10 @@ public class TextComponent {
     }
 
     @TabFactory("Content")
-    public void contentTab(UiConfig cfg, TabBuilder tab) {
+    public void contentTab(UiConfig cfg, DamConfig dam, TabBuilder tab) {
         tab.fields(
                 cfg.fields.text("heading").label("Heading"),
+                dam.fields.assetLink("photo").label("Photo"),
                 cfg.fields.richText("body").label("Text body")
         );
     }

@@ -16,7 +16,7 @@
     <sv:value>2012-02-16T18:50:50.178+01:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-    <sv:value>2012-02-16T18:50:57.144+01:00</sv:value>
+    <sv:value>2014-12-12T11:49:25.858+01:00</sv:value>
   </sv:property>
   <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
     <sv:value>superuser</sv:value>
@@ -41,7 +41,7 @@
       <sv:value>2012-02-16T15:50:05.207+01:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModified" sv:type="Date">
-      <sv:value>2012-02-16T18:51:03.437+01:00</sv:value>
+      <sv:value>2014-12-12T10:25:52.810+01:00</sv:value>
     </sv:property>
     <sv:property sv:name="mgnl:lastModifiedBy" sv:type="String">
       <sv:value>superuser</sv:value>
@@ -89,6 +89,9 @@
         </sv:property>
         <sv:property sv:name="mgnl:template" sv:type="String">
           <sv:value>blossomSampleModule:components/text</sv:value>
+        </sv:property>
+        <sv:property sv:name="photo" sv:type="String">
+          <sv:value>jcr:ef470d4d-ae23-487e-9269-824910b09b35</sv:value>
         </sv:property>
         <sv:node sv:name="body_files">
           <sv:property sv:name="jcr:primaryType" sv:type="Name">
