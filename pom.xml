@@ -9,7 +9,7 @@
   <groupId>info.magnolia.blossom</groupId>
   <artifactId>magnolia-blossom-samples</artifactId>
   <name>magnolia-blossom-samples (parent pom)</name>
-  <version>3.0.6-SNAPSHOT</version>
+  <version>3.0.5-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <properties>
