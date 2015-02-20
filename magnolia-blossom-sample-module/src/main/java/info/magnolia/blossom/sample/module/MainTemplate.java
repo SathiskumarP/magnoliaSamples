@@ -67,7 +67,7 @@ public class MainTemplate {
      */
     @Area("main")
     @Controller
-    @AvailableComponentClasses({BookingFlowComponent.class, TextComponent.class, BookComponent.class, TourComponent.class, CommentsComponent.class, ViewShoppingCartComponent.class, PurchaseComponent.class, ContactFormComponent.class, YoutubeComponent.class, TwoColumnComponent.class})
+    @AvailableComponentClasses({BookingFlowComponent.class, TextComponent.class, BookComponent.class, TourComponent.class, CommentsComponent.class, ViewShoppingCartComponent.class, PurchaseFormComponent.class, ContactFormComponent.class, YoutubeComponent.class, TwoColumnComponent.class})
     public static class MainArea {
 
         @RequestMapping("/mainTemplate/main")

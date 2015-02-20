@@ -33,6 +33,8 @@
  */
 package info.magnolia.blossom.sample.module;
 
+import info.magnolia.blossom.sample.module.config.BlossomServletConfiguration;
+import info.magnolia.blossom.sample.module.config.SampleApplicationConfiguration;
 import info.magnolia.module.ModuleLifecycle;
 import info.magnolia.module.ModuleLifecycleContext;
 import info.magnolia.module.blossom.module.BlossomModuleSupport;
@@ -47,8 +49,8 @@ public class BlossomSampleModule extends BlossomModuleSupport implements ModuleL
 
     public void start(ModuleLifecycleContext moduleLifecycleContext) {
         if (moduleLifecycleContext.getPhase() == ModuleLifecycleContext.PHASE_SYSTEM_STARTUP) {
-            super.initRootWebApplicationContext("classpath:/applicationContext.xml");
-            super.initBlossomDispatcherServlet("blossom", "classpath:/blossom-servlet.xml");
+            super.initRootWebApplicationContext(SampleApplicationConfiguration.class);
+            super.initBlossomDispatcherServlet("blossom", BlossomServletConfiguration.class);
         }
     }
 

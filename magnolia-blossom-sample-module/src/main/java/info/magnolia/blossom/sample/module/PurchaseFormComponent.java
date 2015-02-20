@@ -56,7 +56,7 @@ import info.magnolia.module.blossom.annotation.Template;
  */
 @Controller
 @Template(title = "Purchase Form", id = "blossomSampleModule:components/purchase")
-public class PurchaseComponent {
+public class PurchaseFormComponent {
 
     @Autowired
     private SalesApplicationWebService salesApplicationWebService;
