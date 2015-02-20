@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2013-2015 Magnolia International
+ * This file Copyright (c) 2010-2015 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,67 +31,52 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
 
-import org.hibernate.validator.constraints.Email;
-import org.hibernate.validator.constraints.NotBlank;
+import java.util.Date;
 
 /**
- * Bean representing the purchase form. Uses Bean Validation JSR-303 to validate input.
+ * A comment as used by {@link CommentsComponent}.
  */
-public class PurchaseForm {
+public class Comment {
 
-    @NotBlank
-    private String firstName;
-    @NotBlank
-    private String lastName;
-    @NotBlank
-    private String addressLine1;
-    private String addressLine2;
-    @NotBlank
-    private String phoneNumber;
-    @Email
-    @NotBlank
+    private String id;
+    private String name;
     private String email;
+    private String text;
+    private Date created;
 
-    public String getFirstName() {
-        return firstName;
+    public Comment() {
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public Comment(String name, String email, String text) {
+        this.name = name;
+        this.email = email;
+        this.text = text;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getId() {
+        return id;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public String getAddressLine1() {
-        return addressLine1;
+    public Date getCreated() {
+        return created;
     }
 
-    public void setAddressLine1(String addressLine1) {
-        this.addressLine1 = addressLine1;
+    public void setCreated(Date created) {
+        this.created = created;
     }
 
-    public String getAddressLine2() {
-        return addressLine2;
+    public String getName() {
+        return name;
     }
 
-    public void setAddressLine2(String addressLine2) {
-        this.addressLine2 = addressLine2;
-    }
-
-    public String getPhoneNumber() {
-        return phoneNumber;
-    }
-
-    public void setPhoneNumber(String phoneNumber) {
-        this.phoneNumber = phoneNumber;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getEmail() {
@@ -100,5 +85,13 @@ public class PurchaseForm {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
     }
 }

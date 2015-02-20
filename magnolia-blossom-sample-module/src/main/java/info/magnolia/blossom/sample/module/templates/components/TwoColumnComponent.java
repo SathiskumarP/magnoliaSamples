@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2015 Magnolia International
+ * This file Copyright (c) 2013-2015 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,43 +31,52 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
 
-import javax.servlet.http.HttpSession;
+import info.magnolia.module.blossom.annotation.Area;
+import info.magnolia.module.blossom.annotation.AvailableComponentClasses;
+import info.magnolia.module.blossom.annotation.Template;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import info.magnolia.module.blossom.annotation.TabFactory;
-import info.magnolia.module.blossom.annotation.Template;
-import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.ui.form.config.TabBuilder;
-import info.magnolia.ui.framework.config.UiConfig;
-
 /**
- * Lists the contents of the shopping cart in detail, with summarized total and a link to the purchase page.
+ * Component with two areas arranged as columns.
  */
 @Controller
-@Template(title = "Shopping Cart View", id = "blossomSampleModule:components/shoppingCartView")
-@TemplateDescription("List of the contents in the shopping cart")
-public class ViewShoppingCartComponent {
+@Template(id="myModule:components/twoColumn", title="Two column layout")
+public class TwoColumnComponent {
 
-    @RequestMapping("/shoppingCartView")
-    public String render(ModelMap model, HttpSession session) {
+    /**
+     * Left column.
+     */
+    @Area("left")
+    @Controller
+    @AvailableComponentClasses({TextComponent.class, BookCategoryComponent.class})
+    public static class LeftArea {
 
-        ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
-
-        model.put("shoppingCart", shoppingCart);
-
-        return "components/shoppingCartView.jsp";
+        @RequestMapping("/twoColumn/left")
+        public String render() {
+            return "components/leftArea.jsp";
+        }
     }
 
-    @TabFactory("Content")
-    public void contentTab(UiConfig cfg, TabBuilder tab) {
-        tab.fields(
-                cfg.fields.text("title").label("Title"),
-                cfg.fields.pageLink("paymentLink").label("Payment page").description("The page to link to for proceeding to payment")
-        );
+    /**
+     * Right column.
+     */
+    @Area("right")
+    @Controller
+    @AvailableComponentClasses({TextComponent.class, BookCategoryComponent.class})
+    public static class RightArea {
+
+        @RequestMapping("/twoColumn/right")
+        public String render() {
+            return "components/rightArea.jsp";
+        }
+    }
+
+    @RequestMapping("/twoColumn")
+    public String render() {
+        return "components/twoColumns.jsp";
     }
 }

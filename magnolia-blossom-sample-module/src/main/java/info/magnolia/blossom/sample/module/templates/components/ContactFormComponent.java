@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2013-2015 Magnolia International
+ * This file Copyright (c) 2010-2015 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,7 +31,7 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
 
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
@@ -43,27 +43,40 @@ import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
- * Component hosting youtube videos.
+ * Displays a contact form and a "Thank You" page after the contact form is submitted.
  */
 @Controller
-@Template(title="Youtube video", id="blossomSampleModule:components/youtube")
-@TemplateDescription("Embeds a youtube page")
-public class YoutubeComponent {
+@Template(title = "Contact Form", id = "blossomSampleModule:components/contactForm")
+@TemplateDescription("A contact form where visitors can get in contact with a sales person by filling in a form")
+public class ContactFormComponent {
 
-    @RequestMapping("/youtube")
-    public String render(Node node, ModelMap model) throws RepositoryException {
-        model.put("videoId", node.getProperty("videoId").getString());
-        return "components/youtube.jsp";
+    @RequestMapping(value = "/contact", method = RequestMethod.GET)
+    public String viewForm(@ModelAttribute ContactForm contactForm) {
+        return "components/contactForm.ftl";
+    }
+
+    @RequestMapping(value = "/contact", method = RequestMethod.POST)
+    public String handleSubmit(@ModelAttribute ContactForm contactForm, BindingResult result, Node content) throws RepositoryException {
+
+        new ContactFormValidator().validate(contactForm, result);
+
+        if (result.hasErrors()) {
+            return "components/contactForm.ftl";
+        }
+
+        return "website:" + content.getProperty("successPage").getString();
     }
 
     @TabFactory("Content")
     public void contentTab(UiConfig cfg, TabBuilder tab) {
         tab.fields(
-                cfg.fields.text("videoId").label("Video id")
+                cfg.fields.pageLink("successPage").label("Success page")
         );
     }
 }

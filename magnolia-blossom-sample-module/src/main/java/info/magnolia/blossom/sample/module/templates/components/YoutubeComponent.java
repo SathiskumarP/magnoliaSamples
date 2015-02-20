@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2010-2015 Magnolia International
+ * This file Copyright (c) 2013-2015 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,16 +31,8 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
 
-import java.util.Collection;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
-import org.springframework.web.bind.annotation.RequestMapping;
-
-import info.magnolia.blossom.sample.module.service.SalesApplicationWebService;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
@@ -50,32 +42,28 @@ import info.magnolia.ui.framework.config.UiConfig;
 import javax.jcr.Node;
 import javax.jcr.RepositoryException;
 
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 /**
- * Component that renders a list of the books in a configurable category. The available categories
- * are fetched from the SalesApplicationWebService and the editor can then select which one should be
- * displayed.
+ * Component hosting youtube videos.
  */
-@Template(title = "Book category", id = "blossomSampleModule:components/bookCategory")
-@TemplateDescription("A list of the books for a certain category.")
 @Controller
-@Promo
-public class BookCategoryComponent {
+@Template(title="Youtube video", id="blossomSampleModule:components/youtube")
+@TemplateDescription("Embeds a youtube page")
+public class YoutubeComponent {
 
-    @Autowired
-    private SalesApplicationWebService salesApplicationWebService;
-
-    @RequestMapping("/bookcategory")
-    public String render(ModelMap model, Node content) throws RepositoryException {
-        String category = content.getProperty("category").getString();
-        model.put("books", salesApplicationWebService.getBooksInCategory(category));
-        return "components/bookCategory.jsp";
+    @RequestMapping("/youtube")
+    public String render(Node node, ModelMap model) throws RepositoryException {
+        model.put("videoId", node.getProperty("videoId").getString());
+        return "components/youtube.jsp";
     }
 
     @TabFactory("Content")
     public void contentTab(UiConfig cfg, TabBuilder tab) {
-        Collection<String> categories = salesApplicationWebService.getBookCategories();
         tab.fields(
-                cfg.fields.select("category").label("Category").options(categories)
+                cfg.fields.text("videoId").label("Video id")
         );
     }
 }

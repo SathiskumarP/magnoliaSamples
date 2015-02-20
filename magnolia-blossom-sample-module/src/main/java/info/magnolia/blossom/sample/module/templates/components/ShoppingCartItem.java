@@ -31,38 +31,32 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
+
+import info.magnolia.blossom.sample.module.service.Product;
 
 /**
- * Bean representing a contact form.
+ * An item in the shopping cart. Holds a reference to the selected product and a quantity.
  */
-public class ContactForm {
+public class ShoppingCartItem {
 
-    private String name;
-    private String email;
-    private String message;
+    private Product product;
+    private int quantity;
 
-    public String getName() {
-        return name;
+    public ShoppingCartItem(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public Product getProduct() {
+        return product;
     }
 
-    public String getEmail() {
-        return email;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public void setMessage(String message) {
-        this.message = message;
+    public int getPrice() {
+        return product.getPrice() * quantity;
     }
 }

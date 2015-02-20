@@ -31,32 +31,61 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
 
 import info.magnolia.blossom.sample.module.service.Product;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.servlet.http.HttpSession;
+
 /**
- * An item in the shopping cart. Holds a reference to the selected product and a quantity.
+ * The shopping cart is held in session.
  */
-public class ShoppingCartItem {
+public class ShoppingCart implements Serializable {
 
-    private Product product;
-    private int quantity;
+    private List<ShoppingCartItem> items = new ArrayList<ShoppingCartItem>();
 
-    public ShoppingCartItem(Product product, int quantity) {
-        this.product = product;
-        this.quantity = quantity;
+    public List<ShoppingCartItem> getItems() {
+        return items;
     }
 
-    public Product getProduct() {
-        return product;
+    public boolean addItem(Product product, int quantity) {
+        return items.add(new ShoppingCartItem(product, quantity));
     }
 
-    public int getQuantity() {
-        return quantity;
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (ShoppingCartItem item : items) {
+            totalPrice += item.getProduct().getPrice() * item.getQuantity();
+        }
+        return totalPrice;
     }
 
-    public int getPrice() {
-        return product.getPrice() * quantity;
+    public boolean isEmpty() {
+        return items.isEmpty();
+    }
+
+    public int getNumberOfItems() {
+        int totalItems = 0;
+        for (ShoppingCartItem item : items) {
+            totalItems += item.getQuantity();
+        }
+        return totalItems;
+    }
+
+    public void clear() {
+        items.clear();
+    }
+
+    public static ShoppingCart getShoppingCart(HttpSession session) {
+        ShoppingCart shoppingCart = (ShoppingCart) session.getAttribute("shoppingCart");
+        if (shoppingCart == null) {
+            shoppingCart = new ShoppingCart();
+            session.setAttribute("shoppingCart", shoppingCart);
+        }
+        return shoppingCart;
     }
 }

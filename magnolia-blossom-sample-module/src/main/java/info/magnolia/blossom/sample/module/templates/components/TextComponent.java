@@ -31,26 +31,38 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
 
-import org.springframework.validation.Errors;
-import org.springframework.validation.ValidationUtils;
-import org.springframework.validation.Validator;
+import info.magnolia.dam.app.ui.config.DamConfig;
+import info.magnolia.module.blossom.annotation.TabFactory;
+import info.magnolia.module.blossom.annotation.Template;
+import info.magnolia.module.blossom.annotation.TemplateDescription;
+import info.magnolia.ui.form.config.TabBuilder;
+import info.magnolia.ui.framework.config.UiConfig;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * Validator for validating contact forms.
+ * Simple component for adding text to a page.
  */
-public class ContactFormValidator implements Validator {
+@Controller
+@Template(title = "Text", id = "blossomSampleModule:components/text")
+@TemplateDescription("Simple text block")
+@Promo
+public class TextComponent {
 
-    @Override
-    public boolean supports(Class clazz) {
-        return clazz.equals(ContactForm.class);
+    @RequestMapping("/text")
+    public String render() {
+        return "components/text.jsp";
     }
 
-    @Override
-    public void validate(Object target, Errors errors) {
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "required", "Name is required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required", "E-mail is required");
-        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "message", "required", "Message is required");
+    @TabFactory("Content")
+    public void contentTab(UiConfig cfg, DamConfig dam, TabBuilder tab) {
+        tab.fields(
+                cfg.fields.text("heading").label("Heading"),
+                dam.fields.assetLink("photo").label("Photo"),
+                cfg.fields.richText("body").label("Text body")
+        );
     }
 }

@@ -1,5 +1,5 @@
 <%--@elvariable id="content" type="info.magnolia.jcr.util.ContentMap"--%>
-<%--@elvariable id="shoppingCart" type="info.magnolia.blossom.sample.module.ShoppingCart"--%>
+<%--@elvariable id="shoppingCart" type="info.magnolia.blossom.sample.module.templates.components.ShoppingCart"--%>
 <%@ include file="../includes/taglibs.jsp"%>
 
 <div style="padding:5px;border: 1px solid lightgray;-moz-border-radius:4px;margin-bottom:10px;">

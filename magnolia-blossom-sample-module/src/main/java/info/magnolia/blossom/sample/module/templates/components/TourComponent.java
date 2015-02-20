@@ -31,7 +31,7 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
 
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;

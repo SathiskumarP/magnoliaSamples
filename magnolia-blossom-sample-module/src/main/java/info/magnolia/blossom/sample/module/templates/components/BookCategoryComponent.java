@@ -31,68 +31,51 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
 
-import java.util.List;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.util.Collection;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import info.magnolia.blossom.sample.module.service.Book;
 import info.magnolia.blossom.sample.module.service.SalesApplicationWebService;
-import info.magnolia.cms.core.Content;
 import info.magnolia.module.blossom.annotation.TabFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.TemplateDescription;
-import info.magnolia.ui.form.config.OptionBuilder;
-import info.magnolia.ui.form.config.SelectFieldBuilder;
 import info.magnolia.ui.form.config.TabBuilder;
 import info.magnolia.ui.framework.config.UiConfig;
 
+import javax.jcr.Node;
+import javax.jcr.RepositoryException;
+
 /**
- * Component that displays information about a book. The book is selected by the editor in a dialog and
- * read from the SalesApplicationWebService at display time.
+ * Component that renders a list of the books in a configurable category. The available categories
+ * are fetched from the SalesApplicationWebService and the editor can then select which one should be
+ * displayed.
  */
-@Template(title = "Book", id = "blossomSampleModule:components/book")
-@TemplateDescription("Description of a book")
+@Template(title = "Book category", id = "blossomSampleModule:components/bookCategory")
+@TemplateDescription("A list of the books for a certain category.")
 @Controller
-public class BookComponent {
+@Promo
+public class BookCategoryComponent {
 
     @Autowired
     private SalesApplicationWebService salesApplicationWebService;
 
-    @RequestMapping("/book")
-    public String render(ModelMap model, HttpSession session, HttpServletRequest request, Content content) {
-
-        String articleCode = content.getNodeData("articleCode").getString();
-
-        Book book = salesApplicationWebService.getBook(articleCode);
-
-        if ("add".equals(request.getParameter("action"))) {
-
-            ShoppingCart shoppingCart = ShoppingCart.getShoppingCart(session);
-
-            shoppingCart.addItem(book, Integer.parseInt(request.getParameter("quantity")));
-
-            return "redirect:" + request.getRequestURL();
-        }
-
-        model.put("book", book);
-
-        return "components/book.jsp";
+    @RequestMapping("/bookcategory")
+    public String render(ModelMap model, Node content) throws RepositoryException {
+        String category = content.getProperty("category").getString();
+        model.put("books", salesApplicationWebService.getBooksInCategory(category));
+        return "components/bookCategory.jsp";
     }
 
     @TabFactory("Content")
     public void contentTab(UiConfig cfg, TabBuilder tab) {
-        List<Book> books = salesApplicationWebService.getAllBooks();
-        SelectFieldBuilder field = cfg.fields.select("articleCode").label("Book");
-        for (Book book : books) {
-            field.options(new OptionBuilder().label(book.getTitle()).value(book.getArticleCode()));
-        }
-        tab.fields(field);
+        Collection<String> categories = salesApplicationWebService.getBookCategories();
+        tab.fields(
+                cfg.fields.select("category").label("Category").options(categories)
+        );
     }
 }

@@ -1,4 +1,4 @@
-<%--@elvariable id="comments" type="java.util.Collection<info.magnolia.blossom.sample.module.Comment>"--%>
+<%--@elvariable id="comments" type="java.util.Collection<info.magnolia.blossom.sample.module.templates.components.Comment>"--%>
 <%@ include file="../includes/taglibs.jsp"%>
 
 <script type="text/javascript">

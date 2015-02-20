@@ -31,7 +31,7 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.pages;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -42,6 +42,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import info.magnolia.blossom.sample.module.templates.components.BookComponent;
+import info.magnolia.blossom.sample.module.templates.components.CommentsComponent;
+import info.magnolia.blossom.sample.module.templates.components.ContactFormComponent;
+import info.magnolia.blossom.sample.module.templates.components.Promo;
+import info.magnolia.blossom.sample.module.templates.components.PurchaseFormComponent;
+import info.magnolia.blossom.sample.module.templates.components.TextComponent;
+import info.magnolia.blossom.sample.module.templates.components.TourComponent;
+import info.magnolia.blossom.sample.module.templates.components.TwoColumnComponent;
+import info.magnolia.blossom.sample.module.templates.components.ViewShoppingCartComponent;
+import info.magnolia.blossom.sample.module.templates.components.YoutubeComponent;
 import info.magnolia.blossom.sample.webflow.BookingFlowComponent;
 import info.magnolia.cms.core.MgnlNodeType;
 import info.magnolia.jcr.util.NodeUtil;
@@ -77,7 +87,7 @@ public class MainTemplate {
     }
 
     /**
-     * Promos area, uses the {@link Promo} component category annotation to specify which components are available.
+     * Promos area, uses the {@link info.magnolia.blossom.sample.module.templates.components.Promo} component category annotation to specify which components are available.
      */
     @Controller
     @Area(value = "promos", title = "Promos", optional = TernaryBoolean.TRUE)

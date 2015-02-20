@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2013-2015 Magnolia International
+ * This file Copyright (c) 2010-2015 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,21 +31,26 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
+package info.magnolia.blossom.sample.module.templates.components;
 
-import info.magnolia.module.blossom.annotation.ComponentCategory;
-
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
+import org.springframework.validation.Errors;
+import org.springframework.validation.ValidationUtils;
+import org.springframework.validation.Validator;
 
 /**
- * Component category annotation, all components annotated with it will be available in the promos area of
- * {@link MainTemplate}.
+ * Validator for validating contact forms.
  */
-@Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.TYPE)
-@ComponentCategory
-public @interface Promo {
+public class ContactFormValidator implements Validator {
+
+    @Override
+    public boolean supports(Class clazz) {
+        return clazz.equals(ContactForm.class);
+    }
+
+    @Override
+    public void validate(Object target, Errors errors) {
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "name", "required", "Name is required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "email", "required", "E-mail is required");
+        ValidationUtils.rejectIfEmptyOrWhitespace(errors, "message", "required", "Message is required");
+    }
 }

@@ -1,5 +1,5 @@
 /**
- * This file Copyright (c) 2013-2015 Magnolia International
+ * This file Copyright (c) 2010-2015 Magnolia International
  * Ltd.  (http://www.magnolia-cms.com). All rights reserved.
  *
  *
@@ -31,52 +31,38 @@
  * intact.
  *
  */
-package info.magnolia.blossom.sample.module;
-
-import info.magnolia.module.blossom.annotation.Area;
-import info.magnolia.module.blossom.annotation.AvailableComponentClasses;
-import info.magnolia.module.blossom.annotation.Template;
-
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
+package info.magnolia.blossom.sample.module.templates.components;
 
 /**
- * Component with two areas arranged as columns.
+ * Bean representing a contact form.
  */
-@Controller
-@Template(id="myModule:components/twoColumn", title="Two column layout")
-public class TwoColumnComponent {
+public class ContactForm {
 
-    /**
-     * Left column.
-     */
-    @Area("left")
-    @Controller
-    @AvailableComponentClasses({TextComponent.class, BookCategoryComponent.class})
-    public static class LeftArea {
+    private String name;
+    private String email;
+    private String message;
 
-        @RequestMapping("/twoColumn/left")
-        public String render() {
-            return "components/leftArea.jsp";
-        }
+    public String getName() {
+        return name;
     }
 
-    /**
-     * Right column.
-     */
-    @Area("right")
-    @Controller
-    @AvailableComponentClasses({TextComponent.class, BookCategoryComponent.class})
-    public static class RightArea {
-
-        @RequestMapping("/twoColumn/right")
-        public String render() {
-            return "components/rightArea.jsp";
-        }
+    public void setName(String name) {
+        this.name = name;
     }
 
-    @RequestMapping("/twoColumn")
-    public String render() {
-        return "components/twoColumns.jsp";
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
