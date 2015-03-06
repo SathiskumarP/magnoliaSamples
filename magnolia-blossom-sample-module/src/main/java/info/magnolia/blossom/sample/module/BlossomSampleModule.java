@@ -49,8 +49,16 @@ public class BlossomSampleModule extends BlossomModuleSupport implements ModuleL
 
     public void start(ModuleLifecycleContext moduleLifecycleContext) {
         if (moduleLifecycleContext.getPhase() == ModuleLifecycleContext.PHASE_SYSTEM_STARTUP) {
+
+            // Using Spring java config
             super.initRootWebApplicationContext(SampleApplicationConfiguration.class);
             super.initBlossomDispatcherServlet("blossom", BlossomServletConfiguration.class);
+
+/*
+            // Using Spring xml config
+            super.initRootWebApplicationContext("classpath:/applicationContext.xml");
+            super.initBlossomDispatcherServlet("blossom", "classpath:/blossom-servlet.xml");
+*/
         }
     }
 
