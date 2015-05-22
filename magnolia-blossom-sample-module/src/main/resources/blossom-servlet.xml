@@ -6,7 +6,7 @@
 
   <context:annotation-config/>
 
-  <context:component-scan base-package="info.magnolia.blossom.sample.module" use-default-filters="false">
+  <context:component-scan base-package="info.magnolia.blossom.sample.module.templates" use-default-filters="false">
     <context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.Template"/>
     <context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.Area"/>
     <context:include-filter type="annotation" expression="info.magnolia.module.blossom.annotation.DialogFactory"/>

@@ -69,7 +69,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 @Configuration
 @ComponentScan(
         basePackages = {
-                "info.magnolia.blossom.sample.module",
+                "info.magnolia.blossom.sample.module.templates",
                 "info.magnolia.blossom.sample.webflow"},
         includeFilters = {
                 @ComponentScan.Filter(Template.class),
