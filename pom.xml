@@ -13,11 +13,11 @@
   <packaging>pom</packaging>
 
   <properties>
-    <javaVersion>1.6</javaVersion>
-    <magnoliaVersion>5.3.7</magnoliaVersion>
-    <damVersion>2.0.7</damVersion>
+    <javaVersion>1.7</javaVersion>
+    <magnoliaVersion>5.4</magnoliaVersion>
+    <damVersion>2.1</damVersion>
     <springVersion>4.1.7.RELEASE</springVersion>
-    <blossomVersion>3.0.7</blossomVersion>
+    <blossomVersion>3.1</blossomVersion>
   </properties>
 
   <!-- Fill the following in, so you can use the release plugin -->
@@ -56,7 +56,7 @@
       <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-module-legacy-admininterface</artifactId>
-        <version>5.2.3</version>
+        <version>5.2.4</version>
       </dependency>
       <!-- to prevent older versions being pulled in by magnolia-dam -->
       <dependency>
