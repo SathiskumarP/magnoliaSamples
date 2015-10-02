@@ -34,20 +34,14 @@
 package info.magnolia.blossom.sample.module.config;
 
 import info.magnolia.cms.beans.config.VirtualURIMapping;
-import info.magnolia.dam.templating.functions.DamTemplatingFunctions;
 import info.magnolia.module.blossom.annotation.Area;
 import info.magnolia.module.blossom.annotation.DialogFactory;
 import info.magnolia.module.blossom.annotation.Template;
 import info.magnolia.module.blossom.annotation.VirtualURIMapper;
 import info.magnolia.module.blossom.preexecution.BlossomHandlerMapping;
-import info.magnolia.module.blossom.view.FreemarkerTemplateViewRenderer;
-import info.magnolia.module.blossom.view.JspTemplateViewRenderer;
-import info.magnolia.module.blossom.view.TemplateViewResolver;
 import info.magnolia.module.blossom.view.UuidRedirectViewResolver;
 import info.magnolia.module.blossom.web.BlossomHandlerMethodArgumentResolver;
 import info.magnolia.module.blossom.web.BlossomRequestMappingHandlerAdapter;
-import info.magnolia.templating.freemarker.Directives;
-import info.magnolia.templating.functions.TemplatingFunctions;
 
 import java.util.Collections;
 
@@ -55,6 +49,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
+import org.springframework.context.annotation.Import;
 import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 import org.springframework.web.bind.support.ConfigurableWebBindingInitializer;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
@@ -78,6 +73,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
                 @ComponentScan.Filter(VirtualURIMapper.class),
                 @ComponentScan.Filter(type = FilterType.ASSIGNABLE_TYPE, value = VirtualURIMapping.class)
         })
+@Import({JspRenderingConfiguration.class, SiteAwareFreemarkerRenderingConfiguration.class})
 public class BlossomServletConfiguration {
 
     /**
@@ -85,12 +81,12 @@ public class BlossomServletConfiguration {
      * support of flash attributes in uuid redirect views.
      */
     @Bean
-    public HandlerAdapter handlerAdapter() {
+    public HandlerAdapter handlerAdapter(BlossomHandlerMethodArgumentResolver blossomHandlerMethodArgumentResolver) {
 
         BlossomRequestMappingHandlerAdapter handlerAdapter = new BlossomRequestMappingHandlerAdapter();
         handlerAdapter.setRedirectPatterns("website:*");
 
-        handlerAdapter.setCustomArgumentResolvers(Collections.<HandlerMethodArgumentResolver>singletonList(new BlossomHandlerMethodArgumentResolver()));
+        handlerAdapter.setCustomArgumentResolvers(Collections.<HandlerMethodArgumentResolver>singletonList(blossomHandlerMethodArgumentResolver));
 
         // For @Valid - JSR-303 Bean Validation API -->
         ConfigurableWebBindingInitializer bindingInitializer = new ConfigurableWebBindingInitializer();
@@ -98,6 +94,11 @@ public class BlossomServletConfiguration {
         handlerAdapter.setWebBindingInitializer(bindingInitializer);
 
         return handlerAdapter;
+    }
+
+    @Bean
+    public BlossomHandlerMethodArgumentResolver blossomHandlerMethodArgumentResolver() {
+        return new BlossomHandlerMethodArgumentResolver();
     }
 
     @Bean
@@ -144,38 +145,6 @@ public class BlossomServletConfiguration {
     public UuidRedirectViewResolver uuidRedirectViewResolver() {
         UuidRedirectViewResolver resolver = new UuidRedirectViewResolver();
         resolver.setOrder(1);
-        return resolver;
-    }
-
-    /**
-     * View resolver for JSP views.
-     */
-    @Bean
-    public TemplateViewResolver jspTemplateViewResolver() {
-        TemplateViewResolver resolver = new TemplateViewResolver();
-        resolver.setOrder(2);
-        resolver.setPrefix("/templates/blossomSampleModule/");
-        resolver.setViewNames("*.jsp");
-        JspTemplateViewRenderer viewRenderer = new JspTemplateViewRenderer();
-        viewRenderer.addContextAttribute("damfn", DamTemplatingFunctions.class);
-        resolver.setViewRenderer(viewRenderer);
-        return resolver;
-    }
-
-    /**
-     * View resolver for Freemarker views.
-     */
-    @Bean
-    public TemplateViewResolver freemarkerTemplateViewResolver() {
-        TemplateViewResolver resolver = new TemplateViewResolver();
-        resolver.setOrder(3);
-        resolver.setPrefix("/blossomSampleModule/");
-        resolver.setViewNames("*.ftl");
-        FreemarkerTemplateViewRenderer viewRenderer = new FreemarkerTemplateViewRenderer();
-        viewRenderer.addContextAttribute("cms", Directives.class);
-        viewRenderer.addContextAttribute("cmsfn", TemplatingFunctions.class);
-        viewRenderer.addContextAttribute("damfn", DamTemplatingFunctions.class);
-        resolver.setViewRenderer(viewRenderer);
         return resolver;
     }
 }

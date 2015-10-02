@@ -14,10 +14,11 @@
 
   <properties>
     <javaVersion>1.7</javaVersion>
-    <magnoliaVersion>5.4</magnoliaVersion>
-    <damVersion>2.1</damVersion>
-    <springVersion>4.1.7.RELEASE</springVersion>
-    <blossomVersion>3.1</blossomVersion>
+    <magnoliaVersion>5.4.2</magnoliaVersion>
+    <damVersion>2.1.1</damVersion>
+    <siteVersion>1.0.2</siteVersion>
+    <springVersion>4.2.1.RELEASE</springVersion>
+    <blossomVersion>3.1.1-SNAPSHOT</blossomVersion>
   </properties>
 
   <!-- Fill the following in, so you can use the release plugin -->
@@ -56,7 +57,7 @@
       <dependency>
         <groupId>info.magnolia</groupId>
         <artifactId>magnolia-module-legacy-admininterface</artifactId>
-        <version>5.2.4</version>
+        <version>5.3</version>
       </dependency>
       <!-- to prevent older versions being pulled in by magnolia-dam -->
       <dependency>
@@ -77,6 +78,12 @@
       <dependency>
         <groupId>info.magnolia.ui</groupId>
         <artifactId>magnolia-ui-form</artifactId>
+        <version>${magnoliaVersion}</version>
+      </dependency>
+      <!-- to prevent older version being pulled in by magnolia-bundle-parent/ -->
+      <dependency>
+        <groupId>info.magnolia.ui</groupId>
+        <artifactId>magnolia-ui-dialog</artifactId>
         <version>${magnoliaVersion}</version>
       </dependency>
 

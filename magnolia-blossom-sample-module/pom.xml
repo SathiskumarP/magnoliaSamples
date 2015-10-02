@@ -32,6 +32,16 @@
       <version>${magnoliaVersion}</version>
     </dependency>
     <dependency>
+      <groupId>info.magnolia.site</groupId>
+      <artifactId>magnolia-site</artifactId>
+      <version>${siteVersion}</version>
+    </dependency>
+    <dependency>
+      <groupId>info.magnolia.site</groupId>
+      <artifactId>magnolia-site-app</artifactId>
+      <version>${siteVersion}</version>
+    </dependency>
+    <dependency>
       <groupId>info.magnolia.dam</groupId>
       <artifactId>magnolia-dam-api</artifactId>
       <version>${damVersion}</version>

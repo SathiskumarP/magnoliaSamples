@@ -69,6 +69,40 @@
                 <property name="componentClass" value="info.magnolia.dam.templating.functions.DamTemplatingFunctions"/>
               </bean>
             </entry>
+            <entry key="imgfn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="imgfn"/>
+                <property name="componentClass" value="info.magnolia.imaging.functions.ImagingTemplatingFunctions"/>
+              </bean>
+            </entry>
+            <entry key="sitefn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="sitefn"/>
+                <property name="componentClass" value="info.magnolia.module.site.functions.SiteFunctions"/>
+              </bean>
+            </entry>
+<!--
+            Uncomment these if you're using MTE, Categorization or the REST module.
+
+            <entry key="searchfn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="searchfn"/>
+                <property name="componentClass" value="info.magnolia.templating.functions.SearchTemplatingFunctions"/>
+              </bean>
+            </entry>
+            <entry key="catfn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="catfn"/>
+                <property name="componentClass" value="info.magnolia.module.categorization.functions.CategorizationTemplatingFunctions"/>
+              </bean>
+            </entry>
+            <entry key="restfn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="restfn"/>
+                <property name="componentClass" value="info.magnolia.resteasy.client.functions.RestTemplatingFunctions"/>
+              </bean>
+            </entry>
+-->
           </map>
         </property>
       </bean>
@@ -81,7 +115,8 @@
     <property name="prefix" value="/blossomSampleModule/"/>
     <property name="viewNames" value="*.ftl"/>
     <property name="viewRenderer">
-      <bean class="info.magnolia.module.blossom.view.FreemarkerTemplateViewRenderer">
+      <!-- Change this to FreemarkerTemplateViewRenderer if you don't want your templates to be merged with the site template prototype  -->
+      <bean class="info.magnolia.module.blossom.view.SiteAwareFreemarkerTemplateViewRendererFactoryBean">
         <property name="contextAttributes">
           <map>
             <entry key="cms">
@@ -102,6 +137,40 @@
                 <property name="componentClass" value="info.magnolia.dam.templating.functions.DamTemplatingFunctions"/>
               </bean>
             </entry>
+            <entry key="imgfn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="imgfn"/>
+                <property name="componentClass" value="info.magnolia.imaging.functions.ImagingTemplatingFunctions"/>
+              </bean>
+            </entry>
+            <entry key="sitefn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="sitefn"/>
+                <property name="componentClass" value="info.magnolia.module.site.functions.SiteFunctions"/>
+              </bean>
+            </entry>
+<!--
+            Uncomment these if you're using MTE, Categorization or the REST module.
+
+            <entry key="searchfn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="searchfn"/>
+                <property name="componentClass" value="info.magnolia.templating.functions.SearchTemplatingFunctions"/>
+              </bean>
+            </entry>
+            <entry key="catfn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="catfn"/>
+                <property name="componentClass" value="info.magnolia.module.categorization.functions.CategorizationTemplatingFunctions"/>
+              </bean>
+            </entry>
+            <entry key="restfn">
+              <bean class="info.magnolia.rendering.renderer.ContextAttributeConfiguration">
+                <property name="name" value="restfn"/>
+                <property name="componentClass" value="info.magnolia.resteasy.client.functions.RestTemplatingFunctions"/>
+              </bean>
+            </entry>
+-->
           </map>
         </property>
       </bean>

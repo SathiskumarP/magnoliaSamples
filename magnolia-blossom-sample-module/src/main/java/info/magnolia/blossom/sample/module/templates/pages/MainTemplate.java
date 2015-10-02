@@ -82,7 +82,7 @@ public class MainTemplate {
 
         @RequestMapping("/mainTemplate/main")
         public String render() {
-            return "pages/mainArea.jsp";
+            return "pages/areas/main.ftl";
         }
     }
 
@@ -90,14 +90,14 @@ public class MainTemplate {
      * Promos area, uses the {@link info.magnolia.blossom.sample.module.templates.components.Promo} component category annotation to specify which components are available.
      */
     @Controller
-    @Area(value = "promos", title = "Promos", optional = TernaryBoolean.TRUE)
+    @Area(value = "promos", title = "Promos")
     @Inherits
     @AvailableComponentClasses({Promo.class})
     public static class PromosArea {
 
         @RequestMapping("/mainTemplate/promos")
         public String render() {
-            return "pages/promosArea.jsp";
+            return "pages/areas/promos.ftl";
         }
     }
 
@@ -112,7 +112,7 @@ public class MainTemplate {
         }
         model.put("navigation", navigation);
 
-        return "pages/main.jsp";
+        return "pages/main.ftl";
     }
 
     @TabFactory("Content")
