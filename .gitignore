@@ -8,6 +8,7 @@ target
 .classpath
 .settings
 .checkstyle
+.DS_Store
 
 # /magnolia-blossom-sample-webapp/
 /magnolia-blossom-sample-webapp/overlays
