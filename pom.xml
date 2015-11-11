@@ -42,57 +42,7 @@
         <artifactId>magnolia-empty-webapp</artifactId>
         <version>${magnoliaVersion}</version>
         <type>pom</type>
-        <!-- Well it looks like there is more to fix with MAGNOLIA-3545, commenting scope:import for now -->
-        <!--<scope>import</scope>-->
-      </dependency>
-      <dependency>
-        <!-- only necessary until MAGNOLIA-3545 is resolved -->
-        <groupId>info.magnolia</groupId>
-        <artifactId>magnolia-project</artifactId>
-        <version>${magnoliaVersion}</version>
-        <type>pom</type>
         <scope>import</scope>
-      </dependency>
-      <!-- to prevent older version being pulled in by magnolia-module-cache -->
-      <dependency>
-        <groupId>info.magnolia</groupId>
-        <artifactId>magnolia-module-legacy-admininterface</artifactId>
-        <version>5.3</version>
-      </dependency>
-      <!-- to prevent older versions being pulled in by magnolia-dam -->
-      <dependency>
-        <groupId>info.magnolia.ui</groupId>
-        <artifactId>magnolia-ui-admincentral</artifactId>
-        <version>${magnoliaVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>info.magnolia.ui</groupId>
-        <artifactId>magnolia-ui-framework</artifactId>
-        <version>${magnoliaVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>info.magnolia.ui</groupId>
-        <artifactId>magnolia-ui-contentapp</artifactId>
-        <version>${magnoliaVersion}</version>
-      </dependency>
-      <dependency>
-        <groupId>info.magnolia.ui</groupId>
-        <artifactId>magnolia-ui-form</artifactId>
-        <version>${magnoliaVersion}</version>
-      </dependency>
-      <!-- to prevent older version being pulled in by magnolia-bundle-parent/ -->
-      <dependency>
-        <groupId>info.magnolia.ui</groupId>
-        <artifactId>magnolia-ui-dialog</artifactId>
-        <version>${magnoliaVersion}</version>
-      </dependency>
-
-      <!-- TEST -->
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.8.2</version>
-        <scope>test</scope>
       </dependency>
     </dependencies>
   </dependencyManagement>
