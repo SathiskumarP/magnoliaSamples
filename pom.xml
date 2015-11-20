@@ -9,7 +9,7 @@
   <groupId>info.magnolia.blossom</groupId>
   <artifactId>magnolia-blossom-samples</artifactId>
   <name>magnolia-blossom-samples (parent pom)</name>
-  <version>3.1.2-SNAPSHOT</version>
+  <version>3.1.2</version>
   <packaging>pom</packaging>
 
   <properties>
@@ -26,7 +26,7 @@
     <connection>scm:git:http://git.magnolia-cms.com/modules/blossom/samples</connection>
     <developerConnection>scm:git:https://git.magnolia-cms.com/modules/blossom/samples</developerConnection>
     <url>https://git.magnolia-cms.com/gitweb/?p=modules/blossom/samples.git</url>
-    <tag>HEAD</tag>
+    <tag>magnolia-blossom-samples-3.1.2</tag>
   </scm>
 
   <dependencyManagement>
