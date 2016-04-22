@@ -44,7 +44,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Component with two areas arranged as columns.
  */
 @Controller
-@Template(id="myModule:components/twoColumn", title="Two column layout")
+@Template(id="blossomSampleModule:components/twoColumn", title="Two column layout")
 public class TwoColumnComponent {
 
     /**
