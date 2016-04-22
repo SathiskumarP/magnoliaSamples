@@ -14,10 +14,10 @@
 
   <properties>
     <javaVersion>1.7</javaVersion>
-    <magnoliaVersion>5.4.2</magnoliaVersion>
-    <damVersion>2.1.1</damVersion>
-    <siteVersion>1.0.2</siteVersion>
-    <springVersion>4.2.1.RELEASE</springVersion>
+    <magnoliaVersion>5.4.6</magnoliaVersion>
+    <damVersion>2.1.4</damVersion>
+    <siteVersion>1.0.6</siteVersion>
+    <springVersion>4.2.5.RELEASE</springVersion>
     <blossomVersion>3.1.2</blossomVersion>
   </properties>
 
